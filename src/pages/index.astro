@@ -1,15 +1,9 @@
 ---
+import MainLayout from '@/layouts/MainLayout.astro' 
+import { panda } from '@/panda/jsx'
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout>
+  <h1>Astro</h1>
+  <panda.h2 fontSize="7xl">Welcome to my new website!</panda.h2>
+  <a href='/about'>Check out my about page</a>
+</MainLayout>

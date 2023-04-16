@@ -1,0 +1,62 @@
+---
+import '@/panda/styles.css'
+import '../index.css'
+
+import { SEO } from 'astro-seo';
+
+export interface Props {
+  title?: string;
+  desc?: string;
+  ogimage?: string;
+}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+
+const { title, desc, ogimage } = Astro.props;
+
+const makeTitle = title ? `${title} | Lazar Nikolov` : 'Lazar Nikolov - Developer, designer, course creator.';
+
+const resolvedImage = ogimage ?? new URL('/ogimage.png', Astro.site).toString()
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <SEO
+      title={makeTitle}
+      description={desc || "Full-stack Engineer, UI Designer, and Open Source Advocate."}
+      canonical={canonicalURL}
+      twitter={{
+        creator: "@NikolovLazar",
+        site: "@NikolovLazar",
+        card: "summary_large_image",
+      }}
+      openGraph={{
+        basic: {
+          url: canonicalURL,
+          type: "website",
+          title: makeTitle,
+          image: resolvedImage,
+        },
+        image: {
+          alt: "Lazar Nikolov's website"
+        }
+      }}
+    />
+  </head>
+  <body>
+    <slot />
+
+    <style is:global>
+      /* Improve Page speed */
+      /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+      img {
+        content-visibility: auto;
+      }
+    </style>
+  </body>
+</html>
