@@ -1,0 +1,21 @@
+@layer tokens {
+  :root {
+    --light: #fff8e7;
+    --dark: #000718;
+
+    --colors-background: var(--light);
+    --colors-foreground: var(--dark);
+
+    --font-body-base: 1rem;
+    --font-body-sm: 0.875rem;
+    --font-body-xs: 0.75rem;
+    --font-heading-2xl: 1.5rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --colors-background: var(--dark);
+      --colors-foreground: var(--light);
+    }
+  }
+}

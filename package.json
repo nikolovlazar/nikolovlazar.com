@@ -3,20 +3,15 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "prepare:panda": "panda",
     "dev": "astro dev",
-    "build": "panda && astro build",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/solid-js": "^2.1.0",
     "@fontsource/ibm-plex-serif": "^4.5.12",
-    "@pandacss/dev": "0.0.0-dev-20230415181342",
     "astro": "^2.3.0",
     "astro-seo": "^0.7.2",
-    "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-preset-env": "^8.3.1",
     "solid-js": "^1.4.3"
   }
 }

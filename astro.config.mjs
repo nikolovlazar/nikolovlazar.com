@@ -1,10 +1,6 @@
-import { defineConfig } from 'astro/config';
-
-import solidJs from "@astrojs/solid-js";
+import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://nikolovlazar.com",
-
-  integrations: [solidJs()]
 });

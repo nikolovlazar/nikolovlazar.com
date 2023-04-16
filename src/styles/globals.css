@@ -1,0 +1,17 @@
+@layer globals {
+  * {
+    font-family: "IBM Plex serif", "Bitstream Charter", "Sitka Text", Cambria,
+      serif;
+    color: var(--colors-foreground);
+  }
+
+  body {
+    background-color: var(--colors-background);
+  }
+
+  /* Improve Page speed */
+  /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+  img {
+    content-visibility: auto;
+  }
+}
