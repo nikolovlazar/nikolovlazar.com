@@ -1,0 +1,136 @@
+---
+import { NEWSLETTER_URL, YOUTUBE_URL, TWITTER_URL, GITHUB_URL, POLYWORK_URL } from '../constants';
+import Logo from './logo.astro';
+
+const footerLinks = [{
+    label: "About",
+    url: "/about"
+  }, {
+    label: "Blog",
+    url: "/blog",
+  }, {
+    label: "YouTube",
+    url: YOUTUBE_URL,
+    isExternal: true,
+  }, {
+    label: "Uses",
+    url: "/uses",
+  }, {
+    label: "Courses",
+    url: "/courses",
+  }, {
+    label: "Twitter",
+    url: TWITTER_URL,
+    isExternal: true,
+  }, {
+    label: "Books",
+    url: "/books",
+  }, {
+    label: "Videos",
+    url: "/videos",
+  }, {
+    label: "GitHub",
+    url: GITHUB_URL,
+    isExternal: true,
+  }, {
+    label: "Colophon",
+    url: "/colophon",
+  }, {
+    label: "Talks",
+    url: "/talks",
+  }, {
+    label: "Polywork",
+    url: POLYWORK_URL,
+    isExternal: true,
+  }];
+---
+
+<footer class="footer">
+  <hr />
+
+  <div class="footer--contents">
+    <div class="footer--logo">
+      <Logo width={29} height={27} />
+    </div>
+
+    <div class="footer--links">
+      <div class="footer--links-grid">
+        {footerLinks.map(({ label, url, isExternal }) => isExternal ?
+          <a href={url} rel="external" target="_blank">{label}</a> :
+          <a href={url}>{label}</a>
+        )}
+      </div>
+      <p class="footer--copyright">© {new Date().getFullYear()} Lazar Nikolov</p>
+    </div>
+
+    <div class="footer--newsletter">
+      <h3>Weekly newsletter</h3>
+      <p>Get free content and updates from me about web development, content creation, and other interesting things!</p>
+      <a href={NEWSLETTER_URL}>Subscribe! ↗</a>
+    </div>
+  </div>
+</footer>
+<style>
+  hr {
+    border: none;
+    border-bottom: 1px solid var(--colors-foreground);
+    height: 1px;
+  }
+
+  .footer--contents {
+    display: flex;
+    column-gap: 60px;
+    padding: 40px 0px;
+  }
+
+  .footer--logo {
+    flex-shrink: 0;
+  }
+
+  .footer--links {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+  }
+  .footer--links-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 28px;
+    grid-row-gap: 18px;
+  }
+
+  .footer--copyright {
+    font-size: var(--font-body-xs);
+  }
+
+  .footer--newsletter {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+  }
+  .footer--newsletter h3 {
+    font-size: var(--font-heading-2xl);
+    font-weight: 600;
+  }
+  .footer--newsletter a {
+    color: var(--colors-red);
+  }
+
+  @media (max-width: 768px) {
+    .footer--contents {
+      flex-direction: column;
+      padding: 18px;
+      row-gap: 32px;
+    }
+
+    .footer--links {
+      order: 3;
+    }
+  }
+
+  @media (max-width: 320px) {
+    .footer--links-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

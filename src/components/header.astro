@@ -1,0 +1,20 @@
+---
+import Logo from "./logo.astro";
+---
+<header>
+  <a href="/">
+    <Logo />
+  </a>
+</header>
+
+<style>
+  header {
+    padding: 40px 0px;
+  }
+
+  @media (max-width: 768px) {
+    header {
+      padding: 18px;
+    }
+  }
+</style>

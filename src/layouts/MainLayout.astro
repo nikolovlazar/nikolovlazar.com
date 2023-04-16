@@ -2,9 +2,12 @@
 import '@/styles/index.css';
 import '@/styles/reset.css';
 import '@/styles/tokens.css';
-import '@fontsource/ibm-plex-serif';
+import '@fontsource/ibm-plex-serif/400.css';
+import '@fontsource/ibm-plex-serif/600.css';
 
-import Header from '@/components/header/index.astro';
+import Header from '@/components/header.astro';
+import Footer from '@/components/footer.astro';
+
 import { SEO } from 'astro-seo';
 
 export interface Props {
@@ -54,7 +57,10 @@ const resolvedImage = ogimage ?? new URL('/ogimage.png', Astro.site).toString()
   <body>
     <div class="container">
       <Header />
-      <slot />
+      <main>
+        <slot />
+      </main>
+      <Footer />
     </div>
 
     <style>
@@ -66,6 +72,12 @@ const resolvedImage = ogimage ?? new URL('/ogimage.png', Astro.site).toString()
         position: relative;
         margin-left: auto;
         margin-right: auto;
+      }
+
+      @media (max-width: 768px) {
+        main {
+          padding: 0px 18px;
+        }
       }
     </style>
 
