@@ -1,4 +1,4 @@
-import { defineConfig } from "@pandacss/dev"
+import { defineConfig } from "@pandacss/dev";
 
 export default defineConfig({
   // Whether to include css reset styles in the generated css
@@ -25,14 +25,14 @@ export default defineConfig({
         colors: {
           bg: {
             light: {
-              value: '#FFF8E7'
+              value: "#FFF8E7",
             },
             dark: {
-              value: '#000718'
+              value: "#000718",
             },
-          }
-        }
-      }
-    }
-  }
-})
+          },
+        },
+      },
+    },
+  },
+});

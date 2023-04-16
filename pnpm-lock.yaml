@@ -4,6 +4,9 @@ dependencies:
   '@astrojs/solid-js':
     specifier: ^2.1.0
     version: 2.1.0(@babel/core@7.21.4)(solid-js@1.7.3)
+  '@fontsource/ibm-plex-serif':
+    specifier: ^4.5.12
+    version: 4.5.12
   '@pandacss/dev':
     specifier: 0.0.0-dev-20230415181342
     version: 0.0.0-dev-20230415181342(@types/react-dom@18.0.11)(@types/react@18.0.35)(typescript@5.0.4)
@@ -961,6 +964,10 @@ packages:
     resolution: {integrity: sha512-+sAUfpQ3Frz+VCbPCqj+cZzvEESy3fjSeT/pDWkYCWOBXYNNKZfuVsHuv8/JO2zze8+Eb/Q7a6hZVgzS81fLbQ==}
     dependencies:
       '@floating-ui/core': 1.2.6
+    dev: false
+
+  /@fontsource/ibm-plex-serif@4.5.12:
+    resolution: {integrity: sha512-PQgB0qdwIH+2HebptJQANsD8SWPI8nzZ++hcQHI5HStn+IqD8WO/n70rxUpgdqfBtgYCZCWKFUQCYhaltEKRfw==}
     dev: false
 
   /@jridgewell/gen-mapping@0.3.3:

@@ -5,12 +5,13 @@
   "scripts": {
     "prepare:panda": "panda",
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "panda && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/solid-js": "^2.1.0",
+    "@fontsource/ibm-plex-serif": "^4.5.12",
     "@pandacss/dev": "0.0.0-dev-20230415181342",
     "astro": "^2.3.0",
     "astro-seo": "^0.7.2",

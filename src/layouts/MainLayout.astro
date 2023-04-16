@@ -1,6 +1,7 @@
 ---
 import '@/panda/styles.css'
 import '../index.css'
+import '@fontsource/ibm-plex-serif'
 
 import { SEO } from 'astro-seo';
 
@@ -52,10 +53,31 @@ const resolvedImage = ogimage ?? new URL('/ogimage.png', Astro.site).toString()
     <slot />
 
     <style is:global>
-      /* Improve Page speed */
-      /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
-      img {
-        content-visibility: auto;
+      @layer globals {
+        * {
+          font-family: 'IBM Plex serif', 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+          color: var(--colors-bg-dark);
+        }
+
+        body {
+          background-color: var(--colors-bg-light);
+        }
+
+        @media(prefers-color-scheme: dark) {
+          body {
+            background-color: var(--colors-bg-dark);
+          }
+
+          * {
+            color: var(--colors-bg-light);
+          }
+        }
+
+        /* Improve Page speed */
+        /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+        img {
+          content-visibility: auto;
+        }
       }
     </style>
   </body>
