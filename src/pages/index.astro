@@ -2,6 +2,194 @@
 import MainLayout from '@/layouts/MainLayout.astro' 
 ---
 <MainLayout>
-  <h1>Astro</h1>
-  <h2>Welcome to my new website!</h2>
+  <div class="hero">
+    <div class="hero--text">
+      <h1>Hi, my name is Lazar Nikolov.</h1>
+      <p>Born in &apos;94. I work at <a target="_blank" rel="external nofollow noopener" href="https://sentry.io/welcome">Sentry.io ↗</a> as a Developer Advocate. I&apos;m a full-stack engineer, a designer, a content creator, and an <a target="_blank" rel="external nofollow noopener" href="https://egghead.io">egghead.io ↗</a> instuctor. Based in Canada.</p>
+    </div>
+  </div>
+  <div class="content-table">
+    <div class="content-table--section">
+      <h3>Pages</h3>
+      <div class="content-table--section-links">
+        <a href="/about">About</a>
+        <a href="/uses">Uses</a>
+        <a href="/clophon">Colophon</a>
+      </div>
+    </div>
+    <div class="content-table--section">
+      <h3>Courses</h3>
+      <div class="content-table--section-list">
+        <div class="content-table--list-item">
+          <a href="#">Fundamental Next.js API and Patterns</a>
+          <p>16 lessons</p>
+        </div>
+        <div class="content-table--list-item">
+          <a href="#">Build a Modern User Interface with Chakra UI↗︎</a>
+          <p>16 lessons</p>
+        </div>
+      </div>
+    </div>
+    <div class="content-table--section">
+      <h3>Writing</h3>
+      <div class="content-table--section-list">
+        <div class="content-table--list-item">
+          <a href="#">Fundamental Next.js API and Patterns</a>
+          <p>16 lessons</p>
+        </div>
+        <div class="content-table--list-item">
+          <a href="#">Fundamental Next.js API and Patterns</a>
+          <p>16 lessons</p>
+        </div>
+      </div>
+    </div>
+    <div class="content-table--section">
+      <h3>Talks</h3>
+      <div class="content-table--section-list">
+        <div class="content-table--list-item">
+          <a href="#">Fundamental Next.js API and Patterns</a>
+          <p>16 lessons</p>
+        </div>
+        <div class="content-table--list-item">
+          <a href="#">Fundamental Next.js API and Patterns</a>
+          <p>16 lessons</p>
+        </div>
+      </div>
+    </div>
+    <div class="content-table--section">
+      <h3>Videos</h3>
+      <div class="content-table--section-list">
+        <div class="content-table--list-item">
+          <a href="#">Fundamental Next.js API and Patterns</a>
+          <p>16 lessons</p>
+        </div>
+        <div class="content-table--list-item">
+          <a href="#">Fundamental Next.js API and Patterns</a>
+          <p>16 lessons</p>
+        </div>
+      </div>
+    </div>
+    <div class="content-table--section">
+      <h3>Social</h3>
+      <div class="content-table--section-links">
+        <a href="/about">About</a>
+        <a href="/uses">Uses</a>
+        <a href="/clophon">Colophon</a>
+      </div>
+    </div>
+  </div>
 </MainLayout>
+
+<style>
+  .hero {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 60px;
+  }
+
+  .hero--text {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    grid-column-start: 2;
+    grid-column-end: 4;
+  }
+
+  h1 {
+    font-size: var(--font-heading-2xl);
+  }
+
+  .content-table {
+    display: grid;
+    margin-bottom: 88px;
+  }
+
+  .content-table a {
+    font-weight: normal;
+  }
+
+  .content-table--section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--colors-foreground);
+    padding: 8px;
+  }
+
+  .content-table--section:last-of-type {
+    border-bottom: 1px solid var(--colors-foreground);
+  }
+
+  .content-table--section div {
+    grid-column-start: 2;
+    grid-column-end: 4;
+  }
+
+  .content-table--section-links {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .content-table--section-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+  }
+
+  .content-table--list-item {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .content-table--list-item a {
+    flex: 1;
+    display: flex;
+    margin-right: 6px;
+    align-items: baseline;
+  }
+
+  .content-table--list-item a::after {
+    content: '';
+    flex: 1;
+    display: inline-flex;
+    margin-left: 6px;
+    border-bottom: 2px dotted var(--colors-foreground);
+  }
+
+  @media (max-width: 576px) {
+    .hero {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 24px;
+    }
+
+    .content-table {
+      margin-bottom: 24px;
+    }
+
+    .content-table--section {
+      display: flex;
+      flex-direction: column;
+      row-gap: 6px;
+    }
+
+    .content-table--section-links {
+      flex-direction: column;
+      row-gap: 6px;
+    }
+
+    .content-table--section-list {
+      row-gap: 16px;
+    }
+
+    .content-table--list-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .content-table--list-item a::after {
+      display: none;
+    }
+  }
+
+
+</style>

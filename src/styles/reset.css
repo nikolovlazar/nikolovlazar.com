@@ -147,4 +147,7 @@
   a:hover {
     text-decoration: underline;
   }
+  p {
+    letter-spacing: 0.7px;
+  }
 }
