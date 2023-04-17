@@ -1,8 +1,28 @@
 @layer globals {
+  @font-face {
+    font-family: "IBM Plex Serif Regular";
+    src: url("/fonts/IBMPlexSerif-Regular.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: optional;
+  }
+  @font-face {
+    font-family: "IBM Plex Serif Semibold";
+    src: url("/fonts/IBMPlexSerif-SemiBold.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: optional;
+  }
+  @font-face {
+    font-family: "IBM Plex Serif-fallback";
+    size-adjust: 117.1%;
+    ascent-override: 86%;
+    src: local("Times New Roman");
+  }
+
   * {
-    font-family: "IBM Plex Serif", Rockwell, "Rockwell Nova", "Roboto Slab",
-      "DejaVu Serif", "Sitka Small", serif;
     color: var(--colors-foreground);
+    font-family: var(--font-regular);
   }
 
   body {
@@ -19,13 +39,5 @@
     border: none;
     border-bottom: 1px solid var(--colors-foreground);
     height: 1px;
-  }
-
-  @font-face {
-    font-family: "IBM Plex Serif";
-    src: url("/fonts/IBMPlexSerif-Regular.woff2") format("woff2");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
   }
 }
