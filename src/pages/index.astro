@@ -42,7 +42,7 @@ const hasMorePosts = allPosts.length > 3;
       <div class="content-table--section-list">
         {blogposts.map((post) => post.data.isExternal ? (
           <div class="content-table--list-item">
-            <a class="content-table--item-title" href={post.data.externalUrl}>{post.data.title}↗︎</a>
+            <a class="content-table--item-title" target="_blank" rel="external nofollow noopener" href={post.data.externalUrl}>{post.data.title}↗︎</a>
             <p>{getFormattedDate(post.data.publishDate)}</p>
           </div>
         ) : (
