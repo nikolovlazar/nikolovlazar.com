@@ -2,8 +2,6 @@
 import '@/styles/index.css';
 import '@/styles/reset.css';
 import '@/styles/tokens.css';
-import '@fontsource/ibm-plex-serif/400.css';
-import '@fontsource/ibm-plex-serif/600.css';
 
 import Header from '@/components/header.astro';
 import Footer from '@/components/footer.astro';
@@ -28,6 +26,9 @@ const resolvedImage = ogimage ?? new URL('/ogimage.png', Astro.site).toString()
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />

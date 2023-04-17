@@ -1,9 +1,6 @@
 lockfileVersion: '6.0'
 
 dependencies:
-  '@fontsource/ibm-plex-serif':
-    specifier: ^4.5.12
-    version: 4.5.12
   astro:
     specifier: ^2.3.0
     version: 2.3.0(sharp@0.32.0)
@@ -887,10 +884,6 @@ packages:
     os: [win32]
     requiresBuild: true
     optional: true
-
-  /@fontsource/ibm-plex-serif@4.5.12:
-    resolution: {integrity: sha512-PQgB0qdwIH+2HebptJQANsD8SWPI8nzZ++hcQHI5HStn+IqD8WO/n70rxUpgdqfBtgYCZCWKFUQCYhaltEKRfw==}
-    dev: false
 
   /@jridgewell/gen-mapping@0.3.3:
     resolution: {integrity: sha512-HLhSWOLRi875zjjMG/r+Nv0oCW8umGb0BgEhyX3dDX3egwZtB8PqLnjz3yedt8R5StBrzcg4aBpnh8UA9D1BoQ==}

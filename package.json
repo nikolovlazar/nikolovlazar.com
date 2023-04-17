@@ -9,7 +9,6 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@fontsource/ibm-plex-serif": "^4.5.12",
     "astro": "^2.3.0",
     "astro-seo": "^0.7.2"
   },
