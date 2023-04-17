@@ -7,6 +7,21 @@
   html {
     box-sizing: border-box;
     scrollbar-gutter: stable both-edges;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: var(--colors-red);
+    color: var(--light);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    ::selection {
+      background: var(--colors-yellow);
+      color: var(--dark);
+    }
   }
 
   *,

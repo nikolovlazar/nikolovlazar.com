@@ -3,7 +3,9 @@ import MainLayout from '@/layouts/MainLayout.astro';
 import { getFormattedDate } from '@/utils/date';
 import { getCollection } from 'astro:content';
 
-const blogposts = (await getCollection('blog')).sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
+const allPosts = (await getCollection('blog')).sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
+const blogposts = allPosts.slice(0, 3);
+const hasMorePosts = allPosts.length > 3;
 ---
 <MainLayout>
   <div class="hero">
@@ -48,6 +50,9 @@ const blogposts = (await getCollection('blog')).sort((a, b) => b.data.publishDat
             <p>{getFormattedDate(post.data.publishDate)}</p>
           </div>
         ))}
+        {hasMorePosts && (
+          <a href="/blog" class="see-more">See more →︎</a>
+        )}
       </div>
     </div>
     <div class="content-table--section">
@@ -111,7 +116,7 @@ const blogposts = (await getCollection('blog')).sort((a, b) => b.data.publishDat
     margin-bottom: 88px;
   }
 
-  .content-table a {
+  .content-table h3 {
     font-weight: normal;
   }
 
@@ -119,7 +124,7 @@ const blogposts = (await getCollection('blog')).sort((a, b) => b.data.publishDat
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     border-top: 1px solid var(--colors-foreground);
-    padding: 8px;
+    padding: 10px 8px;
   }
 
   .content-table--section:last-of-type {
@@ -172,6 +177,11 @@ const blogposts = (await getCollection('blog')).sort((a, b) => b.data.publishDat
   .content-table--item-title {
     white-space: nowrap;
     text-overflow: ellipsis;
+  }
+
+  .see-more {
+    font-weight: 600;
+    color: var(--colors-purple);
   }
 
   @media (max-width: 768px) {

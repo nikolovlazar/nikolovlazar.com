@@ -110,6 +110,12 @@ const footerLinks = [{
     color: var(--colors-red);
   }
 
+  @media (prefers-color-scheme: dark) {
+    .footer--newsletter a {
+      color: var(--colors-yellow);
+    }
+  }
+
   @media (max-width: 768px) {
     .footer--contents {
       flex-direction: column;
