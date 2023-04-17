@@ -12,12 +12,12 @@ const hasMorePosts = allPosts.length > 3;
   <div class="hero">
     <div class="hero--text">
       <h1>Hi, my name is Lazar Nikolov.</h1>
-      <h2>Born in &apos;94. I work at <a target="_blank" target="_blank" rel="external nofollow noopener" href="https://sentry.io/welcome">Sentry.io ↗</a> as a Developer Advocate. I&apos;m a full-stack engineer, a designer, a content creator, and an <a target="_blank" target="_blank" rel="external nofollow noopener" href="https://egghead.io">egghead.io ↗</a> instuctor. Based in Canada.</h2>
+      <p>Born in &apos;94. I work at <a target="_blank" target="_blank" rel="external nofollow noopener" href="https://sentry.io/welcome">Sentry.io ↗</a> as a Developer Advocate. I&apos;m a full-stack engineer, a designer, a content creator, and an <a target="_blank" target="_blank" rel="external nofollow noopener" href="https://egghead.io">egghead.io ↗</a> instuctor. Based in Canada.</p>
     </div>
   </div>
   <div class="content-table">
     <div class="content-table--section">
-      <h3>Pages</h3>
+      <h2>Pages</h2>
       <div class="content-table--section-links">
         <a href="/about">About</a>
         <a href="/uses">Uses</a>
@@ -25,7 +25,7 @@ const hasMorePosts = allPosts.length > 3;
       </div>
     </div>
     <div class="content-table--section">
-      <h3>Courses</h3>
+      <h2>Courses</h2>
       <div class="content-table--section-list">
         <div class="content-table--list-item">
           <a href="#">Fundamental Next.js API and Patterns</a>
@@ -38,7 +38,7 @@ const hasMorePosts = allPosts.length > 3;
       </div>
     </div>
     <div class="content-table--section">
-      <h3>Writing</h3>
+      <h2>Writing</h2>
       <div class="content-table--section-list">
         {blogposts.map((post) => post.data.isExternal ? (
           <div class="content-table--list-item">
@@ -57,7 +57,7 @@ const hasMorePosts = allPosts.length > 3;
       </div>
     </div>
     <div class="content-table--section">
-      <h3>Talks</h3>
+      <h2>Talks</h2>
       <div class="content-table--section-list">
         <div class="content-table--list-item">
           <a href="#">Fundamental Next.js API and Patterns</a>
@@ -70,7 +70,7 @@ const hasMorePosts = allPosts.length > 3;
       </div>
     </div>
     <div class="content-table--section">
-      <h3>Videos</h3>
+      <h2>Videos</h2>
       <div class="content-table--section-list">
         <div class="content-table--list-item">
           <a href="#">Fundamental Next.js API and Patterns</a>
@@ -83,7 +83,7 @@ const hasMorePosts = allPosts.length > 3;
       </div>
     </div>
     <div class="content-table--section">
-      <h3>Social</h3>
+      <h2>Social</h2>
       <div class="content-table--section-links">
         <a href={YOUTUBE_URL} target="_blank" rel="external nofollow noopener">YouTube ↗︎</a>
         <a href={NEWSLETTER_URL} target="_blank" rel="external nofollow noopener">Newsletter ↗︎</a>
@@ -131,7 +131,7 @@ const hasMorePosts = allPosts.length > 3;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     border-top: 1px solid var(--colors-foreground);
-    padding: 10px 8px;
+    padding: 6px 8px;
   }
 
   .content-table--section:last-of-type {
@@ -151,7 +151,7 @@ const hasMorePosts = allPosts.length > 3;
   .content-table--section-list {
     display: flex;
     flex-direction: column;
-    row-gap: 12px;
+    row-gap: 6px;
   }
 
   .content-table a {
