@@ -19,6 +19,3 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
-## Panda
-panda
-panda-static
