@@ -114,7 +114,7 @@
     margin: 0;
     padding: 0;
     border: 0;
-    font-family: "IBM Plex serif", "Bitstream Charter", "Sitka Text", Cambria,
+    font-family: "IBM Plex Serif", "Bitstream Charter", "Sitka Text", Cambria,
       serif;
     font-size: var(--fontSizes-base);
     line-height: 150%;
