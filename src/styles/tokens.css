@@ -8,22 +8,64 @@
     --colors-background: var(--light);
     --colors-foreground: var(--dark);
 
-    --font-body-base: 1rem;
-    --font-body-sm: 0.875rem;
-    --font-body-xs: 0.75rem;
-    --font-heading-2xl: 1.5rem;
+    --font-code: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo,
+      Consolas, "DejaVu Sans Mono", monospace;
+
+    --fontSizes-xs: 0.75rem;
+    --fontSizes-sm: 0.875rem;
+    --fontSizes-base: 1rem;
+    --fontSizes-lg: 1.125rem;
+    --fontSizes-xl: 1.25rem;
+    --fontSizes-2xl: 1.5rem;
+    --fontSizes-3xl: 1.875rem;
+    --fontSizes-4xl: 2.25rem;
+    --fontSizes-5xl: 3rem;
+    --fontSizes-6xl: 3.75rem;
+    --fontSizes-7xl: 4.5rem;
+    --fontSizes-8xl: 6rem;
+    --fontSizes-9xl: 8rem;
 
     --screens-sm: 576px;
     --screens-md: 768px;
     --screens-lg: 1024px;
     --screens-xl: 1280px;
     --screens-2xl: 1536px;
+
+    --prose-h1: var(--fontSizes-4xl);
+    --prose-h1-mb: 32px;
+    --prose-h2: var(--fontSizes-2xl);
+    --prose-h2-mt: 48px;
+    --prose-h2-mb: 24px;
+    --prose-h3: var(--fontSizes-xl);
+    --prose-h3-mt: 32px;
+    --prose-h3-mb: 12px;
+    --prose-h4: var(--fontSizes-base);
+    --prose-h4-mt: 24px;
+    --prose-h4-mb: 8px;
+    --prose-p: var(--fontSizes-base);
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
       --colors-background: var(--dark);
       --colors-foreground: var(--light);
+    }
+  }
+
+  @media (min-width: 768px) {
+    :root {
+      --prose-h1: var(--fontSizes-5xl);
+      --prose-h1-mb: 40px;
+      --prose-h2: var(--fontSizes-3xl);
+      --prose-h2-mt: 56px;
+      --prose-h2-mb: 32px;
+      --prose-h3: var(--fontSizes-2xl);
+      --prose-h3-mt: 40px;
+      --prose-h3-mb: 16px;
+      --prose-h4: var(--fontSizes-lg);
+      --prose-h4-mt: 32px;
+      --prose-h4-mb: 8px;
+      --prose-p: var(--fontSizes-base);
     }
   }
 }

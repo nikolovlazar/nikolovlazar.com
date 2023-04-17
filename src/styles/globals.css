@@ -14,4 +14,10 @@
   img {
     content-visibility: auto;
   }
+
+  hr {
+    border: none;
+    border-bottom: 1px solid var(--colors-foreground);
+    height: 1px;
+  }
 }

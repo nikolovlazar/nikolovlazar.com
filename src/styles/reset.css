@@ -6,6 +6,7 @@
 
   html {
     box-sizing: border-box;
+    scrollbar-gutter: stable both-edges;
   }
 
   *,
@@ -100,7 +101,7 @@
     border: 0;
     font-family: "IBM Plex serif", "Bitstream Charter", "Sitka Text", Cambria,
       serif;
-    font-size: var(--font-body-base);
+    font-size: var(--fontSizes-base);
     line-height: 150%;
     vertical-align: baseline;
   }

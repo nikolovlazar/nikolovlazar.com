@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import Prose from '@/components/prose.astro';
+import MainLayout from '@/layouts/MainLayout.astro';
+import { getFormattedDate } from '@/utils/date';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection("blog");
+
+  return allPosts.filter(({ data}) => !data.isExternal).map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content, remarkPluginFrontmatter } = await post.render();
+---
+
+<MainLayout>
+  <div class="title-container">
+    <h1>{post.data.title}</h1>
+    <hr />
+    <div class="title-container--info">
+      <time>{getFormattedDate(post.data.publishDate)}</time>
+      <strong>{post.data.tags.map((tag: string) => tag)}</strong>
+      <p>{Math.round(remarkPluginFrontmatter?.estReadingTime)} min</p>
+    </div>
+  </div>
+  <Prose>
+    <Content />
+  </Prose>
+</MainLayout>
+
+<style>
+  h1 {
+    font-size: var(--prose-h1);
+  }
+  .title-container--info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+</style>

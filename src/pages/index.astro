@@ -1,5 +1,9 @@
 ---
-import MainLayout from '@/layouts/MainLayout.astro' 
+import MainLayout from '@/layouts/MainLayout.astro';
+import { getFormattedDate } from '@/utils/date';
+import { getCollection } from 'astro:content';
+
+const blogposts = (await getCollection('blog')).sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
 ---
 <MainLayout>
   <div class="hero">
@@ -33,14 +37,17 @@ import MainLayout from '@/layouts/MainLayout.astro'
     <div class="content-table--section">
       <h3>Writing</h3>
       <div class="content-table--section-list">
-        <div class="content-table--list-item">
-          <a href="#">Fundamental Next.js API and Patterns</a>
-          <p>16 lessons</p>
-        </div>
-        <div class="content-table--list-item">
-          <a href="#">Fundamental Next.js API and Patterns</a>
-          <p>16 lessons</p>
-        </div>
+        {blogposts.map((post) => post.data.isExternal ? (
+          <div class="content-table--list-item">
+            <a class="content-table--item-title" href={post.data.externalUrl}>{post.data.title}↗︎</a>
+            <p>{getFormattedDate(post.data.publishDate)}</p>
+          </div>
+        ) : (
+          <div class="content-table--list-item">
+            <a class="content-table--item-title" href={`/blog/${post.slug}`}>{post.data.title}</a>
+            <p>{getFormattedDate(post.data.publishDate)}</p>
+          </div>
+        ))}
       </div>
     </div>
     <div class="content-table--section">
@@ -96,7 +103,7 @@ import MainLayout from '@/layouts/MainLayout.astro'
   }
 
   h1 {
-    font-size: var(--font-heading-2xl);
+    font-size: var(--fontSizes-2xl);
   }
 
   .content-table {
@@ -119,7 +126,7 @@ import MainLayout from '@/layouts/MainLayout.astro'
     border-bottom: 1px solid var(--colors-foreground);
   }
 
-  .content-table--section div {
+  .content-table--section > div {
     grid-column-start: 2;
     grid-column-end: 4;
   }
@@ -141,18 +148,30 @@ import MainLayout from '@/layouts/MainLayout.astro'
   }
 
   .content-table--list-item a {
-    flex: 1;
-    display: flex;
     margin-right: 6px;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .content-table--list-item p {
+    flex-shrink: 0;
+    flex-grow: 1;
+    display: flex;
     align-items: baseline;
   }
 
-  .content-table--list-item a::after {
+  .content-table--list-item p::before {
     content: '';
     flex: 1;
     display: inline-flex;
-    margin-left: 6px;
+    margin-right: 6px;
     border-bottom: 2px dotted var(--colors-foreground);
+  }
+
+  .content-table--item-title {
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   @media (max-width: 768px) {
@@ -186,7 +205,7 @@ import MainLayout from '@/layouts/MainLayout.astro'
       flex-direction: column;
     }
 
-    .content-table--list-item a::after {
+    .content-table--list-item p::before {
       display: none;
     }
   }
