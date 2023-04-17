@@ -1,7 +1,6 @@
 @layer globals {
   * {
-    font-family: "IBM Plex serif", "Bitstream Charter", "Sitka Text", Cambria,
-      serif;
+    font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
     color: var(--colors-foreground);
   }
 
