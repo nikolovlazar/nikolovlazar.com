@@ -1,7 +1,7 @@
 @layer globals {
   * {
-    font-family: "IBM Plex Serif", "Bitstream Charter", "Sitka Text", Cambria,
-      serif;
+    font-family: "IBM Plex Serif", Rockwell, "Rockwell Nova", "Roboto Slab",
+      "DejaVu Serif", "Sitka Small", serif;
     color: var(--colors-foreground);
   }
 
@@ -26,6 +26,6 @@
     src: url("/fonts/IBMPlexSerif-Regular.woff2") format("woff2");
     font-weight: normal;
     font-style: normal;
-    font-display: optional;
+    font-display: swap;
   }
 }
