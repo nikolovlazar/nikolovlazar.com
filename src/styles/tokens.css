@@ -4,7 +4,6 @@
     --dark: #000718;
 
     --colors-red: #a7161e;
-    --colors-bright-red: #e0333a;
     --colors-purple: #805ad5;
     --colors-yellow: #ffe33d;
     --colors-background: var(--light);
@@ -51,6 +50,8 @@
     :root {
       --colors-background: var(--dark);
       --colors-foreground: var(--light);
+      --colors-purple: #c084fc;
+      --colors-red: #e0333a;
     }
   }
 

@@ -13,7 +13,7 @@
   }
 
   ::selection {
-    background: var(--colors-bright-red);
+    background: var(--colors-red);
     color: var(--light);
   }
 
