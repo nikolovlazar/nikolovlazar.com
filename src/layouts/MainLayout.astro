@@ -1,4 +1,6 @@
 ---
+import { SEO } from 'astro-seo';
+
 import '@/styles/index.css';
 import '@/styles/reset.css';
 import '@/styles/tokens.css';
@@ -6,8 +8,6 @@ import '@/styles/globals.css';
 
 import Header from '@/components/header.astro';
 import Footer from '@/components/footer.astro';
-
-import { SEO } from 'astro-seo';
 
 export interface Props {
   title?: string;

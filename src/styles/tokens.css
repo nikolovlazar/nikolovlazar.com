@@ -14,8 +14,9 @@
     --font-regular: "IBM Plex Serif Regular", "IBM Plex Serif-fallback",
       Rockwell, "Rockwell Nova", "Roboto Slab", "DejaVu Serif", "Sitka Small",
       serif;
-    --font-semibold: "IBM Plex Serif Semibold", Rockwell, "Rockwell Nova",
-      "Roboto Slab", "DejaVu Serif", "Sitka Small", serif;
+    --font-semibold: "IBM Plex Serif Semibold", "IBM Plex Serif-fallback",
+      Rockwell, "Rockwell Nova", "Roboto Slab", "DejaVu Serif", "Sitka Small",
+      serif;
 
     --fontSizes-xs: 0.75rem;
     --fontSizes-sm: 0.875rem;
