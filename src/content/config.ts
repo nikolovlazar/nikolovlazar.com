@@ -11,6 +11,16 @@ const BlogPosts = defineCollection({
   }),
 });
 
+const Courses = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    url: z.string(),
+    numberOfLessons: z.number(),
+    publishDate: z.string().transform((str) => new Date(str)),
+  }),
+});
+
 export const collections = {
   blog: BlogPosts,
+  courses: Courses,
 };

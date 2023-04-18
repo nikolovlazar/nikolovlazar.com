@@ -7,6 +7,10 @@ import { GITHUB_URL, TWITTER_URL, YOUTUBE_URL, NEWSLETTER_URL } from '../constan
 const allPosts = (await getCollection('blog')).sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
 const blogposts = allPosts.slice(0, 3);
 const hasMorePosts = allPosts.length > 3;
+
+const allCourses = (await getCollection('courses')).sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
+const courses = allCourses.slice(0, 3);
+const hasMoreCourses = allCourses.length > 3;
 ---
 <MainLayout>
   <div class="hero">
@@ -27,14 +31,12 @@ const hasMorePosts = allPosts.length > 3;
     <div class="content-table--section">
       <h2>Courses</h2>
       <div class="content-table--section-list">
-        <div class="content-table--list-item">
-          <a href="#">Fundamental Next.js API and Patterns</a>
-          <p>16 lessons</p>
-        </div>
-        <div class="content-table--list-item">
-          <a href="#">Build a Modern User Interface with Chakra UI↗︎</a>
-          <p>16 lessons</p>
-        </div>
+        {courses.map((course) => (
+          <div class="content-table--list-item">
+            <a href={course.data.url} target="_blank" rel="external nofollow noopener">{course.data.title} ↗︎</a>
+            <p>{course.data.numberOfLessons} lessons</p>
+          </div>
+        ))}
       </div>
     </div>
     <div class="content-table--section">
@@ -42,7 +44,7 @@ const hasMorePosts = allPosts.length > 3;
       <div class="content-table--section-list">
         {blogposts.map((post) => post.data.isExternal ? (
           <div class="content-table--list-item">
-            <a class="content-table--item-title" target="_blank" rel="external nofollow noopener" href={post.data.externalUrl}>{post.data.title}↗︎</a>
+            <a class="content-table--item-title" target="_blank" rel="external nofollow noopener" href={post.data.externalUrl}>{post.data.title} ↗︎</a>
             <p>{getFormattedDate(post.data.publishDate)}</p>
           </div>
         ) : (
