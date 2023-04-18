@@ -116,6 +116,7 @@ const hasMorePosts = allPosts.length > 3;
   h2 {
     font-weight: normal;
     letter-spacing: 0.7px;
+    font-size: var(--fontSizes-lg);
   }
 
   .content-table {
@@ -205,17 +206,23 @@ const hasMorePosts = allPosts.length > 3;
 
     .content-table {
       margin-bottom: 24px;
+      overflow-x: hidden;
     }
 
     .content-table--section {
-      display: flex;
-      flex-direction: column;
-      row-gap: 6px;
+      grid-template-columns: repeat(1, 1fr);
+      row-gap: 18px;
+      padding: 16px 8px;
+    }
+
+    .content-table--section > div {
+      grid-column-start: 1;
+      grid-column-end: 1;
     }
 
     .content-table--section-links {
       flex-direction: column;
-      row-gap: 6px;
+      row-gap: 16px;
     }
 
     .content-table--section-list {
@@ -225,6 +232,10 @@ const hasMorePosts = allPosts.length > 3;
     .content-table--list-item {
       display: flex;
       flex-direction: column;
+    }
+
+    .content-table--list-item a {
+      white-space: break-spaces;
     }
 
     .content-table--list-item p::before {
