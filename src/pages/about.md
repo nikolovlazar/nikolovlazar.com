@@ -14,7 +14,6 @@ new. Aside from learning new things, I enjoy live streaming on YouTube and
 creating courses for [egghead.io](https://egghead.io).
 
 ## How everything started
-
 Hello.
 
 ![A photo of Lazar Nikolov](/assets/lazar-2.jpg)
