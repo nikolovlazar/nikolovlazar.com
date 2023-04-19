@@ -5,9 +5,11 @@ import '@/styles/index.css';
 import '@/styles/reset.css';
 import '@/styles/tokens.css';
 import '@/styles/globals.css';
+import '@/styles/utilities.css';
 
 import Header from '@/components/header.astro';
 import Footer from '@/components/footer.astro';
+import PageTitle from '@/components/page-title.astro';
 
 export interface Props {
   title?: string;
@@ -57,6 +59,9 @@ const resolvedImage = ogimage ?? new URL('/ogimage.png', Astro.site).toString()
     <div class="container">
       <Header />
       <main>
+        {title && (
+          <PageTitle title={title} />
+        )}
         <slot />
       </main>
       <Footer />

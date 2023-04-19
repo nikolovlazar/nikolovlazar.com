@@ -22,6 +22,7 @@
 
   * {
     color: var(--colors-foreground);
+    font-size: inherit;
     font-family: var(--font-regular);
   }
 

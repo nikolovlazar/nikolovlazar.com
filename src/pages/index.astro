@@ -1,5 +1,5 @@
 ---
-import MainLayout from '@/layouts/MainLayout.astro';
+import MainLayout from '@/layouts/main.astro';
 import { getFormattedDate } from '@/utils/date';
 import { getCollection } from 'astro:content';
 import { GITHUB_URL, TWITTER_URL, YOUTUBE_URL, NEWSLETTER_URL } from '../constants';
@@ -37,6 +37,9 @@ const hasMoreCourses = allCourses.length > 3;
             <p>{course.data.numberOfLessons} lessons</p>
           </div>
         ))}
+        {hasMoreCourses && (
+          <a href="/courses" class="see-more">See more →︎</a>
+        )}
       </div>
     </div>
     <div class="content-table--section">
@@ -99,7 +102,7 @@ const hasMoreCourses = allCourses.length > 3;
 <style>
   .hero {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 2fr;
     margin-bottom: 60px;
   }
 
@@ -108,7 +111,6 @@ const hasMoreCourses = allCourses.length > 3;
     flex-direction: column;
     row-gap: 16px;
     grid-column-start: 2;
-    grid-column-end: 4;
   }
 
   h1 {
@@ -123,7 +125,6 @@ const hasMoreCourses = allCourses.length > 3;
 
   .content-table {
     display: grid;
-    margin-bottom: 88px;
   }
 
   .content-table h3 {
@@ -132,7 +133,7 @@ const hasMoreCourses = allCourses.length > 3;
 
   .content-table--section {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 2fr;
     border-top: 1px solid var(--colors-foreground);
     padding: 6px 8px;
   }
@@ -143,7 +144,6 @@ const hasMoreCourses = allCourses.length > 3;
 
   .content-table--section > div {
     grid-column-start: 2;
-    grid-column-end: 4;
   }
 
   .content-table--section-links {
@@ -219,7 +219,6 @@ const hasMoreCourses = allCourses.length > 3;
 
     .content-table--section > div {
       grid-column-start: 1;
-      grid-column-end: 1;
     }
 
     .content-table--section-links {
