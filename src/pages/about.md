@@ -17,7 +17,7 @@ creating courses for [egghead.io](https://egghead.io).
 
 ![A photo of Lazar Nikolov](/assets/lazar-3.jpg)
 
-I was having a band practice one day back in high school (did I mention I played bass in a rock band?) and the drummer whips out a Google Nexus One. **Whoah!** He said _"here, use this tuner app to tune your guitars"_. I was mind blown. First I thought what do HTC have in the music industry, but then the drummer explained to me that the app is not built by HTC, but by a random developer. _"Anyone can make apps"_, he said. And that was it. I was sold to the concept of programming. The thought that I can build something and thousand of people in this world can have it in their pockets was crazy.
+I was having a band practice one day back in high school (did I mention I played bass in a rock band?) and the drummer whips out a Google Nexus One. _**Whoah!**_ He said _"here, use this tuner app to tune your guitars"_. I was mind blown. First I thought what do HTC have in the music industry, but then the drummer explained to me that the app is not built by HTC, but by a random developer. _"Anyone can make apps"_, he said. And that was it. I was sold to the concept of programming. The thought that I can build something and thousand of people in this world can have it in their pockets was crazy.
 
 So I started learning Java to build an app that would let me "cheat" on my graduation math exam. I called it Pocket Formulas. I didn't end up finishing the app in time, so I simply studied for the exam. I did finish it afterwards and published it on Google Play. 10k people downloaded it! That gave me a huge motivational boost to keep getting better at coding.
 
