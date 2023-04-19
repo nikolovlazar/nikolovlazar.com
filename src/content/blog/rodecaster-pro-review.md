@@ -12,7 +12,7 @@ but is worth the investment? It all depends on how you plan on using it. I
 personally think I overpaid for its purpose. Here are the pros and cons of the
 Rødecaster Pro.
 
-![My RØDECaster Pro](/assets/blog/rodecaster-pro.jpg)
+![My RØDECaster Pro](../../assets/blog/rodecaster-pro.jpg)
 
 ## Pros
 

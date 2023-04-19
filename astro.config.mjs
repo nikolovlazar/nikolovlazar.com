@@ -1,5 +1,4 @@
 import { defineConfig } from "astro/config";
-import image from "@astrojs/image";
 import mdx from "@astrojs/mdx";
 import lazyLoadPlugin from "rehype-plugin-image-native-lazy-loading";
 
@@ -15,6 +14,7 @@ export default defineConfig({
 
   experimental: {
     contentCollections: true,
+    assets: true,
   },
 
   markdown: {
@@ -37,9 +37,6 @@ export default defineConfig({
   },
 
   integrations: [
-    image({
-      serviceEntryPoint: "@astrojs/image/sharp",
-    }),
     mdx(),
   ],
 });

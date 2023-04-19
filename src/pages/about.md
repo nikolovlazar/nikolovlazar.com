@@ -3,7 +3,7 @@ title: "About"
 layout: "../layouts/about.astro"
 ---
 
-![A photo of Lazar Nikolov](/assets/lazar-1.jpg)
+![A photo of Lazar Nikolov](../assets/lazar-1.jpg)
 
 Hey, I'm Lazar Nikolov. I'm a developer advocate at
 [Sentry](https://sentry.io/welcome). I live in Toronto, Canada, but originally
@@ -15,7 +15,7 @@ creating courses for [egghead.io](https://egghead.io).
 
 ## Let me tell you a story
 
-![A photo of Lazar Nikolov](/assets/lazar-3.jpg)
+![A photo of Lazar Nikolov](../assets/lazar-3.jpg)
 
 I was having a band practice one day back in high school (did I mention I played bass in a rock band?) and the drummer whips out a Google Nexus One. _**Whoah!**_ He said _"here, use this tuner app to tune your guitars"_. I was mind blown. First I thought what do HTC have in the music industry, but then the drummer explained to me that the app is not built by HTC, but by a random developer. _"Anyone can make apps"_, he said. And that was it. I was sold to the concept of programming. The thought that I can build something and thousand of people in this world can have it in their pockets was crazy.
 
@@ -25,7 +25,7 @@ Fast forward to 2015. I get hired as an Android developer after giving a talk at
 
 A year went by and I decided to move to a different company because my roommate and university friends were there. I was also the only mobile developer in the previous company and I needed a mentor. I was the 6th person in that company, and helped it grow to almost 70. During those 6 years I solidified my foundational knowledge and gained a lot of experience in both web and mobile development.
 
-![A photo of Lazar Nikolov](/assets/lazar-2.jpg)
+![A photo of Lazar Nikolov](../assets/lazar-2.jpg)
 
 Around the middle of 2019 the idea of creating content for other dev folks really started to grow on me. I started a Hashnode blog and wrote a few articles. But I felt like I wanted to do more, so at the end of 2020 I started live streaming on Twitch. I was building an app with Blitz.js and Chakra UI. 2 months in and the creator of Chakra UI reached out to me if I wanted to join the core team. Damn right I did! At first I didn't know what my responsibilities were going to be, but it turns out that I was going to be a DevRel.
 
