@@ -6,79 +6,77 @@
 </div>
 
 <style is:global>
-  .prose h1 {
-    font-weight: 600;
-    font-family: var(--font-semibold);
-    font-size: var(--prose-h1);
-    margin-bottom: var(--prose-h1-mb);
-  }
-  .prose h2 {
-    font-weight: 600;
-    font-family: var(--font-semibold);
-    font-size: var(--prose-h2);
-    margin-bottom: var(--prose-h2-mb);
-    margin-top: var(--prose-h2-mt);
-  }
-  .prose h3 {
-    font-weight: 600;
-    font-family: var(--font-semibold);
-    font-size: var(--prose-h3);
-    margin-bottom: var(--prose-h3-mb);
-    margin-top: var(--prose-h3-mt);
-  }
-  .prose h4 {
-    font-weight: 600;
-    font-family: var(--font-semibold);
-    font-size: var(--prose-h4);
-    margin-bottom: var(--prose-h4-mb);
-    margin-top: var(--prose-h4-mt);
-  }
-  .prose p {
-    font-weight: normal;
-    font-size: var(--prose-p);
-    line-height: 26px;
-    margin: 24px 0px;
-  }
-  .prose blockquote {
-    font-style: italic;
-    font-weight: 600;
-    font-family: var(--font-semibold);
-    padding-start: 16px;
-    border-start-width: 4px;
-    border-start-color: var(--colors-foreground);
-  }
-  .prose ul {
-    padding-inline-start: 24px;
-    list-style-type: disc;
-  }
-  .prose ol {
-    padding-inline-start: 24px;
-  }
-  .prose li {
-    padding-inline-start: 8px;
-    margin: 12px 0px;
-    line-height: 26px;
-  }
-  .prose h1 + *, .prose h2 + *, .prose h3 + *, .prose h4 + *, .prose hr + * {
-    margin-top: 0px;
-  }
-  .prose img {
-    width: 100%;
-  }
-  .prose pre {
-    padding: 16px;
-    overflow: auto;
-  }
-  .prose pre code {
-    font-family: var(--font-code); 
-  }
-  .prose pre code span {
-    font-family: inherit;
-  }
-  .prose code {
-    font-family: var(--font-code);
-  }
-  .prose code::before, .prose code::after {
-    content: '`';
+  @layer prose {
+    .prose h1 {
+      font-weight: 600;
+      font-family: var(--font-semibold);
+      font-size: var(--prose-h1);
+      margin-bottom: var(--prose-h1-mb);
+    }
+    .prose h2 {
+      font-weight: 600;
+      font-family: var(--font-semibold);
+      font-size: var(--prose-h2);
+      margin-bottom: var(--prose-h2-mb);
+    }
+    .prose h3 {
+      font-weight: 600;
+      font-family: var(--font-semibold);
+      font-size: var(--prose-h3);
+      margin-bottom: var(--prose-h3-mb);
+    }
+    .prose h4 {
+      font-weight: 600;
+      font-family: var(--font-semibold);
+      font-size: var(--prose-h4);
+      margin-bottom: var(--prose-h4-mb);
+    }
+    .prose p {
+      font-weight: normal;
+      font-size: var(--prose-p);
+      line-height: 26px;
+      margin: 24px 0px;
+    }
+    .prose blockquote {
+      font-style: italic;
+      font-weight: 600;
+      font-family: var(--font-semibold);
+      padding-start: 16px;
+      border-start-width: 4px;
+      border-start-color: var(--colors-foreground);
+    }
+    .prose ul {
+      padding-inline-start: 24px;
+      list-style-type: disc;
+      margin: 24px 0px;
+    }
+    .prose ol {
+      padding-inline-start: 24px;
+      margin: 24px 0px;
+    }
+    .prose li {
+      padding-inline-start: 8px;
+      margin: 12px 0px;
+      line-height: 26px;
+    }
+    .prose img {
+      width: 100%;
+    }
+    .prose pre {
+      padding: 16px;
+      overflow: auto;
+    }
+    .prose pre code {
+      font-family: var(--font-code);
+    }
+    .prose pre code span {
+      font-family: inherit;
+    }
+    .prose code {
+      font-family: var(--font-code);
+    }
+    .prose code::before, .prose code::after {
+      content: '`';
+    }
   }
 </style>

@@ -39,16 +39,13 @@
     --screens-2xl: 1536px;
 
     --prose-h1: var(--fontSizes-4xl);
-    --prose-h1-mb: 32px;
+    --prose-h1-mb: 40px;
     --prose-h2: var(--fontSizes-2xl);
-    --prose-h2-mt: 48px;
     --prose-h2-mb: 24px;
     --prose-h3: var(--fontSizes-xl);
-    --prose-h3-mt: 32px;
-    --prose-h3-mb: 12px;
+    --prose-h3-mb: 16px;
     --prose-h4: var(--fontSizes-base);
-    --prose-h4-mt: 24px;
-    --prose-h4-mb: 8px;
+    --prose-h4-mb: 24px;
     --prose-p: var(--fontSizes-base);
   }
 
