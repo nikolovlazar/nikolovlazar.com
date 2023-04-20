@@ -17,13 +17,16 @@
   ],
   "devDependencies": {
     "@astrojs/mdx": "^0.19.0",
+    "@astrojs/rss": "^2.3.2",
     "@astrojs/sitemap": "^1.2.2",
+    "markdown-it": "^13.0.1",
     "mdast-util-to-string": "^3.2.0",
     "reading-time": "^1.5.0",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-external-links": "^2.0.1",
     "rehype-plugin-image-native-lazy-loading": "^1.2.0",
     "rehype-slug": "^5.1.0",
+    "sanitize-html": "^2.10.0",
     "sharp": "^0.32.0",
     "slugify": "^1.6.6",
     "timeago.js": "^4.0.2"
