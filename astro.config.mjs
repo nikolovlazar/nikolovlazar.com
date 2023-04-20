@@ -1,5 +1,6 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
 import lazyLoadPlugin from "rehype-plugin-image-native-lazy-loading";
 
 import rehypeExternalLinks from "rehype-external-links";
@@ -22,21 +23,25 @@ export default defineConfig({
     rehypePlugins: [
       lazyLoadPlugin,
       rehypeSlug,
-      [rehypeExternalLinks, {
-        target: "_blank",
-        rel: "external nofollow noopener",
-      }],
-      [rehypeAutolinkHeadings, {
-        behavior: "wrap",
-        properties: {
-          ariaHidden: false,
+      [
+        rehypeExternalLinks,
+        {
+          target: "_blank",
+          rel: "external nofollow noopener",
         },
-      }],
+      ],
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: "wrap",
+          properties: {
+            ariaHidden: false,
+          },
+        },
+      ],
     ],
     extendDefaultPlugins: true,
   },
 
-  integrations: [
-    mdx(),
-  ],
+  integrations: [mdx(), sitemap()],
 });
