@@ -1,0 +1,60 @@
+---
+import { CollectionEntry } from 'astro:content';
+import { format } from 'timeago.js';
+
+interface Props {
+  post: CollectionEntry<"blog"> & {
+    readingTime: number;
+  };
+}
+
+const { post } = Astro.props;
+
+const published = format(post.data.publishDate);
+---
+
+<div class="post">
+  {post.data.isExternal ? (
+    <a class="post--title" href={post.data.externalUrl} rel="external nofollow noopener" target="_blank">{post.data.title}</a>
+  ) : (
+    <a class="post--title" href={`/blog/${post.slug}`}>{post.data.title}</a>
+  )}
+ <div class="post--details">
+    <p>{published}</p>
+    <p>•</p>
+    <b>{post.data.tags.join(", ")}</b>
+    <p>•</p>
+    {post.data.isExternal ? (
+      <p>{post.data.externalLabel}</p>
+    ) : (
+      <p>{post.readingTime} min read</p>
+    )}
+  </div>
+</div>
+
+<style>
+  .post {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    row-gap: 16px;
+    border: 1px solid var(--colors-foreground);
+    position: relative;
+  }
+
+  .post--title {
+    font-size: var(--fontSizes-2xl);
+    z-index: 1;
+  }
+
+  .post--title::after {
+    content: ' ';
+    position: absolute;
+    inset: 0;
+  }
+
+  .post--details {
+    display: flex;
+    column-gap: 12px;
+  }
+</style>

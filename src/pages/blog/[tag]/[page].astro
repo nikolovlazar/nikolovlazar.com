@@ -1,0 +1,96 @@
+---
+import { CollectionEntry, getCollection } from 'astro:content';
+import slugify from 'slugify';
+
+import Post from '@/components/post.astro';
+import MainLayout from '@/layouts/main.astro';
+import PageTitle from '@/components/page-title.astro';
+import Tags from '@/components/tags.astro';
+import { POSTS_PER_PAGE } from '../../../constants';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection("blog");
+
+  const rawTags = allPosts.flatMap(({ data }) => data.tags);
+  rawTags.push("all");
+  const tagsSet = new Set(rawTags);
+  const tags = Array.from(tagsSet.keys()).sort();
+
+  return await Promise.all(tags.flatMap(async (tag) => {
+    const taggedPosts = tag === "all" ? allPosts : allPosts.filter(({ data }) => data.tags.includes(tag));
+    const numPages = Math.ceil(taggedPosts.length / POSTS_PER_PAGE);
+
+    return await Promise.all(Array.from(Array(numPages).keys()).map(k => k+1).map(async (p) => {
+      const filteredPosts = await Promise.all(taggedPosts
+        .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime())
+        .slice((p- 1) * POSTS_PER_PAGE, (p-1) * POSTS_PER_PAGE + POSTS_PER_PAGE)
+        .map(async (post) => ({...post, readingTime: Math.round((await post.render()).remarkPluginFrontmatter?.estReadingTime) }))
+      );
+
+      return ({
+        params: { page: p, tag: slugify(tag) },
+        props: { filteredPosts: JSON.stringify(filteredPosts), page: p, numPages, tag: slugify(tag), tags },
+      });
+    }));
+  }));
+}
+
+const { filteredPosts, page, tag, numPages, tags } = Astro.props;
+const posts = JSON.parse(filteredPosts) as CollectionEntry<"blog">;
+---
+
+<MainLayout>
+  <PageTitle title="Writing" />
+  <Tags tags={tags} selected={tag} urlPattern="/blog/{t}/1" />
+
+  <ul class="posts">
+    {posts.map((post) => (
+      <li>
+        <Post post={post} />
+      </li>
+    ))}
+  </ul>
+
+  {numPages > 1 && (
+    <ul class="pagination">
+      {Array.from(Array(numPages).keys()).map(k => k+1).map((p) =>
+        p === page ? (
+          <li>
+            <span class="pagination--item active">{p}</span>
+          </li>
+        ) : (
+          <li>
+            <a class="pagination--item" href={`/blog/${tag}/${p}`}>{p}</a>
+          </li>
+        )
+      )}
+    </ul>
+  )}
+</MainLayout>
+
+<style>
+  .posts {
+    margin-top: 88px;
+  }
+
+  .posts li:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  .pagination {
+    margin-top: 40px;
+    display: flex;
+  }
+
+  .pagination--item {
+    padding: 4px 14px;
+    color: var(--colors-foreground);
+    font-size: var(--fontSizes-2xl);
+    position: relative;
+  }
+
+  .pagination--item.active {
+    color: var(--colors-background);
+    background: var(--colors-foreground);
+  }
+</style>

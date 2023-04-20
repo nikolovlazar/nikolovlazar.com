@@ -23,6 +23,8 @@
     "rehype-external-links": "^2.0.1",
     "rehype-plugin-image-native-lazy-loading": "^1.2.0",
     "rehype-slug": "^5.1.0",
-    "sharp": "^0.32.0"
+    "sharp": "^0.32.0",
+    "slugify": "^1.6.6",
+    "timeago.js": "^4.0.2"
   }
 }

@@ -1,0 +1,25 @@
+---
+import Tag from './tag.astro';
+
+interface Props {
+  tags: string[];
+  selected: string;
+  urlPattern: string;
+}
+
+const { tags, selected, urlPattern } = Astro.props;
+
+---
+
+<div class="tags">
+  {tags.map((tag) => (
+    <Tag tag={tag} selected={selected} urlPattern={urlPattern} />
+  ))}
+</div>
+
+<style>
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+  }
+</style>
