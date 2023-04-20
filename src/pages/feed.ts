@@ -18,7 +18,9 @@ export async function get(context) {
       description: post.data.description,
       customDate: post.data.customData,
       link: `/blog/${post.slug}`,
-      content: sanitizeHtml(parser.render(post.body)),
+      content: post.data.isExternal ? sanitizeHtml(`
+<h3>I published "${post.data.title}" <a href="${post.data.externalUrl}">${post.data.externalLabel}</a>. Follow the link to read it on that website.</h3>
+`) : sanitizeHtml(parser.render(post.body)),
     })),
     customData: "<language>en-us</language>",
   });
