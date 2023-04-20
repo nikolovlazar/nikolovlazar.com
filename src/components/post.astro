@@ -15,9 +15,9 @@ const published = format(post.data.publishDate);
 
 <div class="post">
   {post.data.isExternal ? (
-    <a class="post--title" href={post.data.externalUrl} rel="external nofollow noopener" target="_blank">{post.data.title}</a>
+    <article><a class="post--title" href={post.data.externalUrl} rel="external nofollow noopener" target="_blank">{post.data.title}</a></article>
   ) : (
-    <a class="post--title" href={`/blog/${post.slug}`}>{post.data.title}</a>
+    <article><a class="post--title" href={`/blog/${post.slug}`}>{post.data.title}</a></article>
   )}
  <div class="post--details">
     <p>{published}</p>
