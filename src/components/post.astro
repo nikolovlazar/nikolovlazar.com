@@ -21,9 +21,9 @@ const published = format(post.data.publishDate);
   )}
  <div class="post--details">
     <p>{published}</p>
-    <p>•</p>
+    <p class="divider">•</p>
     <b>{post.data.tags.join(", ")}</b>
-    <p>•</p>
+    <p class="divider">•</p>
     {post.data.isExternal ? (
       <p>{post.data.externalLabel}</p>
     ) : (
@@ -56,5 +56,16 @@ const published = format(post.data.publishDate);
   .post--details {
     display: flex;
     column-gap: 12px;
+  }
+
+  @media(max-width: 768px) {
+    .post--details {
+      flex-direction: column;
+      row-gap: 8px;
+    }
+
+    .post--details .divider {
+      display: none;
+    }
   }
 </style>
