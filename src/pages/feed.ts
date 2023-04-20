@@ -15,8 +15,6 @@ export async function get(context) {
     items: blog.map((post) => ({
       title: post.data.title,
       pubDate: post.data.publishDate,
-      description: post.data.description,
-      customDate: post.data.customData,
       link: post.data.isExternal ? post.data.externalUrl : `/blog/${post.slug}`,
       content: post.data.isExternal
         ? sanitizeHtml(`
