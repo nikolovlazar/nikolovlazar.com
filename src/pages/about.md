@@ -1,6 +1,6 @@
 ---
-title: "About"
-layout: "../layouts/about.astro"
+title: 'About'
+layout: '../layouts/about.astro'
 ---
 
 ![A photo of Lazar Nikolov](../assets/lazar-1.jpg)

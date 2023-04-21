@@ -1,34 +1,51 @@
 ---
-import { CollectionEntry } from 'astro:content';
-import { format } from 'timeago.js';
+import type { CollectionEntry } from 'astro:content'
+import { format } from 'timeago.js'
 
 interface Props {
-  post: CollectionEntry<"blog"> & {
-    readingTime: number;
-  };
+  post: CollectionEntry<'blog'> & {
+    readingTime: number
+  }
 }
 
-const { post } = Astro.props;
+const { post } = Astro.props
 
-const published = format(post.data.publishDate);
+const published = format(post.data.publishDate)
 ---
 
-<div class="post">
-  {post.data.isExternal ? (
-    <article><a class="post--title" href={post.data.externalUrl} rel="external nofollow noopener" target="_blank">{post.data.title}</a></article>
-  ) : (
-    <article><a class="post--title" href={`/blog/${post.slug}`}>{post.data.title}</a></article>
-  )}
- <div class="post--details">
-    <p>{published}</p>
-    <p class="divider">•</p>
-    <b>{post.data.tags.join(", ")}</b>
-    <p class="divider">•</p>
-    {post.data.isExternal ? (
-      <p>{post.data.externalLabel}</p>
+<div class='post'>
+  {
+    post.data.isExternal ? (
+      <article>
+        <a
+          class='post--title'
+          href={post.data.externalUrl}
+          rel='external nofollow noopener'
+          target='_blank'
+        >
+          {post.data.title}
+        </a>
+      </article>
     ) : (
-      <p>{post.readingTime} min read</p>
-    )}
+      <article>
+        <a class='post--title' href={`/blog/${post.slug}`}>
+          {post.data.title}
+        </a>
+      </article>
+    )
+  }
+  <div class='post--details'>
+    <p>{published}</p>
+    <p class='divider'>•</p>
+    <b>{post.data.tags.join(', ')}</b>
+    <p class='divider'>•</p>
+    {
+      post.data.isExternal ? (
+        <p>{post.data.externalLabel}</p>
+      ) : (
+        <p>{post.readingTime} min read</p>
+      )
+    }
   </div>
 </div>
 
@@ -58,7 +75,7 @@ const published = format(post.data.publishDate);
     column-gap: 12px;
   }
 
-  @media(max-width: 768px) {
+  @media (max-width: 768px) {
     .post--details {
       flex-direction: column;
       row-gap: 8px;

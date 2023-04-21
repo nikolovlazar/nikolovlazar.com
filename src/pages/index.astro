@@ -1,99 +1,185 @@
 ---
-import MainLayout from '@/layouts/main.astro';
-import { getFormattedDate } from '@/utils/date';
-import { getCollection } from 'astro:content';
-import { GITHUB_URL, TWITTER_URL, YOUTUBE_URL, NEWSLETTER_URL } from '../constants';
+import { format } from 'timeago.js'
+import { getCollection } from 'astro:content'
 
-const allPosts = (await getCollection('blog')).sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
-const blogposts = allPosts.slice(0, 3);
-const hasMorePosts = allPosts.length > 3;
+import MainLayout from '@/layouts/main.astro'
+import { getFormattedDate } from '@/utils/date'
+import {
+  GITHUB_URL,
+  TWITTER_URL,
+  YOUTUBE_URL,
+  NEWSLETTER_URL,
+} from '../constants'
 
-const allCourses = (await getCollection('courses')).sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
-const courses = allCourses.slice(0, 3);
-const hasMoreCourses = allCourses.length > 3;
+const allPosts = (await getCollection('blog')).sort(
+  (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime(),
+)
+const blogposts = allPosts.slice(0, 3)
+const hasMorePosts = allPosts.length > 3
+
+const allCourses = (await getCollection('courses')).sort(
+  (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime(),
+)
+const courses = allCourses.slice(0, 3)
+const hasMoreCourses = allCourses.length > 3
+
+const allTalks = (await getCollection('talks')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+)
+const talks = allTalks.slice(0, 3)
+const hasMoreTalks = allTalks.length > 3
 ---
+
 <MainLayout>
-  <div class="hero">
-    <div class="hero--text">
+  <div class='hero'>
+    <div class='hero--text'>
       <h1>Hi, my name is Lazar Nikolov.</h1>
-      <p>Born in &apos;94. I work at <a target="_blank" target="_blank" rel="external nofollow noopener" href="https://sentry.io/welcome">Sentry.io ↗</a> as a Developer Advocate. I&apos;m a full-stack engineer, a designer, a content creator, and an <a target="_blank" target="_blank" rel="external nofollow noopener" href="https://egghead.io">egghead.io ↗</a> instuctor. Based in Canada.</p>
+      <p>
+        Born in &apos;94. I work at <a
+          target='_blank'
+          target='_blank'
+          rel='external nofollow noopener'
+          href='https://sentry.io/welcome'>Sentry.io ↗</a
+        > as a Developer Advocate. I&apos;m a full-stack engineer, a designer, a
+        content creator, and an <a
+          target='_blank'
+          target='_blank'
+          rel='external nofollow noopener'
+          href='https://egghead.io'>egghead.io ↗</a
+        > instuctor. Based in Canada.
+      </p>
     </div>
   </div>
-  <div class="content-table">
-    <div class="content-table--section">
+  <div class='content-table'>
+    <div class='content-table--section'>
       <h2>Pages</h2>
-      <div class="content-table--section-links">
-        <a href="/about">About</a>
-        <a href="/uses">Uses</a>
-        <a href="/clophon">Colophon</a>
+      <div class='content-table--section-links'>
+        <a href='/about'>About</a>
+        <a href='/uses'>Uses</a>
+        <a href='/clophon'>Colophon</a>
       </div>
     </div>
-    <div class="content-table--section">
+    <div class='content-table--section'>
       <h2>Courses</h2>
-      <div class="content-table--section-list">
-        {courses.map((course) => (
-          <div class="content-table--list-item">
-            <a href={course.data.url} target="_blank" rel="external nofollow noopener">{course.data.title} ↗︎</a>
-            <p>{course.data.numberOfLessons} lessons</p>
-          </div>
-        ))}
-        {hasMoreCourses && (
-          <a href="/courses" class="see-more">See more →︎</a>
-        )}
+      <div class='content-table--section-list'>
+        {
+          courses.map((course) => (
+            <div class='content-table--list-item'>
+              <a
+                href={course.data.url}
+                target='_blank'
+                rel='external nofollow noopener'
+              >
+                {course.data.title} ↗︎
+              </a>
+              <p>{course.data.numberOfLessons} lessons</p>
+            </div>
+          ))
+        }
+        {
+          hasMoreCourses && (
+            <a href='/courses' class='see-more'>
+              See more →︎
+            </a>
+          )
+        }
       </div>
     </div>
-    <div class="content-table--section">
+    <div class='content-table--section'>
       <h2>Writing</h2>
-      <div class="content-table--section-list">
-        {blogposts.map((post) => post.data.isExternal ? (
-          <div class="content-table--list-item">
-            <a class="content-table--item-title" target="_blank" rel="external nofollow noopener" href={post.data.externalUrl}>{post.data.title} ↗︎</a>
-            <p>{getFormattedDate(post.data.publishDate)}</p>
-          </div>
-        ) : (
-          <div class="content-table--list-item">
-            <a class="content-table--item-title" href={`/blog/${post.slug}`}>{post.data.title}</a>
-            <p>{getFormattedDate(post.data.publishDate)}</p>
-          </div>
-        ))}
-        {hasMorePosts && (
-          <a href="/blog/all/1" class="see-more">See more →︎</a>
-        )}
+      <div class='content-table--section-list'>
+        {
+          blogposts.map((post) =>
+            post.data.isExternal ? (
+              <div class='content-table--list-item'>
+                <a
+                  class='content-table--item-title'
+                  target='_blank'
+                  rel='external nofollow noopener'
+                  href={post.data.externalUrl}
+                >
+                  {post.data.title} ↗︎
+                </a>
+                <p>{getFormattedDate(post.data.publishDate)}</p>
+              </div>
+            ) : (
+              <div class='content-table--list-item'>
+                <a
+                  class='content-table--item-title'
+                  href={`/blog/${post.slug}`}
+                >
+                  {post.data.title}
+                </a>
+                <p>{getFormattedDate(post.data.publishDate)}</p>
+              </div>
+            ),
+          )
+        }
+        {
+          hasMorePosts && (
+            <a href='/blog/all/1' class='see-more'>
+              See more →︎
+            </a>
+          )
+        }
       </div>
     </div>
-    <div class="content-table--section">
+    <div class='content-table--section'>
       <h2>Talks</h2>
-      <div class="content-table--section-list">
-        <div class="content-table--list-item">
-          <a href="#">Fundamental Next.js API and Patterns</a>
-          <p>16 lessons</p>
-        </div>
-        <div class="content-table--list-item">
-          <a href="#">Fundamental Next.js API and Patterns</a>
-          <p>16 lessons</p>
-        </div>
+      <div class='content-table--section-list'>
+        {
+          talks.map((talk) => (
+            <div class='content-table--list-item'>
+              <a
+                href={talk.data.url}
+                target='_blank'
+                rel='external nofollow noopener'
+              >
+                {talk.data.title} ↗︎
+              </a>
+              <p>{format(talk.data.date)}</p>
+            </div>
+          ))
+        }
+        {
+          hasMoreTalks && (
+            <a href='/talks' class='see-more'>
+              See more →︎
+            </a>
+          )
+        }
       </div>
     </div>
-    <div class="content-table--section">
+    <div class='content-table--section'>
       <h2>Videos</h2>
-      <div class="content-table--section-list">
-        <div class="content-table--list-item">
-          <a href="#">Fundamental Next.js API and Patterns</a>
+      <div class='content-table--section-list'>
+        <div class='content-table--list-item'>
+          <a href='#'>Fundamental Next.js API and Patterns</a>
           <p>16 lessons</p>
         </div>
-        <div class="content-table--list-item">
-          <a href="#">Fundamental Next.js API and Patterns</a>
+        <div class='content-table--list-item'>
+          <a href='#'>Fundamental Next.js API and Patterns</a>
           <p>16 lessons</p>
         </div>
       </div>
     </div>
-    <div class="content-table--section">
+    <div class='content-table--section'>
       <h2>Social</h2>
-      <div class="content-table--section-links">
-        <a href={YOUTUBE_URL} target="_blank" rel="external nofollow noopener">YouTube ↗︎</a>
-        <a href={NEWSLETTER_URL} target="_blank" rel="external nofollow noopener">Newsletter ↗︎</a>
-        <a href={TWITTER_URL} target="_blank" rel="external nofollow noopener">Twitter ↗︎</a>
-        <a href={GITHUB_URL} target="_blank" rel="external nofollow noopener">GitHub ↗︎</a>
+      <div class='content-table--section-links'>
+        <a href={YOUTUBE_URL} target='_blank' rel='external nofollow noopener'
+          >YouTube ↗︎</a
+        >
+        <a
+          href={NEWSLETTER_URL}
+          target='_blank'
+          rel='external nofollow noopener'>Newsletter ↗︎</a
+        >
+        <a href={TWITTER_URL} target='_blank' rel='external nofollow noopener'
+          >Twitter ↗︎</a
+        >
+        <a href={GITHUB_URL} target='_blank' rel='external nofollow noopener'
+          >GitHub ↗︎</a
+        >
       </div>
     </div>
   </div>
@@ -142,6 +228,10 @@ const hasMoreCourses = allCourses.length > 3;
     border-bottom: 1px solid var(--colors-foreground);
   }
 
+  .content-table--section h2 {
+    flex-shrink: 0;
+  }
+
   .content-table--section > div {
     grid-column-start: 2;
   }
@@ -154,11 +244,8 @@ const hasMoreCourses = allCourses.length > 3;
   .content-table--section-list {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
     row-gap: 6px;
-  }
-
-  .content-table a {
-    padding: 4px 0px;
   }
 
   .content-table--list-item {
@@ -236,13 +323,11 @@ const hasMoreCourses = allCourses.length > 3;
     }
 
     .content-table--list-item a {
-      white-space: break-spaces;
+      white-space: break-words;
     }
 
     .content-table--list-item p::before {
       display: none;
     }
   }
-
-
 </style>

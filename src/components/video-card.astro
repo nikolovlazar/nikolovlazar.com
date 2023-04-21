@@ -1,0 +1,51 @@
+---
+interface Props {
+  title: string
+  url: string
+}
+
+const { title, url } = Astro.props
+
+const videoId = new URLSearchParams(url.split('?')[1]).get('v')
+---
+
+<div class='video-card'>
+  <img
+    src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
+    alt={title}
+  />
+  <a href={url} target='_blank' rel='external nofollow noopener'>
+    <h2>{title}</h2>
+  </a>
+</div>
+
+<style>
+  .video-card {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+    position: relative;
+  }
+
+  .video-card img {
+    max-width: 100%;
+    border: 4px solid var(--colors-foreground);
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+
+  .video-card a {
+    z-index: 1;
+  }
+
+  .video-card h2 {
+    font-family: var(--font-semibold);
+    font-size: var(--fontSizes-2xl);
+  }
+
+  .video-card a::after {
+    content: ' ';
+    position: absolute;
+    inset: 0;
+  }
+</style>
