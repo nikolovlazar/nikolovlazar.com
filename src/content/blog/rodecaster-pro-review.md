@@ -1,5 +1,6 @@
 ---
 title: Rødecaster Pro Review - Is it worth the investment?
+description: "The RØDECaster Pro does look really good, but is worth the investment? Here are the pros and cons of the Rødecaster Pro."
 tags: ['content creation']
 date: April 7, 2023
 isExternal: false

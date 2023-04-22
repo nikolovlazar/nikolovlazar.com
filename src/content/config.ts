@@ -4,6 +4,7 @@ const BlogPosts = defineCollection({
     schema: z.discriminatedUnion("isExternal", [
         z.object({
             title: z.string(),
+            description: z.string(),
             tags: z.array(z.string()),
             date: z.string().transform(str => new Date(str)),
             isExternal: z.literal(true),
@@ -12,6 +13,7 @@ const BlogPosts = defineCollection({
         }),
         z.object({
             title: z.string(),
+            description: z.string(),
             tags: z.array(z.string()),
             date: z.string().transform(str => new Date(str)),
             isExternal: z.literal(false),

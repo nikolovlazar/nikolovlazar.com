@@ -20,7 +20,7 @@ const { post } = Astro.props
 const { Content, remarkPluginFrontmatter } = await post.render()
 ---
 
-<MainLayout>
+<MainLayout title={post.data.title} desc={post.data.description}>
   <div class='title-container'>
     <h1>{post.data.title}</h1>
     <hr />
