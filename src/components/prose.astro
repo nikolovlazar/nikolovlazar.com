@@ -1,7 +1,7 @@
 ---
 ---
 
-<div class="prose">
+<div class='prose'>
   <slot />
 </div>
 
@@ -35,6 +35,9 @@
     font-size: var(--prose-p);
     line-height: 26px;
     margin: 24px 0px;
+  }
+  .prose a {
+    color: var(--colors-purple);
   }
   .prose blockquote {
     font-style: italic;
@@ -75,7 +78,8 @@
   .prose code {
     font-family: var(--font-code);
   }
-  .prose code::before, .prose code::after {
+  .prose code::before,
+  .prose code::after {
     content: '`';
   }
 </style>

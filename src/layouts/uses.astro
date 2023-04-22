@@ -1,0 +1,36 @@
+---
+import MainLayout from '@/layouts/main.astro'
+import PageTitle from '@/components/page-title.astro'
+import Prose from '@/components/prose.astro'
+---
+
+<MainLayout>
+  <PageTitle title='Uses' />
+  <div class='narrow-prose-wrapper'>
+    <div class='narrow-prose'>
+      <Prose>
+        <slot />
+      </Prose>
+    </div>
+  </div>
+</MainLayout>
+
+<style>
+  .narrow-prose-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-top: 88px;
+  }
+  .narrow-prose {
+    grid-column: 2;
+  }
+  @media (max-width: 768px) {
+    .narrow-prose-wrapper {
+      grid-template-columns: 1fr;
+    }
+
+    .narrow-prose {
+      grid-column: 1;
+    }
+  }
+</style>
