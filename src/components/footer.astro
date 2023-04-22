@@ -1,72 +1,105 @@
 ---
-import { NEWSLETTER_URL, YOUTUBE_URL, TWITTER_URL, GITHUB_URL, POLYWORK_URL } from '../constants';
-import Logo from './logo.astro';
+import {
+  NEWSLETTER_URL,
+  YOUTUBE_URL,
+  TWITTER_URL,
+  GITHUB_URL,
+  POLYWORK_URL,
+} from '../constants'
+import Logo from './logo.astro'
 
-const footerLinks = [{
-    label: "About",
-    url: "/about"
-  }, {
-    label: "Blog",
-    url: "/blog",
-  }, {
-    label: "YouTube",
+const footerLinks = [
+  {
+    label: 'About',
+    url: '/about',
+  },
+  {
+    label: 'Blog',
+    url: '/blog/all/1',
+  },
+  {
+    label: 'YouTube',
     url: YOUTUBE_URL,
     isExternal: true,
-  }, {
-    label: "Uses",
-    url: "/uses",
-  }, {
-    label: "Courses",
-    url: "/courses",
-  }, {
-    label: "Twitter",
+  },
+  {
+    label: 'Uses',
+    url: '/uses',
+  },
+  {
+    label: 'Courses',
+    url: '/courses',
+  },
+  {
+    label: 'Twitter',
     url: TWITTER_URL,
     isExternal: true,
-  }, {
-    label: "Books",
-    url: "/books",
-  }, {
-    label: "Videos",
-    url: "/videos",
-  }, {
-    label: "GitHub",
+  },
+  {
+    label: 'Books',
+    url: '/books',
+  },
+  {
+    label: 'Videos',
+    url: '/videos',
+  },
+  {
+    label: 'GitHub',
     url: GITHUB_URL,
     isExternal: true,
-  }, {
-    label: "Colophon",
-    url: "/colophon",
-  }, {
-    label: "Talks",
-    url: "/talks",
-  }, {
-    label: "Polywork",
+  },
+  {
+    label: 'Colophon',
+    url: '/colophon',
+  },
+  {
+    label: 'Talks',
+    url: '/talks',
+  },
+  {
+    label: 'Polywork',
     url: POLYWORK_URL,
     isExternal: true,
-  }];
+  },
+]
 ---
 
-<footer class="footer">
+<footer class='footer'>
   <hr />
 
-  <div class="footer--contents">
-    <div class="footer--logo">
+  <div class='footer--contents'>
+    <div class='footer--logo'>
       <Logo width={29} height={27} />
     </div>
 
-    <div class="footer--links">
-      <div class="footer--links-grid">
-        {footerLinks.map(({ label, url, isExternal }) => isExternal ?
-          <a href={url} rel="external nofollow noopener" target="_blank">{label}</a> :
-          <a href={url}>{label}</a>
-        )}
+    <div class='footer--links'>
+      <div class='footer--links-grid'>
+        {
+          footerLinks.map(({ label, url, isExternal }) =>
+            isExternal ? (
+              <a href={url} rel='external nofollow noopener' target='_blank'>
+                {label}
+              </a>
+            ) : (
+              <a href={url}>{label}</a>
+            ),
+          )
+        }
       </div>
-      <p class="footer--copyright">© {new Date().getFullYear()} Lazar Nikolov</p>
+      <p class='footer--copyright'>
+        © {new Date().getFullYear()} Lazar Nikolov
+      </p>
     </div>
 
-    <div class="footer--newsletter">
-      <strong class="footer--newsletter-title">Weekly newsletter</strong>
-      <p>Get free content and updates from me about web development, content creation, and other interesting things!</p>
-      <a href={NEWSLETTER_URL} rel="external nofollow noopener" target="_blank">Subscribe! ↗</a>
+    <div class='footer--newsletter'>
+      <strong class='footer--newsletter-title'>Weekly newsletter</strong>
+      <p>
+        Get free content and updates from me about web development, content
+        creation, and other interesting things!
+      </p>
+      <a href={NEWSLETTER_URL} rel='external nofollow noopener' target='_blank'
+        >Subscribe! ↗</a
+      >
     </div>
   </div>
 </footer>
