@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content'
 
 import MainLayout from '@/layouts/main.astro'
 import { getFormattedDate } from '@/utils/date'
+import { getHomepageCollection } from '@/utils/content'
 import {
   GITHUB_URL,
   TWITTER_URL,
@@ -11,23 +12,10 @@ import {
   NEWSLETTER_URL,
 } from '../constants'
 
-const allPosts = (await getCollection('blog')).sort(
-  (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime(),
-)
-const blogposts = allPosts.slice(0, 3)
-const hasMorePosts = allPosts.length > 3
-
-const allCourses = (await getCollection('courses')).sort(
-  (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime(),
-)
-const courses = allCourses.slice(0, 3)
-const hasMoreCourses = allCourses.length > 3
-
-const allTalks = (await getCollection('talks')).sort(
-  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
-)
-const talks = allTalks.slice(0, 3)
-const hasMoreTalks = allTalks.length > 3
+const [hasMorePosts, blogposts] = await getHomepageCollection('blog')
+const [hasMoreCourses, courses] = await getHomepageCollection('courses')
+const [hasMoreTalks, talks] = await getHomepageCollection('talks')
+const [hasMoreVideos, videos] = await getHomepageCollection('videos')
 ---
 
 <MainLayout>
@@ -100,7 +88,7 @@ const hasMoreTalks = allTalks.length > 3
                 >
                   {post.data.title} ↗︎
                 </a>
-                <p>{getFormattedDate(post.data.publishDate)}</p>
+                <p>{getFormattedDate(post.data.date)}</p>
               </div>
             ) : (
               <div class='content-table--list-item'>
@@ -110,7 +98,7 @@ const hasMoreTalks = allTalks.length > 3
                 >
                   {post.data.title}
                 </a>
-                <p>{getFormattedDate(post.data.publishDate)}</p>
+                <p>{getFormattedDate(post.data.date)}</p>
               </div>
             ),
           )
@@ -153,14 +141,27 @@ const hasMoreTalks = allTalks.length > 3
     <div class='content-table--section'>
       <h2>Videos</h2>
       <div class='content-table--section-list'>
-        <div class='content-table--list-item'>
-          <a href='#'>Fundamental Next.js API and Patterns</a>
-          <p>16 lessons</p>
-        </div>
-        <div class='content-table--list-item'>
-          <a href='#'>Fundamental Next.js API and Patterns</a>
-          <p>16 lessons</p>
-        </div>
+        {
+          videos.map((video) => (
+            <div class='content-table--list-item'>
+              <a
+                href={video.data.url}
+                target='_blank'
+                rel='external nofollow noopener'
+              >
+                {video.data.title}
+              </a>
+              <p>{format(video.data.date)}</p>
+            </div>
+          ))
+        }
+        {
+          hasMoreVideos && (
+            <a href='/videos' class='see-more'>
+              See more →︎
+            </a>
+          )
+        }
       </div>
     </div>
     <div class='content-table--section'>

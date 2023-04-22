@@ -1,7 +1,7 @@
 ---
 title: Rødecaster Pro Review - Is it worth the investment?
 tags: ['content creation']
-publishDate: April 7, 2023
+date: April 7, 2023
 ---
 
 I've been using The

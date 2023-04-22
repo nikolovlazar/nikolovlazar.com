@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content'
+
+import MainLayout from '@/layouts/main.astro'
+import PageTitle from '@/components/page-title.astro'
+import VideoCard from '@/components/video-card.astro'
+
+const videos = (await getCollection('videos')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+)
+---
+
+<MainLayout>
+  <PageTitle title='Videos' />
+
+  <ul class='videos'>
+    {
+      videos.map((video) => (
+        <li>
+          <VideoCard url={video.data.url} title={video.data.title} />
+        </li>
+      ))
+    }
+  </ul>
+</MainLayout>
+
+<style>
+  .videos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    overflow: hidden;
+    margin-top: 88px;
+  }
+
+  @media (max-width: 768px) {
+    .videos {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
