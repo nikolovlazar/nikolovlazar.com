@@ -1,14 +1,22 @@
 import { defineCollection, z } from 'astro:content'
 
 const BlogPosts = defineCollection({
-    schema: z.object({
-        title: z.string(),
-        tags: z.array(z.string()),
-        date: z.string().transform(str => new Date(str)),
-        isExternal: z.boolean().optional(),
-        externalUrl: z.string().optional(),
-        externalLabel: z.string().optional(),
-    }),
+    schema: z.discriminatedUnion("isExternal", [
+        z.object({
+            title: z.string(),
+            tags: z.array(z.string()),
+            date: z.string().transform(str => new Date(str)),
+            isExternal: z.literal(true),
+            externalUrl: z.string(),
+            externalLabel: z.string(),
+        }),
+        z.object({
+            title: z.string(),
+            tags: z.array(z.string()),
+            date: z.string().transform(str => new Date(str)),
+            isExternal: z.literal(false),
+        }),
+    ]),
 })
 
 const Courses = defineCollection({

@@ -2,6 +2,7 @@
 title: Generating blurDataURL for remote images in Next.js
 tags: ['next.js']
 date: December 19, 2021
+isExternal: false
 ---
 
 The Next.js

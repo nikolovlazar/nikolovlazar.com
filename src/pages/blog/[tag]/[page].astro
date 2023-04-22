@@ -1,71 +1,109 @@
 ---
-import { CollectionEntry, getCollection } from 'astro:content';
-import slugify from 'slugify';
+import { CollectionEntry, getCollection } from 'astro:content'
+import slugify from 'slugify'
 
-import Post from '@/components/post.astro';
-import MainLayout from '@/layouts/main.astro';
-import PageTitle from '@/components/page-title.astro';
-import Tags from '@/components/tags.astro';
-import { POSTS_PER_PAGE } from '../../../constants';
+import Post from '@/components/post.astro'
+import MainLayout from '@/layouts/main.astro'
+import PageTitle from '@/components/page-title.astro'
+import Tags from '@/components/tags.astro'
+import { POSTS_PER_PAGE } from '../../../constants'
 
-export async function getStaticPaths() {
-  const allPosts = await getCollection("blog");
-
-  const rawTags = allPosts.flatMap(({ data }) => data.tags);
-  rawTags.push("all");
-  const tagsSet = new Set(rawTags);
-  const tags = Array.from(tagsSet.keys()).sort();
-
-  return await Promise.all(tags.flatMap(async (tag) => {
-    const taggedPosts = tag === "all" ? allPosts : allPosts.filter(({ data }) => data.tags.includes(tag));
-    const numPages = Math.ceil(taggedPosts.length / POSTS_PER_PAGE);
-
-    return await Promise.all(Array.from(Array(numPages).keys()).map(k => k+1).map(async (p) => {
-      const filteredPosts = await Promise.all(taggedPosts
-        .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime())
-        .slice((p- 1) * POSTS_PER_PAGE, (p-1) * POSTS_PER_PAGE + POSTS_PER_PAGE)
-        .map(async (post) => ({...post, readingTime: Math.round((await post.render()).remarkPluginFrontmatter?.estReadingTime) }))
-      );
-
-      return ({
-        params: { page: p, tag: slugify(tag) },
-        props: { filteredPosts: JSON.stringify(filteredPosts), page: p, numPages, tag: slugify(tag), tags },
-      });
-    }));
-  }));
+type EnhancedPost = CollectionEntry<'blog'> & {
+  readingTime: number
 }
 
-const { filteredPosts, page, tag, numPages, tags } = Astro.props;
-const posts = JSON.parse(filteredPosts) as CollectionEntry<"blog">;
+export async function getStaticPaths() {
+  const allPosts = await getCollection('blog')
+
+  const rawTags = allPosts.flatMap(({ data }) => data.tags)
+  rawTags.push('all')
+  const tagsSet = new Set(rawTags)
+  const tags = Array.from(tagsSet.keys()).sort()
+
+  return await Promise.all(
+    tags.flatMap(async (tag) => {
+      const taggedPosts =
+        tag === 'all'
+          ? allPosts
+          : allPosts.filter(({ data }) => data.tags.includes(tag))
+      const numPages = Math.ceil(taggedPosts.length / POSTS_PER_PAGE)
+
+      return await Promise.all(
+        Array.from(Array(numPages).keys())
+          .map((k) => k + 1)
+          .map(async (p) => {
+            const filteredPosts = await Promise.all(
+              taggedPosts
+                .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+                .slice(
+                  (p - 1) * POSTS_PER_PAGE,
+                  (p - 1) * POSTS_PER_PAGE + POSTS_PER_PAGE,
+                )
+                .map(async (post) => ({
+                  ...post,
+                  readingTime: Math.round(
+                    (
+                      await post.render()
+                    ).remarkPluginFrontmatter?.estReadingTime,
+                  ),
+                })),
+            )
+
+            return {
+              params: { page: p, tag: slugify(tag) },
+              props: {
+                filteredPosts: JSON.stringify(filteredPosts),
+                page: p,
+                numPages,
+                tag: slugify(tag),
+                tags,
+              },
+            }
+          }),
+      )
+    }),
+  )
+}
+
+const { filteredPosts, page, tag, numPages, tags } = Astro.props
+const posts = JSON.parse(filteredPosts) as EnhancedPost[]
 ---
 
 <MainLayout>
-  <PageTitle title="Writing" />
-  <Tags tags={tags} selected={tag} urlPattern="/blog/{t}/1" />
+  <PageTitle title='Writing' />
+  <Tags tags={tags} selected={tag} urlPattern='/blog/{t}/1' />
 
-  <ul class="posts">
-    {posts.map((post) => (
-      <li>
-        <Post post={post} />
-      </li>
-    ))}
+  <ul class='posts'>
+    {
+      posts.map((post) => (
+        <li>
+          <Post post={post} />
+        </li>
+      ))
+    }
   </ul>
 
-  {numPages > 1 && (
-    <ul class="pagination">
-      {Array.from(Array(numPages).keys()).map(k => k+1).map((p) =>
-        p === page ? (
-          <li>
-            <span class="pagination--item active">{p}</span>
-          </li>
-        ) : (
-          <li>
-            <a class="pagination--item" href={`/blog/${tag}/${p}`}>{p}</a>
-          </li>
-        )
-      )}
-    </ul>
-  )}
+  {
+    numPages > 1 && (
+      <ul class='pagination'>
+        {Array.from(Array(numPages).keys())
+          .map((k) => k + 1)
+          .map((p) =>
+            p === page ? (
+              <li>
+                <span class='pagination--item active'>{p}</span>
+              </li>
+            ) : (
+              <li>
+                <a class='pagination--item' href={`/blog/${tag}/${p}`}>
+                  {p}
+                </a>
+              </li>
+            ),
+          )}
+      </ul>
+    )
+  }
 </MainLayout>
 
 <style>
