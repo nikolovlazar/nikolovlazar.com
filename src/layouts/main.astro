@@ -1,68 +1,73 @@
 ---
-import { SEO } from 'astro-seo';
+import { SEO } from 'astro-seo'
 
-import '@/styles/index.css';
-import '@/styles/reset.css';
-import '@/styles/tokens.css';
-import '@/styles/globals.css';
-import '@/styles/utilities.css';
+import '@/styles/index.css'
+import '@/styles/reset.css'
+import '@/styles/tokens.css'
+import '@/styles/globals.css'
+import '@/styles/utilities.css'
 
-import Header from '@/components/header.astro';
-import Footer from '@/components/footer.astro';
-import PageTitle from '@/components/page-title.astro';
+import Header from '@/components/header.astro'
+import Footer from '@/components/footer.astro'
+import PageTitle from '@/components/page-title.astro'
 
 export interface Props {
-  title?: string;
-  desc?: string;
-  ogimage?: string;
+  title?: string
+  desc?: string
+  ogimage?: string
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString()
 
-const { title, desc, ogimage } = Astro.props;
+const { title, desc, ogimage } = Astro.props
 
-const makeTitle = title ? `${title} | Lazar Nikolov` : 'Lazar Nikolov - Developer, designer, course creator.';
+const makeTitle = title
+  ? `${title} | Lazar Nikolov`
+  : 'Lazar Nikolov - Developer, designer, course creator.'
 
 const resolvedImage = ogimage ?? new URL('/ogimage.png', Astro.site).toString()
 ---
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='generator' content={Astro.generator} />
+    <link rel='sitemap' href='/sitemap-index.xml' />
+    <link rel='me' href='https://fosstodon.org/@nikolovlazar' />
+    <link rel='me' href='https://twitter.com/nikolovlazar' />
+    <link rel='me' href='https://github.com/nikolovlazar' />
 
     <SEO
       title={makeTitle}
-      description={desc || "I'm a full-stack engineer that leans a bit more on the frontend side. I'm a DevRel at Sentry. I create content on YouTube and egghead.io."}
+      description={desc ||
+        "I'm a full-stack engineer that leans a bit more on the frontend side. I'm a DevRel at Sentry. I create content on YouTube and egghead.io."}
       canonical={canonicalURL}
       twitter={{
-        creator: "@NikolovLazar",
-        site: "@NikolovLazar",
-        card: "summary_large_image",
+        creator: '@NikolovLazar',
+        site: '@NikolovLazar',
+        card: 'summary_large_image',
       }}
       openGraph={{
         basic: {
           url: canonicalURL,
-          type: "website",
+          type: 'website',
           title: makeTitle,
           image: resolvedImage,
         },
         image: {
-          alt: "Lazar Nikolov's website"
-        }
+          alt: "Lazar Nikolov's website",
+        },
       }}
     />
   </head>
   <body>
-    <div class="container">
+    <div class='container'>
       <Header />
       <main>
-        {title && (
-          <PageTitle title={title} />
-        )}
+        {title && <PageTitle title={title} />}
         <slot />
       </main>
       <Footer />
