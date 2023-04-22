@@ -69,8 +69,9 @@ import { Node } from 'unist'
 import { visit } from 'unist-util-visit'
 import { promisify } from 'util'
 
-// Convert the imageSize method from callback-based to a Promise-based
-// promisify is a built-in nodejs utility function btw
+// Convert the imageSize method from callback-based to a
+// Promise-based promisify is a built-in nodejs utility
+// function
 const sizeOf = promisify(imageSize)
 
 // The ImageNode type, because we're using TypeScript
@@ -104,29 +105,47 @@ async function addProps(node: ImageNode): Promise<void> {
     // Check if the image is external (remote)
     const isExternal = node.properties.src.startsWith('http')
 
-    // If it's local, we can use the sizeOf method directly, and pass the path of the image
+    // If it's local, we can use the sizeOf method directly,
+    // and pass the path of the image
     if (!isExternal) {
+
         // Calculate image resolution (width, height)
         res = await sizeOf(
-            path.join(process.cwd(), 'public', node.properties.src)
+            path.join(
+                process.cwd(),
+                'public',
+                node.properties.src,
+            )
         )
+
         // Calculate base64 for the blur
-        blur64 = (await getPlaiceholder(node.properties.src)).base64
+        blur64 = (
+            await getPlaiceholder(node.properties.src)
+        ).base64
     } else {
-        // If the image is external (remote), we'd want to fetch it first
+
+        // If the image is external (remote), we'd want
+        // to fetch it first
         const imageRes = await fetch(node.properties.src)
+
         // Convert the HTTP result into a buffer
         const arrayBuffer = await imageRes.arrayBuffer()
         const buffer = Buffer.from(arrayBuffer)
 
-        // Calculate the resolution using a buffer instead of a file path
+        // Calculate the resolution using a buffer instead
+        // of a file path
         res = await imageSize(buffer)
-        // Calculate the base64 for the blur using the same buffer
+
+        // Calculate the base64 for the blur using the
+        // same buffer
         blur64 = (await getPlaiceholder(buffer)).base64
     }
 
-    // If an error happened calculating the resolution, throw an error
-    if (!res) throw Error(`Invalid image with src "${node.properties.src}"`)
+    // If an error happened calculating the resolution,
+    // throw an error
+    if (!res) {
+        throw Error(`Invalid image with src "${node.properties.src}"`)
+    }
 
     // add the props in the properties object of the node
     // the properties object later gets transformed as props
@@ -139,18 +158,24 @@ async function addProps(node: ImageNode): Promise<void> {
 
 const imageMetadata = () => {
     return async function transformer(tree: Node): Promise<Node> {
-        // Create an array to hold all of the images from the markdown file
+
+        // Create an array to hold all of the images from
+        // the markdown file
         const images: ImageNode[] = []
 
         visit(tree, 'element', node => {
-            // Visit every node in the tree, check if it's an image and push it in the images array
+
+            // Visit every node in the tree, check if it's an
+            // image and push it in the images array
             if (isImageNode(node)) {
                 images.push(node)
             }
         })
 
         for (const image of images) {
-            // Loop through all of the images and add their props
+
+            // Loop through all of the images and add
+            // their props
             await addProps(image)
         }
 
@@ -170,10 +195,12 @@ export const getStaticProps: GetStaticProps<Props> = async ctx => {
     // get the post slug from the params
     const slug = ctx.params.slug as string
 
-    // get the post content. readBlogPost just reads the file contents using fs.readFile(postPath, 'utf8')
+    // get the post content. readBlogPost just reads the file
+    // contents using fs.readFile(postPath, 'utf8')
     const postContent = await readBlogPost(slug)
 
-    // Use the gray-matter package to isolate the markdown matter (title, description, date) from the content
+    // Use the gray-matter package to isolate the markdown matter
+    // (title, description, date) from the content
     const {
         content,
         data: { title, description, date },
@@ -181,10 +208,15 @@ export const getStaticProps: GetStaticProps<Props> = async ctx => {
 
     return {
         props: {
-            // use the serialize method from the 'next-mdx-remote/serialize' package to compile the MDX
+
+            // use the serialize method from the
+            // 'next-mdx-remote/serialize' package
+            // to compile the MDX
             source: await serialize(content, {
                 mdxOptions: {
-                    // pass the imageMetadata utility function we just created
+
+                    // pass the imageMetadata utility function
+                    // we just created
                     rehypePlugins: [imageMetadata],
                 },
             }),
