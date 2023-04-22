@@ -4,63 +4,61 @@ import {
   YOUTUBE_URL,
   TWITTER_URL,
   GITHUB_URL,
-  POLYWORK_URL,
 } from '../constants'
 import Logo from './logo.astro'
 
 const footerLinks = [
-  {
-    label: 'About',
-    url: '/about',
-  },
-  {
-    label: 'Blog',
-    url: '/blog/all/1',
-  },
-  {
-    label: 'YouTube',
-    url: YOUTUBE_URL,
-    isExternal: true,
-  },
-  {
-    label: 'Uses',
-    url: '/uses',
-  },
-  {
-    label: 'Courses',
-    url: '/courses',
-  },
-  {
-    label: 'Twitter',
-    url: TWITTER_URL,
-    isExternal: true,
-  },
-  {
-    label: 'Books',
-    url: '/books',
-  },
-  {
-    label: 'Videos',
-    url: '/videos',
-  },
-  {
-    label: 'GitHub',
-    url: GITHUB_URL,
-    isExternal: true,
-  },
-  {
-    label: 'Colophon',
-    url: '/colophon',
-  },
-  {
-    label: 'Talks',
-    url: '/talks',
-  },
-  {
-    label: 'Polywork',
-    url: POLYWORK_URL,
-    isExternal: true,
-  },
+  [
+    {
+      label: 'About',
+      url: '/about',
+      isExternal: false,
+    },
+    {
+      label: 'Uses',
+      url: '/uses',
+      isExternal: false,
+    },
+    {
+      label: 'Colophon',
+      url: '/colophon',
+      isExternal: false,
+    },
+  ],
+  [
+    {
+      label: 'Blog',
+      url: '/blog/all/1',
+      isExternal: false,
+    },
+    {
+      label: 'Videos',
+      url: '/videos',
+      isExternal: false,
+    },
+    {
+      label: 'Talks',
+      url: '/talks',
+      isExternal: false,
+    },
+  ],
+  [
+    {
+      label: 'YouTube',
+      url: YOUTUBE_URL,
+      isExternal: true,
+    },
+    {
+      label: 'Twitter',
+      url: TWITTER_URL,
+      isExternal: true,
+    },
+    {
+      label: 'GitHub',
+      url: GITHUB_URL,
+      isExternal: true,
+    },
+  ],
 ]
 ---
 
@@ -75,15 +73,23 @@ const footerLinks = [
     <div class='footer--links'>
       <div class='footer--links-grid'>
         {
-          footerLinks.map(({ label, url, isExternal }) =>
-            isExternal ? (
-              <a href={url} rel='external nofollow noopener' target='_blank'>
-                {label}
-              </a>
-            ) : (
-              <a href={url}>{label}</a>
-            ),
-          )
+          footerLinks.map((group) => (
+            <div class='footer--links-group'>
+              {group.map(({ isExternal, url, label }) =>
+                isExternal ? (
+                  <a
+                    href={url}
+                    rel='external nofollow noopener'
+                    target='_blank'
+                  >
+                    {label}
+                  </a>
+                ) : (
+                  <a href={url}>{label}</a>
+                ),
+              )}
+            </div>
+          ))
         }
       </div>
       <p class='footer--copyright'>
@@ -127,7 +133,12 @@ const footerLinks = [
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 28px;
-    grid-row-gap: 18px;
+  }
+
+  .footer--links-group {
+    display: flex;
+    flex-direction: column;
+    row-gap: 18px;
   }
 
   .footer--copyright {
