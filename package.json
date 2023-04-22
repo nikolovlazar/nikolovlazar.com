@@ -21,6 +21,7 @@
         "@astrojs/sitemap": "^1.2.2",
         "markdown-it": "^13.0.1",
         "mdast-util-to-string": "^3.2.0",
+        "node-html-parser": "^6.1.5",
         "prettier": "^2.8.7",
         "prettier-plugin-astro": "^0.8.0",
         "reading-time": "^1.5.0",
@@ -31,6 +32,7 @@
         "sanitize-html": "^2.10.0",
         "sharp": "^0.32.0",
         "slugify": "^1.6.6",
-        "timeago.js": "^4.0.2"
+        "timeago.js": "^4.0.2",
+        "unist-util-visit": "^4.1.2"
     }
 }

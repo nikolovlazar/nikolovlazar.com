@@ -9,7 +9,9 @@
         --colors-background: var(--light);
         --colors-foreground: var(--dark);
 
-        --font-code: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo,
+        --font-code: 'IBM Plex Mono Regular', ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo,
+            Consolas, 'DejaVu Sans Mono', monospace;
+        --font-code-italic: 'IBM Plex Mono Italic', ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo,
             Consolas, 'DejaVu Sans Mono', monospace;
         --font-regular: 'IBM Plex Serif Regular', 'IBM Plex Serif-fallback',
             Rockwell, 'Rockwell Nova', 'Roboto Slab', 'DejaVu Serif',

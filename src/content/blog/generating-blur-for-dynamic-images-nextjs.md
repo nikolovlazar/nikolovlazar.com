@@ -208,6 +208,8 @@ const Image = props => {
             layout="responsive"
             loading="lazy"
             quality={100}
+            bool={false}
+            decimal={3.14}
         />
     )
 }

@@ -1,7 +1,7 @@
 import getReadingTime from 'reading-time'
 import { toString } from 'mdast-util-to-string'
 
-export const remarkReadingTime = () => {
+export default function remarkReadingTime() {
     return function(tree, { data }) {
         const textOnPage = toString(tree)
         const readingTime = getReadingTime(textOnPage)

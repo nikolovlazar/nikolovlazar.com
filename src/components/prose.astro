@@ -66,11 +66,13 @@
     height: auto;
   }
   .prose pre {
-    padding: 16px;
-    overflow: auto;
+    overflow: hidden;
   }
   .prose pre code {
     font-family: var(--font-code);
+    flex: 1;
+    overflow-x: auto;
+    padding: 16px;
   }
   .prose pre code span {
     font-family: inherit;
@@ -81,5 +83,106 @@
   .prose code::before,
   .prose code::after {
     content: '`';
+  }
+  .prose pre > code::before,
+  .prose pre > code::after {
+    content: '';
+  }
+
+  /* code block theming */
+  .prose pre[class^='language-'] {
+    background: #fbfaf9;
+    display: flex;
+  }
+  .prose pre[class^='language-'] aside {
+    user-select: none;
+    flex-shrink: 0;
+    content: attr(data-lang);
+    background: #ded5cd;
+    padding: 4px;
+    border-left: 1px solid #d18e5b;
+    writing-mode: vertical-lr;
+    font-size: var(--fontSizes-sm);
+    padding-top: 12px;
+  }
+  .prose pre[class^='language-'] code::-webkit-scrollbar {
+    height: 12px;
+  }
+  .prose pre[class^='language-'] code::-webkit-scrollbar-thumb {
+    background: #d6cbc1;
+    cursor: pointer;
+  }
+  .prose pre[class^='language-'] code span.token.comment {
+    color: #7c6f64;
+    font-family: var(--font-code-italic);
+  }
+  .prose pre[class^='language-'] code span.token.punctuation {
+    color: #6e645a;
+  }
+  .prose pre[class^='language-'] code span.token.operator {
+    color: #9780d1;
+  }
+  .prose pre[class^='language-'] code span.token.keyword {
+    color: #e94d1f;
+  }
+  .prose pre[class^='language-'] code span.token.string {
+    color: #6c6920;
+  }
+  .prose pre[class^='language-'] code span.token.function {
+    color: #a26e26;
+  }
+  .prose pre[class^='language-'] code span.token.builtin {
+    color: #a26e26;
+  }
+  .prose pre[class^='language-'] code span.token.class-name {
+    color: #8070a9;
+  }
+  .prose pre[class^='language-'] code span.token.number {
+    color: #418cd4;
+  }
+  .prose pre[class^='language-'] code span.token.boolean {
+    color: #b73ab2;
+  }
+  @media (prefers-color-scheme: dark) {
+    .prose pre[class^='language-'] {
+      background: #171717;
+    }
+    .prose pre[class^='language-'] aside {
+      background: #575775;
+      border-left: 1px solid #d18e5b;
+    }
+    .prose pre[class^='language-'] code::-webkit-scrollbar-thumb {
+      background: #575775;
+    }
+    .prose pre[class^='language-'] code span.token.comment {
+      color: #7c6f64;
+    }
+    .prose pre[class^='language-'] code span.token.punctuation {
+      color: #ffcc99;
+    }
+    .prose pre[class^='language-'] code span.token.operator {
+      color: #99ddff;
+    }
+    .prose pre[class^='language-'] code span.token.keyword {
+      color: #dd99ff;
+    }
+    .prose pre[class^='language-'] code span.token.string {
+      color: #ccff99;
+    }
+    .prose pre[class^='language-'] code span.token.function {
+      color: #4ebca6;
+    }
+    .prose pre[class^='language-'] code span.token.builtin {
+      color: #a26e26;
+    }
+    .prose pre[class^='language-'] code span.token.class-name {
+      color: #99ddff;
+    }
+    .prose pre[class^='language-'] code span.token.number {
+      color: #ff99dd;
+    }
+    .prose pre[class^='language-'] code span.token.boolean {
+      color: #f0ba53;
+    }
   }
 </style>

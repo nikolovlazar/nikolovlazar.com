@@ -7,7 +7,8 @@ import rehypeExternalLinks from 'rehype-external-links'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeSlug from 'rehype-slug'
 
-import { remarkReadingTime } from './src/utils/content'
+import rehypeCodeBlockEnhancer from './src/markdown-plugins/rehype-code-block-enhancer'
+import remarkReadingTime from './src/markdown-plugins/remark-reading-time'
 
 // https://astro.build/config
 export default defineConfig({
@@ -21,6 +22,7 @@ export default defineConfig({
     markdown: {
         remarkPlugins: [remarkReadingTime],
         rehypePlugins: [
+            rehypeCodeBlockEnhancer,
             lazyLoadPlugin,
             rehypeSlug,
             [
@@ -41,6 +43,7 @@ export default defineConfig({
             ],
         ],
         extendDefaultPlugins: true,
+        syntaxHighlight: 'prism',
     },
 
     integrations: [mdx(), sitemap()],
