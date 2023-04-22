@@ -21,9 +21,7 @@ I was having a band practice one day back in high school (did I mention I played
 
 So I started learning Java to build an app that would let me "cheat" on my graduation math exam. I called it Pocket Formulas. I didn't end up finishing the app in time, so I simply studied for the exam. I did finish it afterwards and published it on Google Play. 10k people downloaded it! That gave me a huge motivational boost to keep getting better at coding.
 
-Fast forward to 2015. I get hired as an Android developer after giving a talk at a local conference after Peter Sunde from ThePirateBay. That's how I started my professional career. While I was working on an Android app for a client, I was learning iOS in the meantime. Eventually I'd take on an iOS project after convincing my manager that I can pull it off. It was fun working on those apps. I was working on an Android TV and Apple TV app similar to Netflix. I actually wasn't aware of Netflix's existence back then.
-
-A year went by and I decided to move to a different company because my roommate and university friends were there. I was also the only mobile developer in the previous company and I needed a mentor. I was the 6th person in that company, and helped it grow to almost 70. During those 6 years I solidified my foundational knowledge and gained a lot of experience in both web and mobile development.
+Fast forward to 2015. I get hired as an Android developer after giving a talk at a local conference after Peter Sunde from ThePirateBay. That's how I started my professional career. 
 
 ![A photo of Lazar Nikolov](../assets/lazar-2.jpg)
 
@@ -31,6 +29,6 @@ Around the middle of 2019 the idea of creating content for other dev folks reall
 
 And that's how I got dragged into Developer Advocacy. I was doing DevRel for Chakra UI in my afterwork hours. I became really good friends with the Chakra UI team, had fun growing the framework with them, and even had a chance to see them in real life during our two meetups at Dubai.
 
-DevRel started to grow on me day by day. I started day dreaming about it being my full time job instead of my hobby. Then in 2022 a recruiter shoots me an email. He told me he has seen my work and wanted to ask me if I'm interested to join a brand new DevRel team. Oh wow. After a lot thoughts put into it, and discussions with my wife, I decided to go for it. I passed the interviews, got the job, and moved to Canada with my wife and our cat.
+One day I decided to make it my full-time job. Passed an interview, accepted a job offer, and moved to Toronto with my wife and our cat do to Developer Advocacy.
 
 And now we're here. That's the story for now.
