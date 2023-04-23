@@ -5,6 +5,7 @@ import {
   TWITTER_URL,
   GITHUB_URL,
 } from '../constants'
+import ExternalLink from './external-link.astro'
 import Logo from './logo.astro'
 
 const footerLinks = [
@@ -77,13 +78,7 @@ const footerLinks = [
             <div class='footer--links-group'>
               {group.map(({ isExternal, url, label }) =>
                 isExternal ? (
-                  <a
-                    href={url}
-                    rel='external nofollow noopener'
-                    target='_blank'
-                  >
-                    {label}
-                  </a>
+                  <ExternalLink href={url}>{label}</ExternalLink>
                 ) : (
                   <a href={url}>{label}</a>
                 ),
@@ -103,9 +98,7 @@ const footerLinks = [
         Get free content and updates from me about web development, content
         creation, and other interesting things!
       </p>
-      <a href={NEWSLETTER_URL} rel='external nofollow noopener' target='_blank'
-        >Subscribe! ↗</a
-      >
+      <ExternalLink href={NEWSLETTER_URL}>Subscribe!</ExternalLink>
     </div>
   </div>
 </footer>
@@ -139,6 +132,7 @@ const footerLinks = [
     display: flex;
     flex-direction: column;
     row-gap: 18px;
+    width: max-content;
   }
 
   .footer--copyright {

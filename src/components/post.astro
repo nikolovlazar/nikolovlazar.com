@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content'
 import { format } from 'timeago.js'
+import ExternalLink from './external-link.astro'
 
 interface Props {
   post: CollectionEntry<'blog'> & {
@@ -17,14 +18,9 @@ const published = format(post.data.date)
   {
     post.data.isExternal ? (
       <article>
-        <a
-          class='post--title'
-          href={post.data.externalUrl}
-          rel='external nofollow noopener'
-          target='_blank'
-        >
+        <ExternalLink className='post--title' href={post.data.externalUrl}>
           {post.data.title}
-        </a>
+        </ExternalLink>
       </article>
     ) : (
       <article>

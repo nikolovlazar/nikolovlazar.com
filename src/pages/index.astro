@@ -10,6 +10,7 @@ import {
   YOUTUBE_URL,
   NEWSLETTER_URL,
 } from '../constants'
+import ExternalLink from '@/components/external-link.astro'
 
 const [hasMorePosts, blogposts] = await getHomepageCollection('blog')
 const [hasMoreCourses, courses] = await getHomepageCollection('courses')
@@ -22,18 +23,16 @@ const [hasMoreVideos, videos] = await getHomepageCollection('videos')
     <div class='hero--text'>
       <h1>Hi, my name is Lazar Nikolov.</h1>
       <p>
-        Born in &apos;94. I work at <a
-          target='_blank'
-          target='_blank'
-          rel='external nofollow noopener'
-          href='https://sentry.io/welcome'>Sentry.io ↗</a
-        > as a Developer Advocate. I&apos;m a full-stack engineer, a designer, a
-        content creator, and an <a
-          target='_blank'
-          target='_blank'
-          rel='external nofollow noopener'
-          href='https://egghead.io'>egghead.io ↗</a
-        > instuctor. Based in Canada.
+        Born in &apos;94. I work at <ExternalLink
+          href='https://sentry.io/welcome'
+        >
+          Sentry.io
+        </ExternalLink> as a Developer Advocate. I&apos;m a full-stack engineer,
+        a designer, a content creator, and an <ExternalLink
+          href='https://egghead.io'
+        >
+          egghead.io
+        </ExternalLink> instuctor. Based in Canada.
       </p>
     </div>
   </div>
@@ -52,13 +51,9 @@ const [hasMoreVideos, videos] = await getHomepageCollection('videos')
         {
           courses.map((course) => (
             <div class='content-table--list-item'>
-              <a
-                href={course.data.url}
-                target='_blank'
-                rel='external nofollow noopener'
-              >
-                {course.data.title} ↗︎
-              </a>
+              <ExternalLink href={course.data.url}>
+                {course.data.title}
+              </ExternalLink>
               <p>{course.data.numberOfLessons} lessons</p>
             </div>
           ))
@@ -79,14 +74,12 @@ const [hasMoreVideos, videos] = await getHomepageCollection('videos')
           blogposts.map((post) =>
             post.data.isExternal ? (
               <div class='content-table--list-item'>
-                <a
-                  class='content-table--item-title'
-                  target='_blank'
-                  rel='external nofollow noopener'
+                <ExternalLink
+                  className='content-table--item-title'
                   href={post.data.externalUrl}
                 >
-                  {post.data.title} ↗︎
-                </a>
+                  {post.data.title}
+                </ExternalLink>
                 <p>{getFormattedDate(post.data.date)}</p>
               </div>
             ) : (
@@ -117,13 +110,12 @@ const [hasMoreVideos, videos] = await getHomepageCollection('videos')
         {
           talks.map((talk) => (
             <div class='content-table--list-item'>
-              <a
+              <ExternalLink
+                className='content-table--item-title'
                 href={talk.data.url}
-                target='_blank'
-                rel='external nofollow noopener'
               >
-                {talk.data.title} ↗︎
-              </a>
+                {talk.data.title}
+              </ExternalLink>
               <p>{format(talk.data.date)}</p>
             </div>
           ))
@@ -143,13 +135,12 @@ const [hasMoreVideos, videos] = await getHomepageCollection('videos')
         {
           videos.map((video) => (
             <div class='content-table--list-item'>
-              <a
+              <ExternalLink
+                className='content-table--item-title'
                 href={video.data.url}
-                target='_blank'
-                rel='external nofollow noopener'
               >
                 {video.data.title}
-              </a>
+              </ExternalLink>
               <p>{format(video.data.date)}</p>
             </div>
           ))
@@ -166,20 +157,10 @@ const [hasMoreVideos, videos] = await getHomepageCollection('videos')
     <div class='content-table--section'>
       <h2>Social</h2>
       <div class='content-table--section-links'>
-        <a href={YOUTUBE_URL} target='_blank' rel='external nofollow noopener'
-          >YouTube ↗︎</a
-        >
-        <a
-          href={NEWSLETTER_URL}
-          target='_blank'
-          rel='external nofollow noopener'>Newsletter ↗︎</a
-        >
-        <a href={TWITTER_URL} target='_blank' rel='external nofollow noopener'
-          >Twitter ↗︎</a
-        >
-        <a href={GITHUB_URL} target='_blank' rel='external nofollow noopener'
-          >GitHub ↗︎</a
-        >
+        <ExternalLink href={YOUTUBE_URL}>YouTube</ExternalLink>
+        <ExternalLink href={NEWSLETTER_URL}>Newsletter</ExternalLink>
+        <ExternalLink href={TWITTER_URL}>Twitter</ExternalLink>
+        <ExternalLink href={GITHUB_URL}>GitHub</ExternalLink>
       </div>
     </div>
   </div>
