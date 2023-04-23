@@ -32,7 +32,7 @@ export default defineConfig({
     syntaxHighlight: 'prism'
   },
   integrations: [mdx(), sitemap()],
-  output: "server",
+  output: "static",
   adapter: vercel({
     analytics: true
   })
