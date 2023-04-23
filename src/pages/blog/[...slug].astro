@@ -50,6 +50,18 @@ const { Content, remarkPluginFrontmatter } = await post.render()
   h1 {
     font-size: var(--prose-h1);
   }
+  article > .utterances {
+    margin-top: 80px;
+  }
+  article .utterances-frame {
+    margin-top: 20px;
+    padding-top: 12px;
+  }
+  article > .utterances::before {
+    content: 'Liked the article? Let me know your thoughts down below:';
+    font-size: var(--fontSizes-xl);
+    font-family: var(--font-semibold);
+  }
   .title-container--info {
     display: flex;
     justify-content: space-between;
