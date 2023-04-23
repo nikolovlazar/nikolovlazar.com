@@ -98,7 +98,9 @@ const footerLinks = [
         Get free content and updates from me about web development, content
         creation, and other interesting things!
       </p>
-      <ExternalLink href={NEWSLETTER_URL}>Subscribe!</ExternalLink>
+      <ExternalLink className='subscribe-link' href={NEWSLETTER_URL}>
+        Subscribe!
+      </ExternalLink>
     </div>
   </div>
 </footer>
@@ -147,7 +149,7 @@ const footerLinks = [
   .footer--newsletter-title {
     font-size: var(--fontSizes-2xl);
   }
-  .footer--newsletter a {
+  .footer--newsletter .subscribe-link {
     color: var(--colors-red);
   }
 

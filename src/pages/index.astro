@@ -21,9 +21,9 @@ const [hasMoreVideos, videos] = await getHomepageCollection('videos')
 <MainLayout title='Hey' showTitleHeader={false}>
   <div class='hero'>
     <div class='hero--text'>
-      <h1>Hi, my name is Lazar Nikolov.</h1>
+      <h1>Hello, I'm Lazar Nikolov.</h1>
       <p>
-        Born in &apos;94. I work at <ExternalLink
+        Born in &apos;94. Based in Canada. I work at <ExternalLink
           href='https://sentry.io/welcome'
         >
           Sentry.io
@@ -32,7 +32,7 @@ const [hasMoreVideos, videos] = await getHomepageCollection('videos')
           href='https://egghead.io'
         >
           egghead.io
-        </ExternalLink> instuctor. Based in Canada.
+        </ExternalLink> instuctor.
       </p>
     </div>
   </div>
@@ -80,7 +80,7 @@ const [hasMoreVideos, videos] = await getHomepageCollection('videos')
                 >
                   {post.data.title}
                 </ExternalLink>
-                <p>{getFormattedDate(post.data.date)}</p>
+                <p>{format(post.data.date)}</p>
               </div>
             ) : (
               <div class='content-table--list-item'>
@@ -90,7 +90,7 @@ const [hasMoreVideos, videos] = await getHomepageCollection('videos')
                 >
                   {post.data.title}
                 </a>
-                <p>{getFormattedDate(post.data.date)}</p>
+                <p>{format(post.data.date)}</p>
               </div>
             ),
           )
@@ -202,7 +202,7 @@ const [hasMoreVideos, videos] = await getHomepageCollection('videos')
     display: grid;
     grid-template-columns: 1fr 2fr;
     border-top: 1px solid var(--colors-foreground);
-    padding: 6px 8px;
+    padding: 8px;
   }
 
   .content-table--section:last-of-type {
@@ -226,7 +226,7 @@ const [hasMoreVideos, videos] = await getHomepageCollection('videos')
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    row-gap: 6px;
+    row-gap: 8px;
   }
 
   .content-table--list-item {
