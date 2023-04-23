@@ -1,4 +1,5 @@
 ---
+import ExternalLink from '@/components/external-link.astro'
 import MainLayout from '@/layouts/main.astro'
 ---
 
@@ -8,6 +9,11 @@ import MainLayout from '@/layouts/main.astro'
 >
   <h1>404</h1>
   <h2>It seems that the page you're looking for doesn't exist...</h2>
+  <h4>
+    Maybe it's on the <ExternalLink href='https://v1.nikolovlazar.com'>
+      v1 website
+    </ExternalLink>?
+  </h4>
 </MainLayout>
 
 <style>
@@ -18,6 +24,12 @@ import MainLayout from '@/layouts/main.astro'
   }
   h2 {
     font-size: var(--fontSizes-xl);
+    font-family: var(--font-code);
+    text-align: center;
+    margin-top: 32px;
+  }
+  h4 {
+    font-size: var(--fontSizes-base);
     font-family: var(--font-code);
     text-align: center;
     margin-top: 32px;
