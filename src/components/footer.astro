@@ -150,12 +150,26 @@ const footerLinks = [
     font-size: var(--fontSizes-2xl);
   }
   .footer--newsletter .subscribe-link {
+    display: flex;
+    width: min-content;
+    padding: 4px 6px;
+    background: var(--colors-red);
+    color: var(--colors-cosmic-latte);
+  }
+  .footer--newsletter .subscribe-link:hover {
     color: var(--colors-red);
+    background: var(--colors-background);
   }
 
   @media (prefers-color-scheme: dark) {
-    .footer--newsletter a {
+    .footer--newsletter .subscribe-link {
+      background: var(--colors-yellow);
+      color: var(--colors-rich-black);
+    }
+
+    .footer--newsletter .subscribe-link:hover {
       color: var(--colors-yellow);
+      background: var(--colors-background);
     }
   }
 

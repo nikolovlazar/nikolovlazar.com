@@ -18,7 +18,7 @@ const [hasMoreTalks, talks] = await getHomepageCollection('talks')
 const [hasMoreVideos, videos] = await getHomepageCollection('videos')
 ---
 
-<MainLayout title='Hey' showTitleHeader={false}>
+<MainLayout title='Hello' showTitleHeader={false}>
   <div class='hero'>
     <div class='hero--text'>
       <h1>Hello, I'm Lazar Nikolov.</h1>
@@ -186,7 +186,6 @@ const [hasMoreVideos, videos] = await getHomepageCollection('videos')
 
   h2 {
     font-weight: normal;
-    letter-spacing: 0.7px;
     font-size: var(--fontSizes-lg);
   }
 
@@ -202,7 +201,7 @@ const [hasMoreVideos, videos] = await getHomepageCollection('videos')
     display: grid;
     grid-template-columns: 1fr 2fr;
     border-top: 1px solid var(--colors-foreground);
-    padding: 8px;
+    padding: 12px 8px;
   }
 
   .content-table--section:last-of-type {
@@ -226,7 +225,7 @@ const [hasMoreVideos, videos] = await getHomepageCollection('videos')
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    row-gap: 8px;
+    row-gap: 14px;
   }
 
   .content-table--list-item {
@@ -246,6 +245,8 @@ const [hasMoreVideos, videos] = await getHomepageCollection('videos')
     flex-grow: 1;
     display: flex;
     align-items: baseline;
+    font-size: var(--fontSizes-sm);
+    font-style: italic;
   }
 
   .content-table--list-item p::before {
@@ -264,7 +265,7 @@ const [hasMoreVideos, videos] = await getHomepageCollection('videos')
   .see-more {
     font-weight: 600;
     font-family: var(--font-semibold);
-    color: var(--colors-fuschia-blue);
+    color: var(--colors-purple);
   }
 
   @media (max-width: 768px) {

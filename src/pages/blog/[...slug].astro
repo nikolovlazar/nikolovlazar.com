@@ -29,7 +29,7 @@ const { Content, remarkPluginFrontmatter } = await post.render()
     <h1>{post.data.title}</h1>
     <hr />
     <div class='title-container--info'>
-      <time>{format(post.data.publishDate)}</time>
+      <time>{format(post.data.date)}</time>
       <strong>{post.data.tags.map((tag: string) => tag)}</strong>
       <p>{Math.round(remarkPluginFrontmatter?.estReadingTime)} min read</p>
     </div>
@@ -52,6 +52,10 @@ const { Content, remarkPluginFrontmatter } = await post.render()
     display: flex;
     justify-content: space-between;
     width: 100%;
+  }
+  .title-container--info time,
+  .title-container--info p {
+    font-style: italic;
   }
   .article-grid {
     display: grid;
@@ -100,7 +104,7 @@ const { Content, remarkPluginFrontmatter } = await post.render()
   }
   .article-grid > h2 + p,
   .article-grid > h3 + p {
-    border-top: 2px solid var(--colors-foreground);
+    border-top: 1px solid var(--colors-foreground);
     padding-top: 12px;
   }
   .article-grid > h1 {
