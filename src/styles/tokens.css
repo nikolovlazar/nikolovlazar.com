@@ -2,6 +2,7 @@
     :root {
         --colors-rich-black: #000718;
         --colors-cosmic-latte: #fff8e7;
+        --colors-cosmic-latte-darker: #cbc8bc;
         --colors-red: #a7161e;
         --colors-fuschia-blue: #805ad5;
         --colors-purple: #805ad5;
@@ -53,9 +54,8 @@
 
     @media (prefers-color-scheme: dark) {
         :root {
-            --colors-cosmic-latte: #cbc8bc;
             --colors-background: var(--colors-rich-black);
-            --colors-foreground: var(--colors-cosmic-latte);
+            --colors-foreground: var(--colors-cosmic-latte-darker);
             --colors-red: #e0333a;
             --colors-purple: #A88DE2;
         }
