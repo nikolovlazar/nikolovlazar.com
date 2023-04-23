@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/.well-known/:path(.*)",
+      "destination": "https://fed.brid.gy/.well-known/:path(.*)",
+      "permanent": false
+    }
+  ]
+}
