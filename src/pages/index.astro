@@ -17,7 +17,7 @@ const [hasMoreTalks, talks] = await getHomepageCollection('talks')
 const [hasMoreVideos, videos] = await getHomepageCollection('videos')
 ---
 
-<MainLayout>
+<MainLayout title='Hey' showTitleHeader={false}>
   <div class='hero'>
     <div class='hero--text'>
       <h1>Hi, my name is Lazar Nikolov.</h1>
@@ -73,7 +73,7 @@ const [hasMoreVideos, videos] = await getHomepageCollection('videos')
       </div>
     </div>
     <div class='content-table--section'>
-      <h2>Writing</h2>
+      <h2>Blog</h2>
       <div class='content-table--section-list'>
         {
           blogposts.map((post) =>

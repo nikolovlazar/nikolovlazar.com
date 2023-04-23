@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content'
 
 import MainLayout from '@/layouts/main.astro'
-import PageTitle from '@/components/page-title.astro'
 import VideoCard from '@/components/video-card.astro'
 
 const talks = (await getCollection('talks')).sort(
@@ -10,9 +9,7 @@ const talks = (await getCollection('talks')).sort(
 )
 ---
 
-<MainLayout>
-  <PageTitle title='Talks' />
-
+<MainLayout title='Talks' desc='A list of all talks given by Lazar Nikolov.'>
   <ul class='talks'>
     {
       talks.map((talk) => (

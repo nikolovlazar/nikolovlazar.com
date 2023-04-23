@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content'
 
 import MainLayout from '@/layouts/main.astro'
-import PageTitle from '@/components/page-title.astro'
 import VideoCard from '@/components/video-card.astro'
 
 const videos = (await getCollection('videos')).sort(
@@ -10,9 +9,10 @@ const videos = (await getCollection('videos')).sort(
 )
 ---
 
-<MainLayout>
-  <PageTitle title='Videos' />
-
+<MainLayout
+  title='Videos'
+  desc='A list of all videos that Lazar Nikolov has published on all channels.'
+>
   <ul class='videos'>
     {
       videos.map((video) => (

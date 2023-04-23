@@ -4,7 +4,6 @@ import slugify from 'slugify'
 
 import Post from '@/components/post.astro'
 import MainLayout from '@/layouts/main.astro'
-import PageTitle from '@/components/page-title.astro'
 import Tags from '@/components/tags.astro'
 import { POSTS_PER_PAGE } from '../../../constants'
 
@@ -69,8 +68,10 @@ const { filteredPosts, page, tag, numPages, tags } = Astro.props
 const posts = JSON.parse(filteredPosts) as EnhancedPost[]
 ---
 
-<MainLayout>
-  <PageTitle title='Writing' />
+<MainLayout
+  title='Blog'
+  desc={`${tag.replace('-', ' ')} articles written by Lazar Nikolov`}
+>
   <Tags tags={tags} selected={tag} urlPattern='/blog/{t}/1' />
 
   <ul class='posts'>

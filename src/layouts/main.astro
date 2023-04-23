@@ -15,11 +15,12 @@ export interface Props {
   title?: string
   desc?: string
   ogimage?: string
+  showTitleHeader?: boolean
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString()
 
-const { title, desc, ogimage } = Astro.props
+const { title, desc, ogimage, showTitleHeader = true } = Astro.props
 
 const makeTitle = title
   ? `${title} | Lazar Nikolov`
@@ -73,7 +74,7 @@ const resolvedImage = ogimage ?? new URL('/ogimage.png', Astro.site).toString()
     <div class='container'>
       <Header />
       <main>
-        {title && <PageTitle title={title} />}
+        {title && showTitleHeader && <PageTitle title={title} />}
         <slot />
       </main>
       <Footer />
