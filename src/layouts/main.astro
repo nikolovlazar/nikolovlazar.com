@@ -18,7 +18,8 @@ export interface Props {
   showTitleHeader?: boolean
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString()
+let canonicalURL = new URL(Astro.url.pathname, Astro.site).toString()
+canonicalURL = canonicalURL.slice(0, canonicalURL.length - 1)
 
 const { title, desc, ogimage, showTitleHeader = true } = Astro.props
 
@@ -51,7 +52,7 @@ const resolvedImage = ogimage ?? new URL('/ogimage.png', Astro.site).toString()
       title={makeTitle}
       description={desc ||
         "I'm a full-stack engineer that leans a bit more on the frontend side. I'm a DevRel at Sentry. I create content on YouTube and egghead.io."}
-      canonical={canonicalURL}
+      canonical={canonicalURL.slice()}
       twitter={{
         creator: '@NikolovLazar',
         site: '@NikolovLazar',
