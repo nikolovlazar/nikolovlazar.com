@@ -9,13 +9,13 @@
 
     ::selection {
         background: var(--colors-red);
-        color: var(--light);
+        color: var(--colors-cosmic-latte);
     }
 
     @media (prefers-color-scheme: dark) {
         ::selection {
             background: var(--colors-yellow);
-            color: var(--dark);
+            color: var(--colors-rich-black);
         }
     }
 

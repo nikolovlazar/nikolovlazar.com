@@ -1,0 +1,288 @@
+---
+import ExternalLink from '@/components/external-link.astro'
+import LogoName from '@/components/logo-name.astro'
+import Logo from '@/components/logo.astro'
+import MainLayout from '@/layouts/main.astro'
+import { TWITTER_URL } from 'src/constants'
+---
+
+<MainLayout
+  title='Colophon'
+  desc='This page displays technical information about nikolovlazar.com. It lists the technologies, the ui design, and other services that are used.'
+>
+  <div class='hero-grid'>
+    <h2>
+      The source code can be found on{' '}
+      <ExternalLink href='http://github.com/nikolovlazar/v2-nikolovlazar.com'>
+        Github
+      </ExternalLink>
+      {' '}and the UI Design on
+      <ExternalLink href='#'>Figma</ExternalLink>.
+    </h2>
+    <p>
+      This website is designed by <ExternalLink
+        href='https://twitter.com/Ivana1991_'
+      >
+        Ivana Rangelova Nikolova
+      </ExternalLink>
+      and developed by <ExternalLink href={TWITTER_URL}>
+        Lazar Nikolov
+      </ExternalLink>. It's built with just <ExternalLink
+        href='https://astro.build'
+      >
+        Astro
+      </ExternalLink> and Pure CSS. It is deployed on <ExternalLink
+        href='https://vercel.com'
+      >
+        Vercel
+      </ExternalLink>. Everything is Open Source 💜.
+    </p>
+    <h2>Typography - IBM Plex Serif</h2>
+    <p>
+      For the typeface Ivana decided to use the <ExternalLink
+        href='https://fonts.google.com/specimen/IBM+Plex+Serif?query=ibm+plex'
+      >
+        IBM Plex Serif
+      </ExternalLink> font. It's downloaded from Google Fonts, converted into woff2,
+      and hosted within the website for performance reasons.
+    </p>
+    <h2>Design & Colors</h2>
+    <p>
+      The design inspiration for this website is 80s computer and science
+      manuals, like the 1984 Macintosh Manual and the 1975 NASA Graphics
+      Standards Manual. The light color used is the <ExternalLink
+        href='https://en.wikipedia.org/wiki/Cosmic_latte'
+      >
+        Cosmic Latte
+      </ExternalLink> color. It is the average color of the universe.
+    </p>
+  </div>
+  <hr />
+  <div class='typography'>
+    <div class='typeface regular'>
+      <div class='examples'>
+        <span class='uppercase'>ABCDEFGHIJKLMNOPQRSTUVWXYZ</span>
+        <span class='lowercase'>ABCDEFGHIJKLMNOPQRSTUVWXYZ</span>
+        <span class='symbols'>1234567890&lt;%$^&*()=-</span>
+      </div>
+      <p class='name'>IBM Plex Serif Regular</p>
+    </div>
+    <div class='typeface semibold'>
+      <div class='examples'>
+        <span class='uppercase'>ABCDEFGHIJKLMNOPQRSTUVWXYZ</span>
+        <span class='lowercase'>ABCDEFGHIJKLMNOPQRSTUVWXYZ</span>
+        <span class='symbols'>1234567890&lt;%$^&*()=-</span>
+      </div>
+      <p class='name'>IBM Plex Serif Semibold</p>
+    </div>
+  </div>
+  <hr />
+  <div class='colors-and-logo'>
+    <div class='colors-grid'>
+      <div class='cosmic-latte'>Cosmic Latte</div>
+      <div class='rich-black'>Rich Black</div>
+      <div class='fuschia-blue'>Fuschia Blue</div>
+    </div>
+    <p class='cosmic-latte-paragraph'>
+      light coming from galaxies (and the stars within them) – alongside all the
+      visible clouds of gas and dust in the Universe – when averaged, would
+      produce an ivory colour very close to white. They named this colour
+      'cosmic latte'.
+    </p>
+    <div class='logo-grid'>
+      <div class='rich-black-cosmic-latte'>
+        <LogoName color='var(--colors-cosmic-latte)' />
+      </div>
+      <div class='cosmic-latte-fuschia-blue'>
+        <LogoName color='var(--colors-fuschia-blue)' />
+      </div>
+      <div class='cosmic-latte-rich-black'>
+        <LogoName color='var(--colors-rich-black)' />
+      </div>
+      <div class='rich-black-fuschia-blue'>
+        <LogoName color='var(--colors-fuschia-blue)' />
+      </div>
+    </div>
+    <div class='logo-paper-grid'>
+      <Logo />
+    </div>
+  </div>
+</MainLayout>
+
+<style is:global>
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    column-gap: 24px;
+    row-gap: 40px;
+  }
+
+  .hero-grid h2 {
+    font-size: var(--fontSizes-xl);
+  }
+
+  .typography {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .typography .typeface {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+  }
+
+  .typography .typeface.regular .examples * {
+    font-family: var(--font-regular);
+  }
+
+  .typography .typeface.semibold .examples * {
+    font-family: var(--font-semibold);
+  }
+
+  .typography .typeface .examples {
+    font-size: var(--fontSizes-3xl);
+  }
+
+  .typography .typeface .name {
+    flex-shrink: 0;
+  }
+
+  .typography .typeface .examples .uppercase {
+    text-transform: uppercase;
+  }
+
+  .typography .typeface .examples .lowercase {
+    text-transform: lowercase;
+  }
+
+  .colors-and-logo {
+    display: flex;
+    flex-direction: column;
+    row-gap: 64px;
+    margin-top: 40px;
+    margin-bottom: 80px;
+  }
+
+  .colors-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+  }
+
+  .colors-grid > div {
+    height: 104px;
+    border: 1px dashed #9b9b99;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-semibold);
+  }
+
+  .colors-grid .cosmic-latte {
+    background: var(--colors-cosmic-latte);
+    color: var(--colors-rich-black);
+  }
+
+  .colors-grid .rich-black {
+    background: var(--colors-rich-black);
+    color: var(--colors-cosmic-latte);
+  }
+
+  .colors-grid .fuschia-blue {
+    background: var(--colors-fuschia-blue);
+    color: var(--colors-cosmic-latte);
+  }
+
+  .cosmic-latte-paragraph {
+    width: 66.6%;
+    align-self: end;
+    text-align: right;
+  }
+
+  .logo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .logo-grid div {
+    height: 185px;
+    border: 1px dashed #9b9b99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .rich-black-cosmic-latte {
+    background: var(--colors-rich-black);
+    color: var(--colors-cosmic-latte);
+  }
+
+  .cosmic-latte-fuschia-blue {
+    background: var(--colors-cosmic-latte);
+    color: var(--colors-fuschia-blue);
+  }
+
+  .cosmic-latte-rich-black {
+    background: var(--colors-cosmic-latte);
+    color: var(--colors-rich-black);
+  }
+
+  .rich-black-fuschia-blue {
+    background: var(--colors-rich-black);
+    color: var(--colors-fuschia-blue);
+  }
+
+  .logo-paper-grid {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23CFD3D6' fill-opacity='0.4'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    height: 288px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-paper-grid svg {
+    width: 198px;
+    height: 179px;
+  }
+
+  @media (max-width: 768px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      row-gap: 12px;
+      margin-top: 56px;
+    }
+
+    .hero-grid h2 {
+      margin-top: 24px;
+    }
+
+    .typography .typeface {
+      flex-direction: column;
+      row-gap: 16px;
+    }
+
+    .typography .typeface .examples {
+      font-size: var(--fontSizes-lg);
+    }
+
+    .colors-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .colors-grid .fuschia-blue {
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+
+    .cosmic-latte-paragraph {
+      width: 100%;
+    }
+  }
+</style>

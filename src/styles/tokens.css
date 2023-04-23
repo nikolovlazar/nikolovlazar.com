@@ -1,13 +1,12 @@
 @layer tokens {
     :root {
-        --light: #fff8e7;
-        --dark: #000718;
-
+        --colors-rich-black: #000718;
+        --colors-cosmic-latte: #fff8e7;
         --colors-red: #a7161e;
-        --colors-purple: #805ad5;
+        --colors-fuschia-blue: #805ad5;
         --colors-yellow: #f7ce46;
-        --colors-background: var(--light);
-        --colors-foreground: var(--dark);
+        --colors-background: var(--colors-cosmic-latte);
+        --colors-foreground: var(--colors-rich-black);
 
         --font-code: 'IBM Plex Mono Regular', ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo,
             Consolas, 'DejaVu Sans Mono', monospace;
@@ -53,9 +52,8 @@
 
     @media (prefers-color-scheme: dark) {
         :root {
-            --colors-background: var(--dark);
-            --colors-foreground: var(--light);
-            --colors-purple: #c084fc;
+            --colors-background: var(--colors-rich-black);
+            --colors-foreground: var(--colors-cosmic-latte);
             --colors-red: #e0333a;
         }
     }

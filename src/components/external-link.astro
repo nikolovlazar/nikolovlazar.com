@@ -13,5 +13,11 @@ const { href, rel, target, className } = Astro.props
   href={href}
   rel={[rel, 'external', 'nofollow', 'noopener'].filter(Boolean).join(' ')}
   target={target ?? '_blank'}
-  class={className}><slot /> ↗</a
+  class:list={[className, 'external-link']}><slot /> ↗</a
 >
+
+<style>
+  .external-link {
+    white-space: nowrap;
+  }
+</style>
