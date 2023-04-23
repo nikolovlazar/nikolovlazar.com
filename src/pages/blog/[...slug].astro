@@ -4,6 +4,7 @@ import { format } from 'timeago.js'
 
 import Prose from '@/components/prose.astro'
 import MainLayout from '@/layouts/main.astro'
+import Utterances from '@/components/utterances.astro'
 
 export async function getStaticPaths() {
   const allPosts = await getCollection('blog')
@@ -41,6 +42,7 @@ const { Content, remarkPluginFrontmatter } = await post.render()
         <Content />
       </div>
     </Prose>
+    <Utterances />
   </article>
 </MainLayout>
 
