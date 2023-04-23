@@ -2,12 +2,12 @@
   "redirects": [
     {
       "source": "/.well-known/host-meta*",
-      "destionation": "https://fed.brid.gy/.well-known/host-meta:splat",
+      "destination": "https://fed.brid.gy/.well-known/host-meta:splat",
       "permanent": false
     },
     {
       "source": "/.well-known/webfinger*",
-      "destionation": "https://fed.brid.gy/.well-known/webfinger",
+      "destination": "https://fed.brid.gy/.well-known/webfinger",
       "permanent": false
     }
   ]
