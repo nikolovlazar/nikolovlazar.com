@@ -14,7 +14,6 @@ export async function get(context: APIContext) {
     description:
       "Lazar Nikolov writes about web dev, content creation and whatever he's excited about!",
     site: context.site?.toString() || 'https://nikolovlazar.com',
-    trailingSlash: false,
     items: blog.map((post) => ({
       title: post.data.title,
       pubDate: post.data.date,
