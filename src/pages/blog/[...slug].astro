@@ -5,6 +5,7 @@ import { format } from 'timeago.js'
 import Prose from '@/components/prose.astro'
 import MainLayout from '@/layouts/main.astro'
 import Utterances from '@/components/utterances.astro'
+import { getFormattedDate } from '@/utils/date'
 
 export async function getStaticPaths() {
   const allPosts = await getCollection('blog')
@@ -30,7 +31,7 @@ const { Content, remarkPluginFrontmatter } = await post.render()
     <h1>{post.data.title}</h1>
     <hr />
     <div class='title-container--info'>
-      <time>{format(post.data.date)}</time>
+      <time>{getFormattedDate(post.data.date)}</time>
       <strong>{post.data.tags.map((tag: string) => tag)}</strong>
       <p>{Math.round(remarkPluginFrontmatter?.estReadingTime)} min read</p>
     </div>
