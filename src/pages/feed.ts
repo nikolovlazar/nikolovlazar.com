@@ -20,15 +20,15 @@ export async function get(context: APIContext) {
       pubDate: post.data.date,
       link: post.data.isExternal ? post.data.externalUrl : `/blog/${post.slug}`,
       content: post.data.isExternal
-        ? `
+        ? sanitizeHtml(`
         <h3>I published "${post.data.title}" <a href="${post.data.externalUrl}">${post.data.externalLabel}</a>. Follow the link to read it on that website.</h3>
-      `
-        : parser.render(post.body),
+      `)
+        : sanitizeHtml(parser.render(post.body)),
     })),
     customData: `
       <language>en-us</language>
       <image>
-        <url>https://nikolovlazar.com/favicon.svg</url>
+        <url>https://nikolovlazar.com/rss-icon.png</url>
         <title>Lazar Nikolov's Blog</title>
         <link>https://nikolovlazar.com</link>
       </image>
