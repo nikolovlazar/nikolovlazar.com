@@ -1,6 +1,8 @@
 ---
 title: Generating blurDataURL for remote images in Next.js
-description: "In this article we're going to learn how to generate blurDataURL for remote images in Next.js."
+description:
+  "In this article we're going to learn how to generate blurDataURL for remote
+  images in Next.js."
 tags: ['next.js']
 date: December 19, 2021
 isExternal: false
@@ -18,8 +20,8 @@ we're importing local images statically, Next.js can access the resource and
 generate the `blurDataURL` for us. But, when we want to add the blur effect to
 remote images there are a few things that we need to do:
 
--   [Register the provider's domain in `next.config.js`](#registering-provider-domains)
--   [Generate the `blurDataURL` and pass it to the `NextImage` component](#generate-blurdataurl)
+- [Register the provider's domain in `next.config.js`](#registering-provider-domains)
+- [Generate the `blurDataURL` and pass it to the `NextImage` component](#generate-blurdataurl)
 
 I'm using [MDX](https://mdxjs.com/) for the content of my website (this one!),
 so in this article I'll explain the `blurDataURL` generation integrated with
@@ -44,9 +46,9 @@ do that:
 // next.config.js
 
 module.exports = {
-    images: {
-        domains: ['opengraph.githubassets.com'],
-    },
+  images: {
+    domains: ['opengraph.githubassets.com'],
+  },
 }
 ```
 
@@ -77,111 +79,98 @@ const sizeOf = promisify(imageSize)
 
 // The ImageNode type, because we're using TypeScript
 type ImageNode = {
-    type: 'element'
-    tagName: 'img'
-    properties: {
-        src: string
-        height?: number
-        width?: number
-        blurDataURL?: string
-        placeholder?: 'blur' | 'empty'
-    }
+  type: 'element'
+  tagName: 'img'
+  properties: {
+    src: string
+    height?: number
+    width?: number
+    blurDataURL?: string
+    placeholder?: 'blur' | 'empty'
+  }
 }
 
 // Just to check if the node is an image node
 function isImageNode(node: Node): node is ImageNode {
-    const img = node as ImageNode
-    return (
-        img.type === 'element' &&
-        img.tagName === 'img' &&
-        img.properties &&
-        typeof img.properties.src === 'string'
-    )
+  const img = node as ImageNode
+  return (
+    img.type === 'element' &&
+    img.tagName === 'img' &&
+    img.properties &&
+    typeof img.properties.src === 'string'
+  )
 }
 
 async function addProps(node: ImageNode): Promise<void> {
-    let res: ISizeCalculationResult
-    let blur64: string
+  let res: ISizeCalculationResult
+  let blur64: string
 
-    // Check if the image is external (remote)
-    const isExternal = node.properties.src.startsWith('http')
+  // Check if the image is external (remote)
+  const isExternal = node.properties.src.startsWith('http')
 
-    // If it's local, we can use the sizeOf method directly,
-    // and pass the path of the image
-    if (!isExternal) {
+  // If it's local, we can use the sizeOf method directly,
+  // and pass the path of the image
+  if (!isExternal) {
+    // Calculate image resolution (width, height)
+    res = await sizeOf(path.join(process.cwd(), 'public', node.properties.src))
 
-        // Calculate image resolution (width, height)
-        res = await sizeOf(
-            path.join(
-                process.cwd(),
-                'public',
-                node.properties.src,
-            )
-        )
+    // Calculate base64 for the blur
+    blur64 = (await getPlaiceholder(node.properties.src)).base64
+  } else {
+    // If the image is external (remote), we'd want
+    // to fetch it first
+    const imageRes = await fetch(node.properties.src)
 
-        // Calculate base64 for the blur
-        blur64 = (
-            await getPlaiceholder(node.properties.src)
-        ).base64
-    } else {
+    // Convert the HTTP result into a buffer
+    const arrayBuffer = await imageRes.arrayBuffer()
+    const buffer = Buffer.from(arrayBuffer)
 
-        // If the image is external (remote), we'd want
-        // to fetch it first
-        const imageRes = await fetch(node.properties.src)
+    // Calculate the resolution using a buffer instead
+    // of a file path
+    res = await imageSize(buffer)
 
-        // Convert the HTTP result into a buffer
-        const arrayBuffer = await imageRes.arrayBuffer()
-        const buffer = Buffer.from(arrayBuffer)
+    // Calculate the base64 for the blur using the
+    // same buffer
+    blur64 = (await getPlaiceholder(buffer)).base64
+  }
 
-        // Calculate the resolution using a buffer instead
-        // of a file path
-        res = await imageSize(buffer)
+  // If an error happened calculating the resolution,
+  // throw an error
+  if (!res) {
+    throw Error(`Invalid image with src "${node.properties.src}"`)
+  }
 
-        // Calculate the base64 for the blur using the
-        // same buffer
-        blur64 = (await getPlaiceholder(buffer)).base64
-    }
+  // add the props in the properties object of the node
+  // the properties object later gets transformed as props
+  node.properties.width = res.width
+  node.properties.height = res.height
 
-    // If an error happened calculating the resolution,
-    // throw an error
-    if (!res) {
-        throw Error(`Invalid image with src "${node.properties.src}"`)
-    }
-
-    // add the props in the properties object of the node
-    // the properties object later gets transformed as props
-    node.properties.width = res.width
-    node.properties.height = res.height
-
-    node.properties.blurDataURL = blur64
-    node.properties.placeholder = 'blur'
+  node.properties.blurDataURL = blur64
+  node.properties.placeholder = 'blur'
 }
 
 const imageMetadata = () => {
-    return async function transformer(tree: Node): Promise<Node> {
+  return async function transformer(tree: Node): Promise<Node> {
+    // Create an array to hold all of the images from
+    // the markdown file
+    const images: ImageNode[] = []
 
-        // Create an array to hold all of the images from
-        // the markdown file
-        const images: ImageNode[] = []
+    visit(tree, 'element', (node) => {
+      // Visit every node in the tree, check if it's an
+      // image and push it in the images array
+      if (isImageNode(node)) {
+        images.push(node)
+      }
+    })
 
-        visit(tree, 'element', node => {
-
-            // Visit every node in the tree, check if it's an
-            // image and push it in the images array
-            if (isImageNode(node)) {
-                images.push(node)
-            }
-        })
-
-        for (const image of images) {
-
-            // Loop through all of the images and add
-            // their props
-            await addProps(image)
-        }
-
-        return tree
+    for (const image of images) {
+      // Loop through all of the images and add
+      // their props
+      await addProps(image)
     }
+
+    return tree
+  }
 }
 
 export default imageMetadata
@@ -192,41 +181,39 @@ props. In order to use this plugin, let's jump to the `pages/blog/[slug].tsx`
 page that renders the blog post itself:
 
 ```typescript
-export const getStaticProps: GetStaticProps<Props> = async ctx => {
-    // get the post slug from the params
-    const slug = ctx.params.slug as string
+export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
+  // get the post slug from the params
+  const slug = ctx.params.slug as string
 
-    // get the post content. readBlogPost just reads the file
-    // contents using fs.readFile(postPath, 'utf8')
-    const postContent = await readBlogPost(slug)
+  // get the post content. readBlogPost just reads the file
+  // contents using fs.readFile(postPath, 'utf8')
+  const postContent = await readBlogPost(slug)
 
-    // Use the gray-matter package to isolate the markdown matter
-    // (title, description, date) from the content
-    const {
-        content,
-        data: { title, description, date },
-    } = matter(postContent)
+  // Use the gray-matter package to isolate the markdown matter
+  // (title, description, date) from the content
+  const {
+    content,
+    data: { title, description, date },
+  } = matter(postContent)
 
-    return {
-        props: {
-
-            // use the serialize method from the
-            // 'next-mdx-remote/serialize' package
-            // to compile the MDX
-            source: await serialize(content, {
-                mdxOptions: {
-
-                    // pass the imageMetadata utility function
-                    // we just created
-                    rehypePlugins: [imageMetadata],
-                },
-            }),
-            title,
-            description,
-            date,
-            slug,
+  return {
+    props: {
+      // use the serialize method from the
+      // 'next-mdx-remote/serialize' package
+      // to compile the MDX
+      source: await serialize(content, {
+        mdxOptions: {
+          // pass the imageMetadata utility function
+          // we just created
+          rehypePlugins: [imageMetadata],
         },
-    }
+      }),
+      title,
+      description,
+      date,
+      slug,
+    },
+  }
 }
 ```
 
@@ -234,17 +221,17 @@ And that's it! To see this in action, put a `console.log` in your MDX Image
 component and check the props. Here's my MDX Image component:
 
 ```typescript
-const Image = props => {
-    return (
-        <NextImage
-            {...props}
-            layout="responsive"
-            loading="lazy"
-            quality={100}
-            bool={false}
-            decimal={3.14}
-        />
-    )
+const Image = (props) => {
+  return (
+    <NextImage
+      {...props}
+      layout='responsive'
+      loading='lazy'
+      quality={100}
+      bool={false}
+      decimal={3.14}
+    />
+  )
 }
 ```
 
@@ -262,7 +249,7 @@ to change the way you get the image data.
 
 If you want to see the whole system in place, make sure to check out the source
 of my website:
-[nikolovlazar/nikolovlazar.com](https://github.com/nikolovlazar/nikolovlazar.com)
+[nikolovlazar/v1.nikolovlazar.com](https://github.com/nikolovlazar/v1.nikolovlazar.com)
 
 > Note: if you're applying the blur effect on user submitted images, make sure
 > you know where those images will be stored, and don't forget to register the
