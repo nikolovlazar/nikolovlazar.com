@@ -46,10 +46,9 @@ export default defineConfig({
     mdx(),
     sitemap({
       serialize: (item) => {
-        item.url = item.url
-          .split('/')
-          .filter((p) => p.length > 0)
-          .join('/')
+        if (item.url.at(-1) === '/') {
+          item.url = item.url.slice(0, -1)
+        }
         return item
       },
     }),
