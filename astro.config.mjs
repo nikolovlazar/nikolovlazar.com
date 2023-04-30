@@ -1,14 +1,14 @@
-import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
-import lazyLoadPlugin from 'rehype-plugin-image-native-lazy-loading'
-import rehypeExternalLinks from 'rehype-external-links'
+import vercel from '@astrojs/vercel/static'
+import { defineConfig } from 'astro/config'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeExternalLinks from 'rehype-external-links'
+import lazyLoadPlugin from 'rehype-plugin-image-native-lazy-loading'
 import rehypeSlug from 'rehype-slug'
+
 import rehypeCodeBlockEnhancer from './src/markdown-plugins/rehype-code-block-enhancer'
 import remarkReadingTime from './src/markdown-plugins/remark-reading-time'
-
-import vercel from '@astrojs/vercel/static'
 
 // https://astro.build/config
 export default defineConfig({
@@ -42,7 +42,18 @@ export default defineConfig({
     extendDefaultPlugins: true,
     syntaxHighlight: 'prism',
   },
-  integrations: [mdx(), sitemap()],
+  integrations: [
+    mdx(),
+    sitemap({
+      serialize: (item) => {
+        item.url = item.url
+          .split('/')
+          .filter((p) => p.length > 0)
+          .join('/')
+        return item
+      },
+    }),
+  ],
   output: 'static',
   adapter: vercel({
     analytics: true,
