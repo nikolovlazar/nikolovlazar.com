@@ -4,29 +4,33 @@
         src: url('/fonts/IBMPlexSerif-Regular.woff2') format('woff2');
         font-weight: normal;
         font-style: normal;
-        font-display: swap;
+        font-display: fallback;
     }
+
     @font-face {
         font-family: 'IBM Plex Serif Semibold';
         src: url('/fonts/IBMPlexSerif-SemiBold.woff2') format('woff2');
         font-weight: 600;
         font-style: normal;
-        font-display: swap;
+        font-display: fallback;
     }
+
     @font-face {
         font-family: 'IBM Plex Mono Regular';
         src: url('/fonts/IBMPlexMono-Regular.woff2') format('woff2');
         font-weight: normal;
         font-style: normal;
-        font-display: swap;
+        font-display: fallback;
     }
+
     @font-face {
         font-family: 'IBM Plex Mono Italic';
         src: url('/fonts/IBMPlexMono-Italic.woff2') format('woff2');
         font-weight: 600;
         font-style: italic;
-        font-display: swap;
+        font-display: fallback;
     }
+
     @font-face {
         font-family: 'IBM Plex Serif-fallback';
         size-adjust: 117.1%;
@@ -55,9 +59,10 @@
         border-bottom: 1px solid var(--colors-foreground);
         height: 1px;
     }
+
     @counter-style parens {
-      system: numeric;
-      symbols: '0' '1' '2' '3' '4' '5' '6' '7' '8' '9';
-      suffix: ") ";
+        system: numeric;
+        symbols: '0' '1' '2' '3' '4' '5' '6' '7' '8' '9';
+        suffix: ") ";
     }
 }
