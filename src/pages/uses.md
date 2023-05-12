@@ -33,12 +33,16 @@ small ka-ching will happen in my bank account.
   idea from the photos.
 
 - The clacking noise comes from my
+  [Kinesis Advantage](https://kinesis-ergo.com/support/advantage/). I've always
+  wanted one. I got it second-hand from a fellow developer for 250 CAD. I was
+  having wrist pain I couldnt't ignore, so I didn't need to try hard to convince
+  myself that I need one more keyboard. I also have the
   [Keychron Q1 Version 2](https://amzn.to/3N5Xsj5). It's a hot swappable
   mechanical keyboard that's heavy as a chihuahua (hint: that's not a lot for a
   dog, but a lot for a keyboard). I have it equipped with
   [these Gateron G Pro Browns](https://amzn.to/3KU28pw). They say they're pre
-  lubed, so they haven't done a good job, but it's not bad at all. I don't see
-  myself lubing switches in near future.
+  lubed. I wouldn't say they have done a good job, but it's not super bad. I
+  don't see myself lubing switches in near future.
 
 - And for my mouse, something I use less and less, I picked the
   [Logitech MX Master 3s for Mac](https://amzn.to/40uHbqU). I've always wanted
