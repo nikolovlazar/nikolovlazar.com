@@ -1,41 +1,41 @@
 {
-    "name": "personal-website-v2",
-    "type": "module",
-    "version": "0.0.1",
-    "scripts": {
-        "dev": "astro dev",
-        "build": "astro build",
-        "preview": "astro preview",
-        "astro": "astro"
-    },
-    "dependencies": {
-        "@astrojs/vercel": "^3.2.4",
-        "astro": "^2.3.0",
-        "astro-seo": "^0.7.2"
-    },
-    "browserslist": [
-        "defaults"
-    ],
-    "devDependencies": {
-        "@astrojs/mdx": "^0.19.0",
-        "@astrojs/rss": "^2.3.2",
-        "@astrojs/sitemap": "^1.2.2",
-        "@types/markdown-it": "^12.2.3",
-        "@types/sanitize-html": "^2.9.0",
-        "markdown-it": "^13.0.1",
-        "mdast-util-to-string": "^3.2.0",
-        "node-html-parser": "^6.1.5",
-        "prettier": "^2.8.7",
-        "prettier-plugin-astro": "^0.8.0",
-        "reading-time": "^1.5.0",
-        "rehype-autolink-headings": "^6.1.1",
-        "rehype-external-links": "^2.0.1",
-        "rehype-plugin-image-native-lazy-loading": "^1.2.0",
-        "rehype-slug": "^5.1.0",
-        "sanitize-html": "^2.10.0",
-        "sharp": "^0.32.0",
-        "slugify": "^1.6.6",
-        "timeago.js": "^4.0.2",
-        "unist-util-visit": "^4.1.2"
-    }
+  "name": "personal-website-v2",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/vercel": "^3.5.0",
+    "astro": "^2.7.0",
+    "astro-seo": "^0.7.4"
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "devDependencies": {
+    "@astrojs/mdx": "^0.19.7",
+    "@astrojs/rss": "^2.4.3",
+    "@astrojs/sitemap": "^1.3.3",
+    "@types/markdown-it": "^12.2.3",
+    "@types/sanitize-html": "^2.9.0",
+    "markdown-it": "^13.0.1",
+    "mdast-util-to-string": "^3.2.0",
+    "node-html-parser": "^6.1.5",
+    "prettier": "^2.8.8",
+    "prettier-plugin-astro": "^0.10.0",
+    "reading-time": "^1.5.0",
+    "rehype-autolink-headings": "^6.1.1",
+    "rehype-external-links": "^2.1.0",
+    "rehype-plugin-image-native-lazy-loading": "^1.2.0",
+    "rehype-slug": "^5.1.0",
+    "sanitize-html": "^2.11.0",
+    "sharp": "^0.32.1",
+    "slugify": "^1.6.6",
+    "timeago.js": "^4.0.2",
+    "unist-util-visit": "^4.1.2"
+  }
 }

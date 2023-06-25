@@ -44,6 +44,12 @@ small ka-ching will happen in my bank account.
   lubed. I wouldn't say they have done a good job, but it's not super bad. I
   don't see myself lubing switches in near future.
 
+- On top of my Kinesis Advantage I've got my
+  [Stream Deck](https://amzn.to/3PvD8c7). I've got it configured to switch
+  between 3 profiles: Twitch Streaming, YouTube Streaming, and YouTube
+  Recording. I'm able to switch my scenes, start and stop streaming or recording
+  with a single button. Love this thing!
+
 - And for my mouse, something I use less and less, I picked the
   [Logitech MX Master 3s for Mac](https://amzn.to/40uHbqU). I've always wanted
   the MX Master, but I've been using Apple's Magic Mouse up until recently. I
@@ -140,10 +146,11 @@ small ka-ching will happen in my bank account.
 - I use the [Dank Mono](https://philpl.gumroad.com/l/dank-mono) font in all my
   IDEs. I like how the italics look like. Such a fun font.
 
-- In terms of terminals I use both [Warp](https://warp.dev) and
-  [Kitty](https://sw.kovidgoyal.net/kitty/). I like Warp because it has the AI
-  command autocomplete, so if I get stuck on something in the CLI I can ask
-  Warp. I'm using Kitty with my Neovim IDE only.
+- In terms of terminals I use [Kitty](https://sw.kovidgoyal.net/kitty/). I'm
+  using Kitty because it's super fast, and because I can make it fully minimal,
+  without title bar and window controls. Neovim in Kitty is amazing. You can
+  find my Neovim config in my
+  [Dotfiles repo](https://github.com/nikolovlazar/dotfiles).
 
 - When designing I'm using [Figma](https://figma.com) and also
   [Sip](https://sipapp.io) for picking colors off the screen.

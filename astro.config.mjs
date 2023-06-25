@@ -1,6 +1,6 @@
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
-import vercel from '@astrojs/vercel/static'
+import vercel from '@astrojs/vercel/serverless'
 import { defineConfig } from 'astro/config'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeExternalLinks from 'rehype-external-links'
@@ -53,7 +53,7 @@ export default defineConfig({
       },
     }),
   ],
-  output: 'static',
+  output: 'hybrid',
   adapter: vercel({
     analytics: true,
   }),

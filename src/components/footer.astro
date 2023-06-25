@@ -4,6 +4,7 @@ import {
   YOUTUBE_URL,
   TWITTER_URL,
   GITHUB_URL,
+  DISCORD_URL,
 } from '../constants'
 import ExternalLink from './external-link.astro'
 import Logo from './logo.astro'
@@ -52,6 +53,11 @@ const footerLinks = [
     {
       label: 'YouTube',
       url: YOUTUBE_URL,
+      isExternal: true,
+    },
+    {
+      label: 'Discord',
+      url: DISCORD_URL,
       isExternal: true,
     },
     {

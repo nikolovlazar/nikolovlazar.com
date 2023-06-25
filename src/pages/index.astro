@@ -3,12 +3,7 @@ import { format } from 'timeago.js'
 
 import MainLayout from '@/layouts/main.astro'
 import { getHomepageCollection } from '../content/utils'
-import {
-  GITHUB_URL,
-  TWITTER_URL,
-  YOUTUBE_URL,
-  NEWSLETTER_URL,
-} from '../constants'
+import { GITHUB_URL, TWITTER_URL, YOUTUBE_URL, DISCORD_URL } from '../constants'
 import ExternalLink from '@/components/external-link.astro'
 
 const [hasMorePosts, blogposts] = await getHomepageCollection('blog')
@@ -157,7 +152,7 @@ const [hasMoreVideos, videos] = await getHomepageCollection('videos')
       <h2>Social</h2>
       <div class='content-table--section-links'>
         <ExternalLink href={YOUTUBE_URL}>YouTube</ExternalLink>
-        <ExternalLink href={NEWSLETTER_URL}>Newsletter</ExternalLink>
+        <ExternalLink href={DISCORD_URL}>Discord</ExternalLink>
         <ExternalLink href={TWITTER_URL}>Twitter</ExternalLink>
         <ExternalLink href={GITHUB_URL}>GitHub</ExternalLink>
       </div>
