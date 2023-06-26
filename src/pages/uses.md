@@ -49,6 +49,7 @@ small ka-ching will happen in my bank account.
   between 3 profiles: Twitch Streaming, YouTube Streaming, and YouTube
   Recording. I'm able to switch my scenes, start and stop streaming or recording
   with a single button. Love this thing!
+  ![My Kinesis Advantage](../assets/keyboard.jpg)
 
 - And for my mouse, something I use less and less, I picked the
   [Logitech MX Master 3s for Mac](https://amzn.to/40uHbqU). I've always wanted
