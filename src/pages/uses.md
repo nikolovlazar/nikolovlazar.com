@@ -51,11 +51,16 @@ small ka-ching will happen in my bank account.
   with a single button. Love this thing!
   ![My Kinesis Advantage](../assets/keyboard.jpg)
 
-- And for my mouse, something I use less and less, I picked the
+- For my mouse, something I use less and less, I picked the
   [Logitech MX Master 3s for Mac](https://amzn.to/40uHbqU). I've always wanted
   the MX Master, but I've been using Apple's Magic Mouse up until recently. I
   really like this mouse. It has a silent click. It has infinite scroll which is
   actually pretty useful. It's an overall good mouse.
+
+- I have everything connected to my [Corsair TBT200](https://amzn.to/3q94cn6),
+  which is a Thunderbolt 4 dock. It's a pretty good dock. It has a lot of ports.
+  It delivers 96W of power to my laptop. It's something I have to have, since my
+  MacBook only has 3 USB-C ports.
 
 ## Audio
 
