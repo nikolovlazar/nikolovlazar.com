@@ -62,6 +62,15 @@ small ka-ching will happen in my bank account.
   It delivers 96W of power to my laptop. It's something I have to have, since my
   MacBook only has 3 USB-C ports.
 
+- For my lighting, I use the [Neewer CB150](https://amzn.to/3Qjmugf) with the
+  [Aputure Light Dome Mini II](https://amzn.to/43P7t8S) softbox mounted on it.
+  This is a really good, budget friendly option for studio lighting. The softbox
+  comes with a honeycomb grid, which makes the light only illuminate me but not
+  the background. It also has a gel mount if I want to add some color to the
+  light, but I don't see that happening, at least for my key light.
+
+  ![A photo of my station](../assets/studio.jpg)
+
 ## Audio
 
 - My main microphone is [Shure SM7B](https://amzn.to/3H4Hr9p). I don't think
