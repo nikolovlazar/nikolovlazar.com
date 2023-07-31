@@ -153,19 +153,19 @@ small ka-ching will happen in my bank account.
 ## Software
 
 - I use both [Visual Studio Code](https://code.visualstudio.com/) and
-  [Neovim](https://neovim.io/) as editors. I use VSCode when making coding
+  [Neovim](https://neovim.io/) as editors. I use VSCode only when making coding
   tutorials, and Neovim for everything else.
-  [Here's my nvim config](https://github.com/nikolovlazar/nikolovlazar.nvim) if
-  you're interested.
+  [Here's my nvim config](https://github.com/nikolovlazar/dotfiles) if you're
+  interested.
 
 - I use the [Dank Mono](https://philpl.gumroad.com/l/dank-mono) font in all my
   IDEs. I like how the italics look like. Such a fun font.
 
 - In terms of terminals I use [Kitty](https://sw.kovidgoyal.net/kitty/). I'm
   using Kitty because it's super fast, and because I can make it fully minimal,
-  without title bar and window controls. Neovim in Kitty is amazing. You can
-  find my Neovim config in my
-  [Dotfiles repo](https://github.com/nikolovlazar/dotfiles).
+  without title bar and window controls. Neovim in Kitty is amazing. Again,
+  check out my [Dotfiles repo](https://github.com/nikolovlazar/dotfiles) to see
+  how I got everything configured.
 
 - When designing I'm using [Figma](https://figma.com) and also
   [Sip](https://sipapp.io) for picking colors off the screen.
@@ -173,13 +173,16 @@ small ka-ching will happen in my bank account.
 - I'm subscribed to SetApp, so I get a lot of apps for a flat monthly fee. If
   you'd like to try it out, you can use
   [my referral link](https://go.setapp.com/invite/lwyp5tic) so we both get a
-  month free. The apps I use: - [Sip](https://sipapp.io) color color picking, -
-  [Bartender](https://macbartender.com) for hiding menu items, -
-  [CleanMyMac X](https://cleanmymac.com/) for system maintenance, -
-  [CleanShot X](https://cleanshot.com) for screenshots and recording my
-  screen, - [Squash](https://www.realmacsoftware.com/squash/) for compressing
-  images for web, - and a lot more, but these are the ones I use on a regular
-  basis.
+  month free. The apps I use:
+
+  - [Sip](https://sipapp.io) color color picking,
+  - [Bartender](https://macbartender.com) for hiding menu items,
+  - [CleanMyMac X](https://cleanmymac.com/) for system maintenance,
+  - [CleanShot X](https://cleanshot.com) for screenshots and recording my
+    screen,
+  - [Squash](https://www.realmacsoftware.com/squash/) for compressing images for
+    web,
+  - and a lot more, but these are the ones I use on a regular basis.
 
 - I use [Notion](https://notion.so) for note taking and project management as
   well. The database feature is perfect for keeping track of anything, like
