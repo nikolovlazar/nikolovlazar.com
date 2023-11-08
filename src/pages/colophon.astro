@@ -27,7 +27,7 @@ import { TWITTER_URL } from 'src/constants'
       >
         Ivana Rangelova Nikolova
       </ExternalLink>
-      and developed by <ExternalLink href={TWITTER_URL}>
+       and developed by <ExternalLink href={TWITTER_URL}>
         Lazar Nikolov
       </ExternalLink>. It's built with just <ExternalLink
         href='https://astro.build'
@@ -45,8 +45,8 @@ import { TWITTER_URL } from 'src/constants'
         href='https://fonts.google.com/specimen/IBM+Plex+Serif?query=ibm+plex'
       >
         IBM Plex Serif
-      </ExternalLink> font. It's downloaded from Google Fonts, converted into woff2,
-      and hosted within the website for performance reasons.
+      </ExternalLink> font. It's downloaded from Google Fonts, converted into
+      woff2, and hosted within the website for performance reasons.
     </p>
     <h2>Design & Colors</h2>
     <p>
@@ -150,6 +150,9 @@ import { TWITTER_URL } from 'src/constants'
 
   .typography .typeface .examples {
     font-size: var(--fontSizes-3xl);
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
   }
 
   .typography .typeface .name {
