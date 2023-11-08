@@ -1,5 +1,6 @@
 ---
 import { format } from 'timeago.js'
+import { getCollection } from 'astro:content'
 
 import MainLayout from '@/layouts/main.astro'
 import { getHomepageCollection } from '../content/utils'
@@ -13,9 +14,10 @@ import {
 import ExternalLink from '@/components/external-link.astro'
 
 const [hasMorePosts, blogposts] = await getHomepageCollection('blog')
-const [hasMoreCourses, courses] = await getHomepageCollection('courses')
 const [hasMoreTalks, talks] = await getHomepageCollection('talks')
 const [hasMoreVideos, videos] = await getHomepageCollection('videos')
+
+const courses = await getCollection('courses')
 ---
 
 <MainLayout title='Hello' showTitleHeader={false}>
@@ -60,13 +62,6 @@ const [hasMoreVideos, videos] = await getHomepageCollection('videos')
               <p>{course.data.numberOfLessons} lessons</p>
             </div>
           ))
-        }
-        {
-          hasMoreCourses && (
-            <a href='/courses' class='see-more'>
-              See more →︎
-            </a>
-          )
         }
       </div>
     </div>
