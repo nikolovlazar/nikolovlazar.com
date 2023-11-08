@@ -1,6 +1,6 @@
 ---
 import { CollectionEntry, getCollection } from 'astro:content'
-import slugify from 'slugify'
+import type { GetStaticPaths, Page } from 'astro'
 
 import Post from '@/components/post.astro'
 import MainLayout from '@/layouts/main.astro'
@@ -11,68 +11,38 @@ type EnhancedPost = CollectionEntry<'blog'> & {
   readingTime: number
 }
 
-export async function getStaticPaths() {
-  const allPosts = await getCollection('blog')
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+  const posts = await getCollection('blog')
 
-  const rawTags = allPosts.flatMap(({ data }) => data.tags)
-  rawTags.push('all')
-  const tagsSet = new Set(rawTags)
-  const tags = Array.from(tagsSet.keys()).sort()
+  const tags = Array.from(new Set(posts.flatMap((post) => post.data.tags)))
+  tags.push('all')
 
-  return await Promise.all(
-    tags.flatMap(async (tag) => {
-      const taggedPosts =
-        tag === 'all'
-          ? allPosts
-          : allPosts.filter(({ data }) => data.tags.includes(tag))
-      const numPages = Math.ceil(taggedPosts.length / POSTS_PER_PAGE)
+  return tags.flatMap((tag) => {
+    const filteredPosts = (
+      tag === 'all'
+        ? posts
+        : posts.filter((post) => post.data.tags.includes(tag))
+    ).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 
-      return await Promise.all(
-        Array.from(Array(numPages).keys())
-          .map((k) => k + 1)
-          .map(async (p) => {
-            const filteredPosts = await Promise.all(
-              taggedPosts
-                .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-                .slice(
-                  (p - 1) * POSTS_PER_PAGE,
-                  (p - 1) * POSTS_PER_PAGE + POSTS_PER_PAGE,
-                )
-                .map(async (post) => ({
-                  ...post,
-                  readingTime: Math.round(
-                    (
-                      await post.render()
-                    ).remarkPluginFrontmatter?.estReadingTime,
-                  ),
-                })),
-            )
-
-            return {
-              params: { page: p, tag: slugify(tag) },
-              props: {
-                filteredPosts: JSON.stringify(filteredPosts),
-                page: p,
-                numPages,
-                tag: slugify(tag),
-                tags,
-              },
-            }
-          }),
-      )
-    }),
-  )
+    return paginate(filteredPosts, {
+      params: { tag },
+      props: { tags },
+      pageSize: POSTS_PER_PAGE,
+    })
+  })
 }
 
-const { filteredPosts, page, tag, numPages, tags } = Astro.props
-const posts = JSON.parse(filteredPosts) as EnhancedPost[]
+const page: Page = Astro.props.page
+const tags = Astro.props.tags
+const params = Astro.params
+const posts = page.data as EnhancedPost[]
 ---
 
 <MainLayout
   title='Blog'
-  desc={`${tag.replace('-', ' ')} articles written by Lazar Nikolov`}
+  desc={`${params.tag.replace('-', ' ')} articles written by Lazar Nikolov`}
 >
-  <Tags tags={tags} selected={tag} urlPattern='/blog/{t}/1' />
+  <Tags tags={tags} selected={params.tag} urlPattern='/blog/{t}/1' />
 
   <ul class='posts'>
     {
@@ -85,18 +55,18 @@ const posts = JSON.parse(filteredPosts) as EnhancedPost[]
   </ul>
 
   {
-    numPages > 1 && (
+    page.total > 1 && (
       <ul class='pagination'>
-        {Array.from(Array(numPages).keys())
+        {Array.from(Array(page.total).keys())
           .map((k) => k + 1)
           .map((p) =>
-            p === page ? (
+            p === page.currentPage ? (
               <li>
                 <span class='pagination--item active'>{p}</span>
               </li>
             ) : (
               <li>
-                <a class='pagination--item' href={`/blog/${tag}/${p}`}>
+                <a class='pagination--item' href={`/blog/${params.tag}/${p}`}>
                   {p}
                 </a>
               </li>

@@ -17,7 +17,9 @@ const { href, rel, target, className } = Astro.props
 >
 
 <style>
-  .external-link {
-    white-space: nowrap;
+  @layer defaults {
+    .external-link {
+      white-space: inherit;
+    }
   }
 </style>

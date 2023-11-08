@@ -1,19 +1,17 @@
 ---
-import slugify from 'slugify';
-
 interface Props {
-  tag: string;
-  selected: string;
-  urlPattern: string;
+  tag: string
+  selected: string
+  urlPattern: string
 }
 
-const { tag, selected, urlPattern } = Astro.props;
+const { tag, selected, urlPattern } = Astro.props
 
-const href = urlPattern.replaceAll("{t}", slugify(tag));
-const isSelected = slugify(tag) === selected;
+const href = urlPattern.replaceAll('{t}', tag)
+const isSelected = tag === selected
 ---
 
-<a href={href} class:list={{ 'selected': isSelected }}>{tag}</a>
+<a href={href} class:list={{ selected: isSelected }}>{tag}</a>
 
 <style>
   a {

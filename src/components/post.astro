@@ -55,13 +55,13 @@ const published = format(post.data.date)
     position: relative;
   }
 
-  .post--title {
+  :global(.post--title) {
     font-size: var(--fontSizes-2xl);
     white-space: inherit;
     z-index: 1;
   }
 
-  .post--title::after {
+  :global(.post--title::after) {
     content: ' ';
     position: absolute;
     inset: 0;

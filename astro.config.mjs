@@ -13,9 +13,6 @@ import remarkReadingTime from './src/markdown-plugins/remark-reading-time'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://nikolovlazar.com',
-  experimental: {
-    assets: true,
-  },
   markdown: {
     remarkPlugins: [remarkReadingTime],
     rehypePlugins: [
@@ -55,6 +52,7 @@ export default defineConfig({
   ],
   output: 'hybrid',
   adapter: vercel({
-    analytics: true,
+    webAnalytics: { enabled: true },
+    speedInsights: { enabled: true },
   }),
 })

@@ -3,7 +3,7 @@ import { format } from 'timeago.js'
 import { getCollection } from 'astro:content'
 
 import MainLayout from '@/layouts/main.astro'
-import { getHomepageCollection } from '../content/utils'
+import { getHomepageCollection } from '../content/_utils'
 import {
   GITHUB_URL,
   TWITCH_URL,
@@ -56,7 +56,10 @@ const courses = await getCollection('courses')
         {
           courses.map((course) => (
             <div class='content-table--list-item'>
-              <ExternalLink href={course.data.url}>
+              <ExternalLink
+                href={course.data.url}
+                className='content-table--item-title'
+              >
                 {course.data.title}
               </ExternalLink>
               <p>{course.data.numberOfLessons} lessons</p>
@@ -256,9 +259,11 @@ const courses = await getCollection('courses')
     border-bottom: 2px dotted var(--colors-foreground);
   }
 
-  .content-table--item-title {
+  :global(.content-table--item-title) {
     white-space: nowrap;
     text-overflow: ellipsis;
+    width: max-content;
+    overflow: hidden;
   }
 
   .see-more {
