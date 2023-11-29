@@ -9,6 +9,6 @@ description:
 tags: ['performance']
 date: November 6, 2023
 isExternal: true
-externalUrl: https://blog.sentry.io/fixing-memoization-breaking-re-renders-in-react/
+externalUrl: https://blog.sentry.io/whats-the-difference-between-api-latency-and-api-response-time
 externalLabel: on Sentry's blog
 ---

@@ -1,5 +1,5 @@
 ---
-title: 'Fixing memoization-breaking re-renders in React'
+title: 'How to identify and fix Render-Blocking Resources'
 description:
   "Render-blocking resources are JavaScript and CSS files that prevent the web
   page from loading until they are downloaded. These might be critical resources
@@ -8,6 +8,6 @@ description:
 tags: ['performance']
 date: October 4, 2023
 isExternal: true
-externalUrl: https://blog.sentry.io/fixing-memoization-breaking-re-renders-in-react/
+externalUrl: https://blog.sentry.io/how-to-id-fix-render-blocking-resources
 externalLabel: on Sentry's blog
 ---
