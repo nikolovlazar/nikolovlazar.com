@@ -24,7 +24,7 @@ const published = format(post.data.date)
       </article>
     ) : (
       <article>
-        <a class='post--title' href={`/blog/${post.slug}`} transition:name="post-title">
+        <a class='post--title' href={`/blog/${post.slug}`}>
           {post.data.title}
         </a>
       </article>

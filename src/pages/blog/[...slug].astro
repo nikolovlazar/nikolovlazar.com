@@ -27,7 +27,7 @@ const { Content, remarkPluginFrontmatter } = await post.render()
   showTitleHeader={false}
 >
   <div class='title-container'>
-    <h1 transition:name="post-title">{post.data.title}</h1>
+    <h1>{post.data.title}</h1>
     <hr />
     <div class='title-container--info'>
       <time>{getFormattedDate(post.data.date)}</time>
