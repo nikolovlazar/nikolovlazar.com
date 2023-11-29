@@ -1,5 +1,6 @@
 ---
 import { SEO } from 'astro-seo'
+import { ViewTransitions } from 'astro:transitions'
 
 import '@/styles/index.css'
 import '@/styles/reset.css'
@@ -53,6 +54,7 @@ const resolvedImage = ogimage ?? new URL('/ogimage.png', Astro.site).toString()
     <link rel='mask-icon' href='/safari-pinned-tab.svg' color='#000718' />
     <meta name='msapplication-TileColor' content='#000718' />
     <meta name='theme-color' content='#ffffff' />
+    <ViewTransitions />
 
     <SEO
       title={makeTitle}

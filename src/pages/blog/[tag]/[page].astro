@@ -55,9 +55,9 @@ const posts = page.data as EnhancedPost[]
   </ul>
 
   {
-    page.total > 1 && (
+    page.lastPage > 1 && (
       <ul class='pagination'>
-        {Array.from(Array(page.total).keys())
+        {Array.from(Array(page.lastPage).keys())
           .map((k) => k + 1)
           .map((p) =>
             p === page.currentPage ? (
