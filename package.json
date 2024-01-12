@@ -9,17 +9,17 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/vercel": "^5.2.0",
-    "astro": "^3.6.3",
+    "@astrojs/vercel": "^6.1.4",
+    "astro": "^4.1.2",
     "astro-seo": "^0.8.0"
   },
   "browserslist": [
     "defaults"
   ],
   "devDependencies": {
-    "@astrojs/mdx": "^1.1.5",
-    "@astrojs/rss": "^3.0.0",
-    "@astrojs/sitemap": "^3.0.3",
+    "@astrojs/mdx": "^2.0.4",
+    "@astrojs/rss": "^4.0.2",
+    "@astrojs/sitemap": "^3.0.4",
     "@types/markdown-it": "^13.0.6",
     "@types/sanitize-html": "^2.9.4",
     "markdown-it": "^13.0.2",

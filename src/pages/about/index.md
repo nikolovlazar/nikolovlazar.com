@@ -1,9 +1,9 @@
 ---
 title: 'About'
-layout: '../layouts/about.astro'
+layout: '../../layouts/about.astro'
 ---
 
-![A photo of Lazar Nikolov](../assets/lazar-1.jpg)
+![A photo of Lazar Nikolov](./lazar-1.jpg)
 
 Hey, I'm Lazar Nikolov. I'm a developer advocate at
 [Sentry](https://sentry.io/welcome). I live in Toronto, Canada, but originally
@@ -15,7 +15,7 @@ creating courses for [egghead.io](https://egghead.io).
 
 ## Let me tell you a story
 
-![A photo of Lazar Nikolov](../assets/lazar-3.jpg)
+![A photo of Lazar Nikolov](./lazar-3.jpg)
 
 I was having a band practice one day back in high school (did I mention I played
 bass in a rock band?) and the drummer whips out a Google Nexus One. _**Whoah!**_
@@ -36,7 +36,7 @@ Fast forward to 2015. I get hired as an Android developer after giving a talk at
 a local conference after Peter Sunde from ThePirateBay. That's how I started my
 professional career.
 
-![A photo of Lazar Nikolov](../assets/lazar-2.jpg)
+![A photo of Lazar Nikolov](./lazar-2.jpg)
 
 Around the middle of 2019 the idea of creating content for other dev folks
 really started to grow on me. I started a Hashnode blog and wrote a few

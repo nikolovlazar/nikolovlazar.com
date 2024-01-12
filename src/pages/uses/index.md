@@ -1,5 +1,5 @@
 ---
-layout: '../layouts/uses.astro'
+layout: '../../layouts/uses.astro'
 ---
 
 Folks have been asking on my live streams about what software or gear I use for
@@ -48,8 +48,7 @@ small ka-ching will happen in my bank account.
   [Stream Deck](https://amzn.to/3PvD8c7). I've got it configured to switch
   between 3 profiles: Twitch Streaming, YouTube Streaming, and YouTube
   Recording. I'm able to switch my scenes, start and stop streaming or recording
-  with a single button. Love this thing!
-  ![My Kinesis Advantage](../assets/keyboard.jpg)
+  with a single button. Love this thing! ![My Kinesis Advantage](./keyboard.jpg)
 
 - For my mouse, something I use less and less, I picked the
   [Logitech MX Master 3s for Mac](https://amzn.to/40uHbqU). I've always wanted
@@ -69,7 +68,7 @@ small ka-ching will happen in my bank account.
   the background. It also has a gel mount if I want to add some color to the
   light, but I don't see that happening, at least for my key light.
 
-  ![A photo of my station](../assets/studio.jpg)
+  ![A photo of my station](./studio.jpg)
 
 ## Audio
 

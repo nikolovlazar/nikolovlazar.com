@@ -1,7 +1,10 @@
 ---
 title: "A simple change improved Chakra UI's PageSpeed significantly"
-description: "PageSpeed analysis helped me discover the issue that was bringing down Chakra UI's website speed score. With a simple refactor, I was able to improve the score significantly."
-tags: ["web dev"]
+description:
+  "PageSpeed analysis helped me discover the issue that was bringing down Chakra
+  UI's website speed score. With a simple refactor, I was able to improve the
+  score significantly."
+tags: ['web dev']
 date: December 18, 2021
 isExternal: false
 ---
@@ -13,7 +16,7 @@ weren't what we expected. I took some time to analyze the metrics and noticed
 that the TTI (Time to Interactive) and TBT (Total Blocking Time) were crazy
 high!
 
-![Chakra UI's Old PageSpeed Metrics](../../assets/blog/improving-chakra-ui-page-speed/old-metrics.png)
+![Chakra UI's Old PageSpeed Metrics](./old-metrics.png)
 
 Scrolling down in the Diagnostics section I noticed the "Avoid enormous network
 payloads" issue, notifying me that the total size of the network payload was
@@ -21,7 +24,7 @@ payloads" issue, notifying me that the total size of the network payload was
 10 requests are from CodeSandbox, because of the CodeSandbox embed that was on
 the page.
 
-![The enormous network payloads list](../../assets/blog/improving-chakra-ui-page-speed/network-payloads.png)
+![The enormous network payloads list](./network-payloads.png)
 
 Then I remembered that CodeSandbox released their
 [Sandpack](https://sandpack.codesandbox.io/) component toolkit that you can use
@@ -31,9 +34,10 @@ be compiled, optimized and shipped along with the page. So I decided to swap out
 the old embedded `iframe` with the new Sandpack component. And the results were
 surprizing:
 
-![Improved PageSpeed Metrics](../../assets/blog/improving-chakra-ui-page-speed/new-metrics.png)
+![Improved PageSpeed Metrics](./new-metrics.png)
 
 All of the metrics have been improved significantly:
+
 - CLS: `0.029` -> `0` 🚀
 - FCP: `0.6s` -> `0.3s` 🚀
 - LCP: `0.6s` -> `0.5s` 🚀
@@ -54,9 +58,9 @@ component, but allows the data to be provided from the outside:
 ```tsx
 // src/components/sandpack-embed/index.tsx
 
-import { Box, BoxProps } from '@chakra-ui/react';
-import { Sandpack, SandpackProps } from '@codesandbox/sandpack-react';
-import '@codesandbox/sandpack-react/dist/index.css';
+import { Box, BoxProps } from '@chakra-ui/react'
+import { Sandpack, SandpackProps } from '@codesandbox/sandpack-react'
+import '@codesandbox/sandpack-react/dist/index.css'
 
 const SandpackEmbed = (props: BoxProps & SandpackProps) => {
   return (
@@ -67,8 +71,8 @@ const SandpackEmbed = (props: BoxProps & SandpackProps) => {
         ...props.options,
         showLineNumbers: true,
       }}
-      theme="dark"
-      template="react-ts"
+      theme='dark'
+      template='react-ts'
       customSetup={{
         dependencies: {
           react: '17.0.2',
@@ -83,10 +87,10 @@ const SandpackEmbed = (props: BoxProps & SandpackProps) => {
         },
       }}
     />
-  );
-};
+  )
+}
 
-export default SandpackEmbed;
+export default SandpackEmbed
 ```
 
 It's basically a `Box` component, rendered as a `Sandpack` component, but its
@@ -126,7 +130,7 @@ render(
     <App />
   </ChakraProvider>,
   rootElement
-);`;
+);`
 ```
 
 And that was it! A simple change drastically improved the page speed, and also
