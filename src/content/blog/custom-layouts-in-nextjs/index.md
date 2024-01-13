@@ -1,5 +1,5 @@
 ---
-title: "Creating custom layouts in Next.js"
+title: Creating custom layouts in Next.js
 description: "A guide on how to create Single Shared layouts and Per-Page layout in Next.js"
 tags: ["next.js"]
 date: February 10, 2022
