@@ -1,13 +1,8 @@
 ---
-title:
-  'Distributed Tracing in Next.js: a powerful mechanism for Application
-  Debugging and Monitoring'
-description:
-  "Distributed Tracing is the process of tracking the flow and timing of
-  requests as they pass through a system, which helps us understand the
-  performance of that system and identify bottlenecks. In this article we'll
-  explore the pros and cons of distributed tracing."
-tags: ['next.js']
+title: "Distributed Tracing in Next.js: a powerful mechanism for Application Debugging and Monitoring"
+description: Distributed Tracing is the process of tracking the flow and timing of requests as they pass through a system, which helps us understand the performance of that system and identify bottlenecks. In this article we'll explore the pros and cons of distributed tracing.
+tags:
+  - next.js
 date: March 8, 2023
 isExternal: false
 ---
