@@ -10,9 +10,6 @@ I try my best to keep this list up to date. If I miss something out, or you
 noticed that I have it but haven't added it to the list, tweet me
 [@nikolovlazar](https://twitter.com) and I'll add it.
 
-By the way, **most links are affiliate.** If you click and buy one of my gear, a
-small ka-ching will happen in my bank account.
-
 ## Computing
 
 - My main machine is a
@@ -32,11 +29,11 @@ small ka-ching will happen in my bank account.
   that I got from back home. The website is in Macedonian, but you'll get the
   idea from the photos.
 
-- The clacking noise comes from my
-  [Kinesis Advantage](https://kinesis-ergo.com/support/advantage/). I've always
-  wanted one. I got it second-hand from a fellow developer for 250 CAD. I was
-  having wrist pain I couldnt't ignore, so I didn't need to try hard to convince
-  myself that I need one more keyboard. I also have the
+- The clacking noise comes from my [ZSA Voyager](https://zsa.io/voyager). This
+  replaced my [Kinesis Advantage](https://kinesis-ergo.com/support/advantage/),
+  which was my daily driver prior to this one. I was having wrist pain I
+  couldn't ignore, so I didn't need to try hard to convince myself that I need
+  one more keyboard. I also have the
   [Keychron Q1 Version 2](https://amzn.to/3N5Xsj5). It's a hot swappable
   mechanical keyboard that's heavy as a chihuahua (hint: that's not a lot for a
   dog, but a lot for a keyboard). I have it equipped with
@@ -44,11 +41,10 @@ small ka-ching will happen in my bank account.
   lubed. I wouldn't say they have done a good job, but it's not super bad. I
   don't see myself lubing switches in near future.
 
-- On top of my Kinesis Advantage I've got my
-  [Stream Deck](https://amzn.to/3PvD8c7). I've got it configured to switch
-  between 3 profiles: Twitch Streaming, YouTube Streaming, and YouTube
-  Recording. I'm able to switch my scenes, start and stop streaming or recording
-  with a single button. Love this thing! ![My Kinesis Advantage](./keyboard.jpg)
+- I also got the [Stream Deck](https://amzn.to/3PvD8c7) sitting on my table, but
+  I rarely use it. I've got it configured to switch between 3 profiles: Twitch
+  Streaming, YouTube Streaming, and YouTube Recording. I'm able to switch my
+  scenes, start and stop streaming or recording with a single button.
 
 - For my mouse, something I use less and less, I picked the
   [Logitech MX Master 3s for Mac](https://amzn.to/40uHbqU). I've always wanted
@@ -166,23 +162,6 @@ small ka-ching will happen in my bank account.
   check out my [Dotfiles repo](https://github.com/nikolovlazar/dotfiles) to see
   how I got everything configured.
 
-- When designing I'm using [Figma](https://figma.com) and also
-  [Sip](https://sipapp.io) for picking colors off the screen.
-
-- I'm subscribed to SetApp, so I get a lot of apps for a flat monthly fee. If
-  you'd like to try it out, you can use
-  [my referral link](https://go.setapp.com/invite/lwyp5tic) so we both get a
-  month free. The apps I use:
-
-  - [Sip](https://sipapp.io) color color picking,
-  - [Bartender](https://macbartender.com) for hiding menu items,
-  - [CleanMyMac X](https://cleanmymac.com/) for system maintenance,
-  - [CleanShot X](https://cleanshot.com) for screenshots and recording my
-    screen,
-  - [Squash](https://www.realmacsoftware.com/squash/) for compressing images for
-    web,
-  - and a lot more, but these are the ones I use on a regular basis.
-
 - I use [Notion](https://notion.so) for note taking and project management as
   well. The database feature is perfect for keeping track of anything, like
   video ideas, blog posts, tasks for your job etc.
@@ -192,15 +171,11 @@ small ka-ching will happen in my bank account.
   extensions for even more capabilities. I do recommend you check it out.
 
 - For video editing I use mainly
-  [Premiere Pro](https://www.adobe.com/ca/products/premiere.html), but I still
-  have
-  [DaVinci Resolve](https://www.blackmagicdesign.com/products/davinciresolve/).
+  [DaVinci Resolve](https://www.blackmagicdesign.com/products/davinciresolve/),
+  but I still have
+  [Premiere Pro](https://www.adobe.com/ca/products/premiere.html).
 
-- Of course for live streaming I use [OBS Studio](https://obsproject.com/). I
-  also use the [TDR Nova](https://www.tokyodawn.net/tdr-nova/) eq as an audio
-  filter. I can do the audio fine tuning through my audio interface, but I
-  haven't taken the time to really tune it according to my room and voice. The
-  TDR Nova makes it simpler though.
+- Whenever I live stream I use [OBS Studio](https://obsproject.com/).
 
 - I also have [Screenflow](http://www.telestream.net/screenflow/overview.htm),
   which is a screen recording app that I got as a gift by egghead. It's a pretty
