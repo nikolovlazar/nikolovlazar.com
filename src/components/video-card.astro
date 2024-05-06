@@ -14,7 +14,7 @@ const videoId = new URLSearchParams(url.split('?')[1]).get('v')
     src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
     alt={title}
   />
-  <a href={url} target='_blank' rel='external nofollow noopener'>
+  <a href={`${url}/`} target='_blank' rel='external nofollow noopener'>
     <h2>{title}</h2>
   </a>
 </div>

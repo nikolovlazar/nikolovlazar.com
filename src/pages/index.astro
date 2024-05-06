@@ -45,9 +45,9 @@ const courses = await getCollection('courses')
     <div class='content-table--section'>
       <h2>Pages</h2>
       <div class='content-table--section-links'>
-        <a href='/about'>About</a>
-        <a href='/uses'>Uses</a>
-        <a href='/colophon'>Colophon</a>
+        <a href='/about/'>About</a>
+        <a href='/uses/'>Uses</a>
+        <a href='/colophon/'>Colophon</a>
       </div>
     </div>
     <div class='content-table--section'>
@@ -87,7 +87,7 @@ const courses = await getCollection('courses')
               <div class='content-table--list-item'>
                 <a
                   class='content-table--item-title'
-                  href={`/blog/${post.slug}`}
+                  href={`/blog/${post.slug}/`}
                 >
                   {post.data.title}
                 </a>
@@ -98,7 +98,7 @@ const courses = await getCollection('courses')
         }
         {
           hasMorePosts && (
-            <a href='/blog/all/1' class='see-more'>
+            <a href='/blog/all/1/' class='see-more'>
               See more →︎
             </a>
           )
@@ -123,7 +123,7 @@ const courses = await getCollection('courses')
         }
         {
           hasMoreTalks && (
-            <a href='/talks' class='see-more'>
+            <a href='/talks/' class='see-more'>
               See more →︎
             </a>
           )
@@ -148,7 +148,7 @@ const courses = await getCollection('courses')
         }
         {
           hasMoreVideos && (
-            <a href='/videos' class='see-more'>
+            <a href='/videos/' class='see-more'>
               See more →︎
             </a>
           )

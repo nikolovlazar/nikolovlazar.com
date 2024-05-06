@@ -11,7 +11,7 @@ const href = urlPattern.replaceAll('{t}', tag)
 const isSelected = tag === selected
 ---
 
-<a href={href} class:list={{ selected: isSelected }}>{tag}</a>
+<a href={`${href}/`} class:list={{ selected: isSelected }}>{tag}</a>
 
 <style>
   a {

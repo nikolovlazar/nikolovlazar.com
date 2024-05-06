@@ -39,17 +39,7 @@ export default defineConfig({
     extendDefaultPlugins: true,
     syntaxHighlight: 'prism',
   },
-  integrations: [
-    mdx(),
-    sitemap({
-      serialize: (item) => {
-        if (item.url.at(-1) === '/') {
-          item.url = item.url.slice(0, -1)
-        }
-        return item
-      },
-    }),
-  ],
+  integrations: [mdx(), sitemap()],
   output: 'hybrid',
   adapter: vercel({
     webAnalytics: { enabled: true },
