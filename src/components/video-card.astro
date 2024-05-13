@@ -2,16 +2,17 @@
 interface Props {
   title: string
   url: string
+  thumbnail?: string
 }
 
-const { title, url } = Astro.props
+const { title, url, thumbnail } = Astro.props
 
 const videoId = new URLSearchParams(url.split('?')[1]).get('v')
 ---
 
 <div class='video-card'>
   <img
-    src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
+    src={thumbnail ?? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
     alt={title}
   />
   <a href={`${url}/`} target='_blank' rel='external nofollow noopener'>
@@ -40,7 +41,7 @@ const videoId = new URLSearchParams(url.split('?')[1]).get('v')
 
   .video-card h2 {
     font-family: var(--font-semibold);
-    font-size: var(--fontSizes-2xl);
+    font-size: var(--fontSizes-xl);
   }
 
   .video-card a::after {

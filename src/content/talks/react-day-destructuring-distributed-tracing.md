@@ -8,5 +8,6 @@ description:
   bottlenecks. In this talk I will explain the concept of Distributed Tracing by
   walking you through how monitoring tools build tracing solutions.'
 url: 'https://portal.gitnation.org/contents/deconstructing-distributed-tracing'
+thumbnail: '/assets/react-day-berlin-thumbnail.jpg'
 date: December 12, 2024
 ---

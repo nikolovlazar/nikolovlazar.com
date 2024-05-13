@@ -34,6 +34,7 @@ const Talks = defineCollection({
   schema: z.object({
     title: z.string(),
     url: z.string(),
+    thumbnail: z.string().optional(),
     date: z.string().transform((str) => new Date(str)),
   }),
 })

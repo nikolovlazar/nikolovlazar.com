@@ -14,7 +14,11 @@ const talks = (await getCollection('talks')).sort(
     {
       talks.map((talk) => (
         <li>
-          <VideoCard url={talk.data.url} title={talk.data.title} />
+          <VideoCard
+            url={talk.data.url}
+            title={talk.data.title}
+            thumbnail={talk.data.thumbnail}
+          />
         </li>
       ))
     }
