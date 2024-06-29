@@ -13,18 +13,11 @@ import Prose from '@/components/prose.astro'
 
 <style is:global>
   .about--container {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-column-gap: 24px;
+    display: flex;
+    flex-direction: column;
     margin-top: 83px;
     padding: 40px;
     border: 1px solid var(--colors-foreground);
-  }
-
-  .about--container > * {
-    grid-column-start: 2;
-    padding: 0px;
-    margin: 0px;
   }
 
   .about--container h2 {
@@ -37,23 +30,25 @@ import Prose from '@/components/prose.astro'
   }
 
   .about--container p:has(img) {
-    grid-column-start: 1;
-    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: baseline;
+    justify-items: center;
+    gap: 1rem;
   }
 
   .about--container img {
     border: 2px solid var(--colors-foreground);
-    grid-column-start: 1;
+    max-width: 300px;
   }
 
   @media (max-width: 768px) {
     .about--container {
-      grid-template-columns: 1fr;
       padding: 24px;
+      flex-direction: column-reverse;
     }
-
-    .about--container *:not(img) {
-      grid-column-start: 1;
+    .about--container p:has(img) {
+      grid-template-columns: 1fr;
     }
   }
 </style>

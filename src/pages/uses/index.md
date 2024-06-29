@@ -65,7 +65,7 @@ noticed that I have it but haven't added it to the list, tweet me
   light, but I don't see that happening, at least for my key light.
 
 - Here's an older photo of my setup. I changed the keyboard, but the rest hasn't
-  changed much: ![An older photo of my station](./studio.jpg)
+  changed much: ![An older photo of my station](@/assets/studio.jpg)
 
 ## Audio
 
