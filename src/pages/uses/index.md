@@ -35,16 +35,15 @@ noticed that I have it but haven't added it to the list, tweet me
   couldn't ignore, so I didn't need to try hard to convince myself that I need
   one more keyboard. I also have the
   [Keychron Q1 Version 2](https://amzn.to/3N5Xsj5). It's a hot swappable
-  mechanical keyboard that's heavy as a chihuahua (hint: that's not a lot for a
-  dog, but a lot for a keyboard). I have it equipped with
+  mechanical keyboard that's heavy as a chihuahua - that's not a lot for a dog,
+  but a lot for a keyboard. I have it equipped with
   [these Gateron G Pro Browns](https://amzn.to/3KU28pw). They say they're pre
   lubed. I wouldn't say they have done a good job, but it's not super bad. I
   don't see myself lubing switches in near future.
 
-- I also got the [Stream Deck](https://amzn.to/3PvD8c7) sitting on my table, but
-  I rarely use it. I've got it configured to switch between 3 profiles: Twitch
-  Streaming, YouTube Streaming, and YouTube Recording. I'm able to switch my
-  scenes, start and stop streaming or recording with a single button.
+- I also got the [Stream Deck](https://amzn.to/3PvD8c7) sitting on my table.
+  I've got it configured to switch my scenes and control specific elements in my
+  videos.
 
 - For my mouse, something I use less and less, I picked the
   [Logitech MX Master 3s for Mac](https://amzn.to/40uHbqU). I've always wanted
@@ -96,20 +95,13 @@ noticed that I have it but haven't added it to the list, tweet me
   desk and it also looks pretty cool. You can see a photo in my review blog I
   mentioned above.
 
-- I also have the [RØDE NT-USB](https://amzn.to/43RALoK) and
-  [Audio Technica ATR2100X](https://amzn.to/3N0ScNL) microphones. The RØDE was
-  my first ever microphone so I used it when I started live streaming. I got the
-  Audio Technica as a gift from [Egghead.io](https://egghead.io) when I joined
-  their platrform as an instructor.
-
 ## Video
 
 - I'm using the [Sony a6300](https://amzn.to/3oxKFM4) with the
   [Sigma 16mm f1.4](https://amzn.to/3H4Fytd). This combo is like an industry
-  standard. I've seen lots of creators use the same combination and it's not for
-  nothing. The camera shoots 6k and then it downscales it to 4k so you get
+  standard. The camera shoots 6k and then it downscales it to 4k so you get
   crispier 4k that way. The lens is just phenomenal. It's a wide lens, so it's
-  perfect for a battle station camera use case.
+  perfect for a setup like mine.
 
 - I'm powering my camera with a
   [Subtel PW20 Power Adapter](https://www.subtel.de/en/Power-supply-for-Sony-Alpha-A6000-A6300-A6500-A5000-A5100-Alpha-7-A7-A7s-A7II-Sony-RX10-III-915664.html)
@@ -117,14 +109,12 @@ noticed that I have it but haven't added it to the list, tweet me
   your wall sockets so you won't have to switch batteries in the middle of your
   live streaming.
 
-- I've got the [Desview T3 Teleprompter](https://amzn.to/3mV9zot) mounted in
-  front of my camera. Think what you want, but it's super convenient having a
-  teleprompter. The time it takes to make the videos is cut down drastically.
-  And if you've ever tried making videos, you know how important that is.
+- I also have the [Desview T3 Teleprompter](https://amzn.to/3mV9zot). I used it
+  for a few times at the beginning, but at one point I realized I don't actually
+  need it, so I stopped using it.
 
 - The camera is mounted on an [Elgato Solid Arm](https://amzn.to/43TvcGo)
-  clamped on an [Elgato Master Mount L](https://amzn.to/3Amo7AM). I've got a
-  cheap right light on top of the Master mount.
+  clamped on an [Elgato Master Mount L](https://amzn.to/3Amo7AM).
 
 - I'm connecting my camera to my computer using the
   [Elgato Camlink 4k](https://amzn.to/3H3rVul). This is an HDMI capture device
@@ -184,6 +174,8 @@ noticed that I have it but haven't added it to the list, tweet me
   you microphones, computer audio, screens, and cameras, in separate tracks so
   you can have more freedom of creativity when editing your videos afterwards.
 
-- I use [Rogue Amoeba Loopback](https://rogueamoeba.com/loopback/) to loop the
-  music to my audio interface and headphones at the same time while streaming so
-  I can also listen to some music, not just you folks.
+- I used to have music in my streams, so I used
+  [Rogue Amoeba Loopback](https://rogueamoeba.com/loopback/) to loop the music
+  to my audio interface and headphones at the same time while streaming so I can
+  also listen to some music, not just you folks. But I stopped playing music in
+  my streams, so I don't use it anymore.
