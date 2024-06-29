@@ -64,7 +64,8 @@ noticed that I have it but haven't added it to the list, tweet me
   the background. It also has a gel mount if I want to add some color to the
   light, but I don't see that happening, at least for my key light.
 
-  ![A photo of my station](./studio.jpg)
+- Here's an older photo of my setup. I changed the keyboard, but the rest hasn't
+  changed much: ![An older photo of my station](./studio.jpg)
 
 ## Audio
 

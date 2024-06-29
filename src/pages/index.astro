@@ -4,13 +4,7 @@ import { getCollection } from 'astro:content'
 
 import MainLayout from '@/layouts/main.astro'
 import { getHomepageCollection } from '../content/_utils'
-import {
-  GITHUB_URL,
-  TWITCH_URL,
-  TWITTER_URL,
-  YOUTUBE_URL,
-  DISCORD_URL,
-} from '../constants'
+import { GITHUB_URL, TWITTER_URL, YOUTUBE_URL, DISCORD_URL } from '../constants'
 import ExternalLink from '@/components/external-link.astro'
 
 const [hasMorePosts, blogposts] = await getHomepageCollection('blog')
@@ -30,9 +24,9 @@ const courses = await getCollection('courses')
         >
           Sentry.io
         </ExternalLink> as a Developer Advocate. I&apos;m building <ExternalLink
-          href='https://creatures.dev'
+          href='https://creatures.sh'
         >
-          creatures.dev
+          creatures.sh
         </ExternalLink> and I also create content for <ExternalLink
           href='https://egghead.io/q/resources-by-lazar-nikolov'
         >
@@ -163,7 +157,6 @@ const courses = await getCollection('courses')
       <h2>Social</h2>
       <div class='content-table--section-links'>
         <ExternalLink href={YOUTUBE_URL}>YouTube</ExternalLink>
-        <ExternalLink href={TWITCH_URL}>Twitch</ExternalLink>
         <ExternalLink href={DISCORD_URL}>Discord</ExternalLink>
         <ExternalLink href={TWITTER_URL}>Twitter</ExternalLink>
         <ExternalLink href={GITHUB_URL}>GitHub</ExternalLink>
