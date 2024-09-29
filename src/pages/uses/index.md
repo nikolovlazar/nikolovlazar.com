@@ -95,15 +95,40 @@ noticed that I have it but haven't added it to the list, tweet me
   desk and it also looks pretty cool. You can see a photo in my review blog I
   mentioned above.
 
+- I also got the [Hollyland Lark M2](https://a.co/d/6bJDSBO) lavalier
+  microphone. I use this in my shorts and some of my videos. This is probably
+  the tiniest and lightest lavalier microphone on the market right now. It comes
+  with a bunch of accessories that make it super convenient. Also it captures a
+  surprizingly good sound!
+
 ## Video
 
-- I'm using the [Sony a6300](https://amzn.to/3oxKFM4) with the
-  [Sigma 16mm f1.4](https://amzn.to/3H4Fytd). This combo is like an industry
-  standard. The camera shoots 6k and then it downscales it to 4k so you get
-  crispier 4k that way. The lens is just phenomenal. It's a wide lens, so it's
-  perfect for a setup like mine.
+- For my main camera I'm using the [Sony FX30](https://a.co/d/0GegPI3) Cinema
+  camera with the [Sigma 18-50mm f2.8](https://a.co/d/cxpiZxE). This combination
+  is the most budget friendly and versatile combination I could put together
+  that's specifically for video creation. Definitely not cheap, but if you
+  compare the prices of other cinema line cameras and lenses, you'll see what
+  I'm talking about.
 
-- I'm powering my camera with a
+- When I'm on the go, I'm using the
+  [Shimoda Explore v2 30](https://a.co/d/eHqjThX) camera backpack with the
+  modular insert included. In the bag I got:
+
+  - A carbon fiber [Sirui 5CX](https://a.co/d/ikpF4tZ) tripod;
+  - A [Neewer Variable ND Filter](https://a.co/d/aWU43zB) with step up rings;
+  - My other Sigma 16mm lens (look below);
+  - A [K&F Concept Black Mist Filter Kit](https://a.co/d/0AHIVHt) that includes
+    a 1/4 and a 1/8 diffusion lens filters;
+  - A [Lightdow White Balance & Gray Reference Card](https://a.co/d/4pcIHvB) for
+    easier exposure and white balancing;
+
+- For my streaming and my "at desk" videos I'm using the
+  [Sony a6300](https://amzn.to/3oxKFM4) with the
+  [Sigma 16mm f1.4](https://amzn.to/3H4Fytd). The camera shoots 6k and then it
+  downscales it to 4k so you get crispier 4k that way. The lens is just
+  phenomenal. It's a wide lens, so it's perfect for a setup like mine.
+
+- I'm powering my a6300 with a
   [Subtel PW20 Power Adapter](https://www.subtel.de/en/Power-supply-for-Sony-Alpha-A6000-A6300-A6500-A5000-A5100-Alpha-7-A7-A7s-A7II-Sony-RX10-III-915664.html)
   This is a phantom battery adapter that allows you to power your camera through
   your wall sockets so you won't have to switch batteries in the middle of your
@@ -113,10 +138,10 @@ noticed that I have it but haven't added it to the list, tweet me
   for a few times at the beginning, but at one point I realized I don't actually
   need it, so I stopped using it.
 
-- The camera is mounted on an [Elgato Solid Arm](https://amzn.to/43TvcGo)
-  clamped on an [Elgato Master Mount L](https://amzn.to/3Amo7AM).
+- The a6300 is mounted on an [Elgato Solid Arm](https://amzn.to/43TvcGo) clamped
+  on an [Elgato Master Mount L](https://amzn.to/3Amo7AM).
 
-- I'm connecting my camera to my computer using the
+- I'm connecting my a6300 to my computer using the
   [Elgato Camlink 4k](https://amzn.to/3H3rVul). This is an HDMI capture device
   that lets you use your mirrorless or DSLR as a webcam.
 
@@ -138,9 +163,7 @@ noticed that I have it but haven't added it to the list, tweet me
 
 ## Software
 
-- I use both [Visual Studio Code](https://code.visualstudio.com/) and
-  [Neovim](https://neovim.io/) as editors. I use VSCode only when making coding
-  tutorials, and Neovim for everything else.
+- I use [Neovim](https://neovim.io/) as my IDE.
   [Here's my nvim config](https://github.com/nikolovlazar/dotfiles) if you're
   interested.
 
@@ -161,10 +184,8 @@ noticed that I have it but haven't added it to the list, tweet me
   faster, has more features out of the box and it also has a number of
   extensions for even more capabilities. I do recommend you check it out.
 
-- For video editing I use mainly
-  [DaVinci Resolve](https://www.blackmagicdesign.com/products/davinciresolve/),
-  but I still have
-  [Premiere Pro](https://www.adobe.com/ca/products/premiere.html).
+- For video editing I use
+  [DaVinci Resolve](https://www.blackmagicdesign.com/products/davinciresolve/).
 
 - Whenever I live stream I use [OBS Studio](https://obsproject.com/).
 
